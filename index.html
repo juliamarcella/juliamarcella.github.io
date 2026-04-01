@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Julia Silva — Data Analyst</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,600;0,700;1,300;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --cream: #fdf8f2;
+  --white: #ffffff;
+  --ink: #1c1a17;
+  --muted: #7c7670;
+  --border: #e8e2d9;
+  --terracotta: #c96b3f;
+  --terra-light: #fdf0ea;
+  --sage: #5a8a6e;
+  --sage-light: #edf4ef;
+  --sky: #3d7ab5;
+  --sky-light: #eaf2fb;
+  --mauve: #8b5e9e;
+  --mauve-light: #f5eefb;
+  --yellow: #d4a017;
+  --yellow-light: #fdf8e8;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  background:var(--cream);
+  color:var(--ink);
+  font-weight:300;
+  line-height:1.7;
+  overflow-x:hidden;
+}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:1.1rem 3rem;
+  background:rgba(253,248,242,0.94);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--border);
+}
+.nav-logo{
+  font-family:'Fraunces',serif;font-size:1.15rem;
+  color:var(--ink);text-decoration:none;font-weight:600;
+}
+.nav-logo em{font-style:italic;color:var(--terracotta);}
+.nav-links{display:flex;gap:2.2rem;list-style:none;}
+.nav-links a{
+  font-size:0.75rem;font-weight:500;letter-spacing:0.12em;
+  text-transform:uppercase;color:var(--muted);text-decoration:none;
+  transition:color .2s;
+}
+.nav-links a:hover{color:var(--terracotta);}
+
+/* ── HERO ── */
+.hero{
+  min-height:100vh;display:grid;
+  grid-template-columns:1.1fr 0.9fr;
+  align-items:center;
+  padding:7rem 3rem 5rem;gap:5rem;
+  border-bottom:1px solid var(--border);
+}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:.6rem;
+  font-size:0.72rem;font-weight:600;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--terracotta);
+  margin-bottom:1.75rem;
+}
+.hero-eyebrow::before{content:'';width:20px;height:2px;background:var(--terracotta);border-radius:1px;}
+h1{
+  font-family:'Fraunces',serif;
+  font-size:clamp(3rem,5.5vw,5rem);
+  line-height:1.06;letter-spacing:-.02em;
+  font-weight:700;margin-bottom:1.75rem;
+}
+h1 em{font-style:italic;color:var(--terracotta);}
+.hero-bio{
+  font-size:1rem;color:var(--muted);
+  max-width:500px;line-height:1.9;margin-bottom:2.5rem;
+}
+.hero-bio strong{color:var(--ink);font-weight:500;}
+.cta-row{display:flex;gap:1rem;flex-wrap:wrap;}
+.btn{
+  display:inline-flex;align-items:center;gap:.5rem;
+  padding:.8rem 1.75rem;font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:.78rem;font-weight:600;letter-spacing:.08em;
+  text-transform:uppercase;text-decoration:none;
+  border-radius:100px;transition:all .2s;border:none;cursor:pointer;
+}
+.btn-primary{background:var(--terracotta);color:#fff;}
+.btn-primary:hover{background:#b55a30;}
+.btn-ghost{border:1.5px solid var(--border);color:var(--muted);background:transparent;}
+.btn-ghost:hover{border-color:var(--terracotta);color:var(--terracotta);}
+
+/* HERO RIGHT */
+.hero-right{display:flex;flex-direction:column;gap:1.25rem;}
+.gambiarra-card{
+  background:var(--white);border:1px solid var(--border);
+  border-left:4px solid var(--terracotta);
+  border-radius:12px;padding:1.75rem 2rem;
+}
+.gambiarra-word{
+  font-family:'Fraunces',serif;font-size:2rem;
+  font-style:italic;color:var(--terracotta);margin-bottom:.3rem;
+}
+.gambiarra-pos{
+  font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:.9rem;
+}
+.gambiarra-def{font-size:.88rem;color:var(--muted);line-height:1.85;}
+.gambiarra-def strong{color:var(--ink);}
+.hero-tags{display:flex;flex-wrap:wrap;gap:.6rem;}
+.hero-tag{
+  font-size:.72rem;font-weight:500;letter-spacing:.06em;
+  padding:.4rem 1rem;border-radius:100px;
+  border:1px solid var(--border);color:var(--muted);
+  background:var(--white);
+}
+
+/* ── SECTIONS ── */
+section{padding:6rem 3rem;border-bottom:1px solid var(--border);}
+.eyebrow{
+  font-size:.68rem;font-weight:600;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--terracotta);
+  margin-bottom:.75rem;display:flex;align-items:center;gap:.6rem;
+}
+.eyebrow::after{content:'';width:28px;height:1.5px;background:var(--terracotta);opacity:.4;border-radius:1px;}
+h2{
+  font-family:'Fraunces',serif;
+  font-size:clamp(1.9rem,3.2vw,2.8rem);
+  line-height:1.12;margin-bottom:1rem;font-weight:700;
+}
+h2 em{font-style:italic;color:var(--terracotta);}
+.section-intro{
+  font-size:.95rem;color:var(--muted);
+  max-width:560px;line-height:1.85;margin-bottom:3.5rem;
+}
+
+/* ── ABOUT ── */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;}
+.about-text p{font-size:.93rem;color:var(--muted);line-height:1.9;margin-bottom:1.2rem;}
+.about-text p strong{color:var(--ink);font-weight:500;}
+.trait-list{display:flex;flex-direction:column;gap:.85rem;}
+.trait{
+  display:flex;align-items:flex-start;gap:1rem;
+  padding:1.1rem 1.4rem;background:var(--white);
+  border:1px solid var(--border);border-radius:10px;
+  transition:border-color .2s,box-shadow .2s;
+}
+.trait:hover{border-color:var(--terracotta);box-shadow:0 4px 16px rgba(201,107,63,.08);}
+.trait-emoji{font-size:1.15rem;width:32px;flex-shrink:0;margin-top:.1rem;}
+.trait-name{font-size:.85rem;font-weight:600;margin-bottom:.15rem;}
+.trait-desc{font-size:.75rem;color:var(--muted);line-height:1.65;}
+
+/* ── SKILLS ── */
+.skills-wrap{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));
+  gap:1rem;
+}
+.skill-card{
+  background:var(--white);border:1px solid var(--border);
+  border-radius:10px;padding:1.1rem 1.25rem;
+  transition:border-color .2s;
+}
+.skill-card:hover{border-color:var(--terracotta);}
+.skill-name{font-size:.85rem;font-weight:600;margin-bottom:.2rem;}
+.skill-cat{font-size:.65rem;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;margin-bottom:.6rem;}
+.skill-bar{height:3px;background:var(--border);border-radius:2px;}
+.skill-fill{height:100%;border-radius:2px;background:var(--terracotta);}
+
+/* ── PROJECT LAYOUT ── */
+.project-block{margin-bottom:5rem;}
+.project-block:last-child{margin-bottom:0;}
+
+.project-header{
+  display:grid;grid-template-columns:1fr auto;
+  align-items:start;gap:2rem;
+  margin-bottom:2.5rem;
+}
+.project-num{
+  font-size:.65rem;font-weight:700;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--muted);margin-bottom:.6rem;
+}
+.project-title{
+  font-family:'Fraunces',serif;
+  font-size:clamp(1.5rem,2.5vw,2rem);
+  line-height:1.15;font-weight:700;margin-bottom:.5rem;
+}
+.project-question{
+  font-size:.88rem;font-style:italic;
+  color:var(--terracotta);line-height:1.65;
+}
+.project-links-top{display:flex;gap:.75rem;flex-shrink:0;}
+.link-btn{
+  display:inline-flex;align-items:center;gap:.35rem;
+  font-size:.7rem;font-weight:600;letter-spacing:.08em;
+  text-transform:uppercase;text-decoration:none;
+  color:var(--muted);border:1.5px solid var(--border);
+  padding:.45rem 1rem;border-radius:100px;
+  transition:all .2s;
+}
+.link-btn:hover{border-color:var(--terracotta);color:var(--terracotta);}
+.link-btn.wip{opacity:.4;cursor:default;}
+
+/* STORY STEPS */
+.story-steps{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:1px;background:var(--border);
+  border:1px solid var(--border);border-radius:12px;
+  overflow:hidden;margin-bottom:2rem;
+}
+.story-step{
+  background:var(--white);padding:1.75rem 1.5rem;
+}
+.step-num{
+  font-size:.62rem;font-weight:700;letter-spacing:.15em;
+  text-transform:uppercase;color:var(--terracotta);
+  margin-bottom:.6rem;
+}
+.step-q{font-size:.88rem;font-weight:600;margin-bottom:.5rem;line-height:1.4;}
+.step-a{font-size:.78rem;color:var(--muted);line-height:1.7;}
+
+/* FINDINGS GRID */
+.findings-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+  gap:1rem;margin-bottom:2rem;
+}
+.finding-card{
+  padding:1.4rem 1.6rem;border-radius:10px;
+  border:1px solid transparent;
+}
+.finding-card.terra{background:var(--terra-light);border-color:#f0d4c6;}
+.finding-card.sage{background:var(--sage-light);border-color:#c8dfd4;}
+.finding-card.sky{background:var(--sky-light);border-color:#c0d8ef;}
+.finding-card.mauve{background:var(--mauve-light);border-color:#d9c4eb;}
+.finding-card.yellow{background:var(--yellow-light);border-color:#ead9a0;}
+.finding-icon{font-size:1.3rem;margin-bottom:.6rem;}
+.finding-title{font-size:.85rem;font-weight:600;margin-bottom:.35rem;}
+.finding-desc{font-size:.78rem;color:var(--muted);line-height:1.7;}
+.finding-so-what{
+  font-size:.72rem;font-weight:600;
+  color:var(--sage);margin-top:.6rem;
+  padding-top:.6rem;border-top:1px solid rgba(90,138,110,.2);
+}
+.finding-card.terra .finding-so-what{color:var(--terracotta);}
+.finding-card.sky .finding-so-what{color:var(--sky);}
+.finding-card.mauve .finding-so-what{color:var(--mauve);}
+.finding-card.yellow .finding-so-what{color:var(--yellow);}
+
+/* TAGS */
+.tag-row{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.5rem;}
+.tag{
+  font-size:.65rem;font-weight:600;letter-spacing:.07em;
+  text-transform:uppercase;padding:.3rem .75rem;
+  border-radius:100px;border:1px solid var(--border);
+  color:var(--muted);background:var(--white);
+}
+
+/* ── MENSTRUAL DASHBOARD PREVIEW ── */
+.dashboard-wrap{
+  background:var(--white);border:1px solid var(--border);
+  border-radius:14px;overflow:hidden;margin-bottom:2rem;
+}
+.dash-chrome-bar{
+  background:#f5f0ea;border-bottom:1px solid var(--border);
+  padding:.7rem 1.1rem;display:flex;align-items:center;gap:.5rem;
+}
+.dot{width:10px;height:10px;border-radius:50%;}
+.dash-url{
+  margin:0 auto;font-size:.6rem;color:var(--muted);
+  background:var(--white);padding:.2rem 1rem;
+  border-radius:100px;border:1px solid var(--border);
+}
+.dash-tabs{
+  display:flex;gap:.5rem;padding:1rem 1.5rem;
+  background:#faf7f3;border-bottom:1px solid var(--border);
+  flex-wrap:wrap;
+}
+.dash-tab{
+  font-size:.68rem;font-weight:600;letter-spacing:.08em;
+  text-transform:uppercase;padding:.38rem .9rem;
+  border-radius:100px;border:1.5px solid var(--border);
+  color:var(--muted);cursor:pointer;
+  transition:all .2s;background:var(--white);
+  font-family:'Plus Jakarta Sans',sans-serif;
+}
+.dash-tab.active,.dash-tab:hover{
+  border-color:var(--terracotta);color:var(--terracotta);
+  background:var(--terra-light);
+}
+.dash-body{padding:1.5rem;min-height:220px;}
+.dash-screen{display:none;}
+.dash-screen.active{display:block;}
+
+/* mini viz */
+.kpi-strip{display:grid;grid-template-columns:repeat(5,1fr);gap:.75rem;margin-bottom:1.25rem;}
+.kpi{background:var(--cream);border:1px solid var(--border);border-radius:8px;padding:.75rem 1rem;}
+.kpi-label{font-size:.55rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:.3rem;}
+.kpi-value{font-family:'Fraunces',serif;font-size:1.3rem;font-weight:600;color:var(--ink);}
+.chart-label{font-size:.62rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:.6rem;}
+.mini-bars{display:flex;align-items:flex-end;gap:3px;}
+.mbar{border-radius:2px 2px 0 0;}
+.legend-row{display:flex;gap:1.25rem;flex-wrap:wrap;margin-top:.6rem;}
+.leg{display:flex;align-items:center;gap:.4rem;font-size:.62rem;color:var(--muted);}
+.leg-dot{width:8px;height:8px;border-radius:50%;}
+
+/* predictor */
+.predictor-layout{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;}
+.pred-input-box{
+  background:var(--cream);border:1px solid var(--border);
+  border-radius:8px;padding:.85rem 1rem;margin-bottom:.65rem;
+}
+.pred-label-txt{font-size:.58rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:.5rem;}
+.pred-track{height:4px;background:var(--border);border-radius:2px;position:relative;}
+.pred-fill{height:100%;border-radius:2px;position:absolute;top:0;left:0;}
+.pred-fill::after{
+  content:'';position:absolute;right:-4px;top:-4px;
+  width:12px;height:12px;border-radius:50%;
+  background:inherit;border:2px solid var(--white);
+  box-shadow:0 1px 4px rgba(0,0,0,.15);
+}
+.pred-val{font-size:.7rem;color:var(--ink);font-weight:500;margin-top:.4rem;}
+.pred-result{
+  background:var(--terra-light);
+  border:1.5px solid #f0d4c6;border-radius:12px;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  padding:2rem;text-align:center;gap:.5rem;
+}
+.pred-result-label{font-size:.62rem;text-transform:uppercase;letter-spacing:.14em;color:var(--terracotta);}
+.pred-result-num{font-family:'Fraunces',serif;font-size:4.5rem;font-weight:700;color:var(--ink);line-height:1;}
+.pred-result-sub{font-size:.7rem;color:var(--muted);line-height:1.6;max-width:180px;}
+
+/* ── CONTACT ── */
+.contact-layout{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;}
+.avail-pill{
+  display:inline-flex;align-items:center;gap:.5rem;
+  font-size:.68rem;font-weight:600;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--sage);
+  background:var(--sage-light);
+  border:1px solid #c8dfd4;
+  padding:.3rem .9rem;border-radius:100px;margin-bottom:1.5rem;
+}
+.avail-pill::before{
+  content:'';width:7px;height:7px;border-radius:50%;
+  background:var(--sage);animation:pulse 2s infinite;
+}
+.contact-link{
+  display:flex;align-items:center;gap:1.1rem;
+  padding:1.1rem 1.4rem;background:var(--white);
+  border:1px solid var(--border);border-radius:10px;
+  text-decoration:none;color:var(--ink);
+  margin-bottom:.75rem;transition:border-color .2s;
+}
+.contact-link:hover{border-color:var(--terracotta);}
+.contact-icon{
+  width:36px;height:36px;border-radius:8px;
+  background:var(--terra-light);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1rem;flex-shrink:0;
+}
+.contact-link-label{font-size:.62rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;}
+.contact-link-val{font-size:.85rem;font-weight:500;}
+.details-box{
+  background:var(--white);border:1px solid var(--border);
+  border-radius:12px;padding:2rem;
+}
+.details-box h3{
+  font-family:'Fraunces',serif;font-size:1.15rem;
+  font-weight:600;margin-bottom:1.5rem;
+}
+.detail-row{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:.75rem 0;border-bottom:1px solid var(--border);
+  font-size:.83rem;
+}
+.detail-row:last-child{border-bottom:none;}
+.detail-key{color:var(--muted);}
+.detail-val{font-weight:500;}
+
+footer{
+  padding:1.75rem 3rem;
+  display:flex;justify-content:space-between;align-items:center;
+  font-size:.75rem;color:var(--muted);
+}
+footer a{color:var(--muted);text-decoration:none;}
+footer a:hover{color:var(--terracotta);}
+
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:.3;}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+
+.fade-in{animation:fadeUp .8s ease both;}
+.fade-in-2{animation:fadeUp .8s .15s ease both;}
+
+@media(max-width:900px){
+  nav{padding:1rem 1.5rem;}
+  .nav-links{gap:1.25rem;}
+  .hero{grid-template-columns:1fr;padding:6.5rem 1.5rem 3.5rem;gap:2.5rem;}
+  section{padding:4rem 1.5rem;}
+  .about-grid,.contact-layout{grid-template-columns:1fr;gap:2.5rem;}
+  .story-steps,.kpi-strip{grid-template-columns:1fr 1fr;}
+  .predictor-layout{grid-template-columns:1fr;}
+  footer{flex-direction:column;gap:.5rem;text-align:center;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Julia <em>Silva</em></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="fade-in">
+    <div class="hero-eyebrow">Data Analyst · Netherlands</div>
+    <h1>I find the story<br/>hiding <em>inside</em><br/>the numbers</h1>
+    <p class="hero-bio">
+      Hi, I'm Julia — a data analyst who came to data through <strong>people</strong>. Years of customer-facing work taught me to ask the right questions, listen carefully, and turn messy information into something that actually helps. Now I do the same thing with data.
+    </p>
+    <div class="cta-row">
+      <a href="#projects" class="btn btn-primary">See My Work</a>
+      <a href="#contact" class="btn btn-ghost">Get in Touch</a>
+    </div>
+  </div>
+  <div class="fade-in-2">
+    <div class="gambiarra-card">
+      <div class="gambiarra-word">gambiarra</div>
+      <div class="gambiarra-pos">Brazilian Portuguese · noun</div>
+      <div class="gambiarra-def">
+        When you don't have the right tools, you <strong>figure it out anyway</strong>. You improvise, think outside the box, find a way. Not a workaround — a <strong>creative solution under constraint</strong>.<br/><br/>
+        <em style="color:var(--terracotta)">That's how I approach every problem.</em>
+      </div>
+    </div>
+    <div class="hero-tags">
+      <span class="hero-tag">🧩 Puzzle solver</span>
+      <span class="hero-tag">🌍 3 countries</span>
+      <span class="hero-tag">🔍 Relentlessly curious</span>
+      <span class="hero-tag">🤝 Customer instinct</span>
+      <span class="hero-tag">✈️ Loves to travel</span>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="eyebrow">About Me</div>
+  <h2>More than a<br/><em>data person</em></h2>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>I didn't start in data. I started in <strong>people</strong> — years of customer service across Brazil, the Netherlands, and the United States. Managing Disney+ launch chats, handling complex cases with 95% satisfaction scores, training teams, writing documentation. All of that taught me something no bootcamp teaches: <strong>how to really understand what someone needs</strong>.</p>
+      <p>I completed two intensive data programmes — not for the certificate, but because I wanted to understand data deeply. I ask a lot of questions. I search for everything I don't know. I love the moment when a messy dataset finally <strong>tells you something true</strong>.</p>
+      <p>I'm based in Ede, Netherlands. No visa sponsorship needed. Open to relocation and international teams — I've been doing that my whole career.</p>
+    </div>
+    <div class="trait-list">
+      <div class="trait">
+        <div class="trait-emoji">🧩</div>
+        <div>
+          <div class="trait-name">Puzzle solver</div>
+          <div class="trait-desc">Data problems are puzzles with higher stakes. I enjoy working through them — not just getting to the answer, but understanding why.</div>
+        </div>
+      </div>
+      <div class="trait">
+        <div class="trait-emoji">🌍</div>
+        <div>
+          <div class="trait-name">Internationally minded</div>
+          <div class="trait-desc">Lived and worked in Brazil, the US, and the Netherlands. Different perspectives aren't a challenge — they're the most interesting part of any team.</div>
+        </div>
+      </div>
+      <div class="trait">
+        <div class="trait-emoji">🔍</div>
+        <div>
+          <div class="trait-name">Relentlessly curious</div>
+          <div class="trait-desc">If I don't know something, I'll find out. I don't stop at the first answer. I want to know the why behind the why.</div>
+        </div>
+      </div>
+      <div class="trait">
+        <div class="trait-emoji">🤝</div>
+        <div>
+          <div class="trait-name">Customer-first instinct</div>
+          <div class="trait-desc">I always ask: who is this for, and what do they actually need? Data is only useful if someone can act on it.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" style="background:var(--white);">
+  <div class="eyebrow">Toolkit</div>
+  <h2>Skills &amp; Tools</h2>
+  <p class="section-intro">Built through two full data programmes and applied across real projects.</p>
+  <div class="skills-wrap">
+    <div class="skill-card">
+      <div class="skill-name">Python</div>
+      <div class="skill-cat">Analysis & Modelling</div>
+      <div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-name">Pandas & NumPy</div>
+      <div class="skill-cat">Data Wrangling</div>
+      <div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-name">SQL & BigQuery</div>
+      <div class="skill-cat">Querying</div>
+      <div class="skill-bar"><div class="skill-fill" style="width:72%"></div></div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-name">Scikit-learn</div>
+      <div class="skill-cat">Machine Learning</div>
+      <div class="skill-bar"><div class="skill-fill" style="width:70%"></div></div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-name">Looker Studio</div>
+      <div class="skill-cat">Dashboards & BI</div>
+      <div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-name">Power BI</div>
+      <div class="skill-cat">Dashboards & DAX</div>
+      <div class="skill-bar"><div class="skill-fill" style="width:65%"></div></div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-name">Matplotlib & Seaborn</div>
+      <div class="skill-cat">Data Visualization</div>
+      <div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-name">Statistical Analysis</div>
+      <div class="skill-cat">EDA · Clustering · IQR</div>
+      <div class="skill-bar"><div class="skill-fill" style="width:72%"></div></div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-name">dbt & Git</div>
+      <div class="skill-cat">Data Engineering</div>
+      <div class="skill-bar"><div class="skill-fill" style="width:55%"></div></div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-name">Salesforce CRM</div>
+      <div class="skill-cat">Client & Data Ops</div>
+      <div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="eyebrow">Projects</div>
+  <h2>Work that <em>answers</em><br/>real questions</h2>
+  <p class="section-intro">Every project started with a question a business would actually care about — not just a dataset.</p>
+
+  <!-- ═══ PROJECT 1: MENSTRUAL ═══ -->
+  <div class="project-block">
+    <div class="project-header">
+      <div>
+        <div class="project-num">01 · Health & Productivity · Featured</div>
+        <div class="project-title">Does pain affect how much someone can work?</div>
+        <div class="project-question">"And if we could predict it — what would HR teams do differently?"</div>
+      </div>
+      <div class="project-links-top">
+        <a href="https://lookerstudio.google.com/reporting/6eee069c-64ae-47c1-ae42-89b91545860d" target="_blank" class="link-btn">Live Dashboard ↗</a>
+        <a href="https://github.com/juliamarcella/Menstrual-cycle-and-productivity-" target="_blank" class="link-btn">GitHub</a>
+      </div>
+    </div>
+
+    <!-- Story steps -->
+    <div class="story-steps">
+      <div class="story-step">
+        <div class="step-num">The question</div>
+        <div class="step-q">How much do menstrual symptoms actually affect workplace productivity?</div>
+        <div class="step-a">Millions of people experience cycle-related symptoms at work, but most companies have no data on the impact. This project set out to measure it.</div>
+      </div>
+      <div class="story-step">
+        <div class="step-num">The analysis</div>
+        <div class="step-q">Pain level, flow, lifestyle habits, hormones — what matters most?</div>
+        <div class="step-a">Analysed data from 2,000 users across cycle logs, hormone readings, lifestyle habits (sleep, exercise, diet) and productivity metrics including work hours lost, mood, and energy.</div>
+      </div>
+      <div class="story-step">
+        <div class="step-num">The answer</div>
+        <div class="step-q">Pain is the single strongest driver — and it can be predicted.</div>
+        <div class="step-a">Pain level consistently explained more variation in productivity loss than cycle phase, diet, or lifestyle combined. A machine learning model can estimate hours lost with 75% accuracy.</div>
+      </div>
+    </div>
+
+    <!-- Dashboard preview -->
+    <div class="dashboard-wrap">
+      <div class="dash-chrome-bar">
+        <div class="dot" style="background:#ff5f57"></div>
+        <div class="dot" style="background:#ffbd2e"></div>
+        <div class="dot" style="background:#28ca41"></div>
+        <div class="dash-url">lookerstudio.google.com · Menstrual Health Productivity</div>
+      </div>
+      <div class="dash-tabs">
+        <button class="dash-tab active" onclick="switchMens(0)">Overview</button>
+        <button class="dash-tab" onclick="switchMens(1)">Healthy Style</button>
+        <button class="dash-tab" onclick="switchMens(2)">Symptoms</button>
+        <button class="dash-tab" onclick="switchMens(3)">Productivity</button>
+        <button class="dash-tab" onclick="switchMens(4)">🤖 Predictor</button>
+      </div>
+      <div class="dash-body">
+
+        <!-- Overview -->
+        <div class="dash-screen active" id="m0">
+          <div class="kpi-strip">
+            <div class="kpi"><div class="kpi-label">Total Users</div><div class="kpi-value">2,000</div></div>
+            <div class="kpi"><div class="kpi-label">Cycles Logged</div><div class="kpi-value">17,972</div></div>
+            <div class="kpi"><div class="kpi-label">Avg Pain Level</div><div class="kpi-value">4.9</div></div>
+            <div class="kpi"><div class="kpi-label">Avg Hours Lost</div><div class="kpi-value">3.4</div></div>
+            <div class="kpi"><div class="kpi-label">Avg Mood Score</div><div class="kpi-value">7.09</div></div>
+          </div>
+          <div class="chart-label">Mood, Energy &amp; Work Hours Lost — as pain rises (1→10)</div>
+          <svg viewBox="0 0 500 85" style="width:100%;" xmlns="http://www.w3.org/2000/svg">
+            <polyline points="20,10 70,14 120,20 170,28 220,36 270,45 320,53 370,61 420,67 480,73" fill="none" stroke="#c96b3f" stroke-width="2.5" stroke-linejoin="round"/>
+            <polyline points="20,14 70,18 120,24 170,32 220,40 270,49 320,57 370,65 420,71 480,76" fill="none" stroke="#5a8a6e" stroke-width="2" stroke-linejoin="round" stroke-dasharray="5 3"/>
+            <polyline points="20,80 70,74 120,67 170,59 220,51 270,42 320,34 370,26 420,20 480,13" fill="none" stroke="#c96b3f" stroke-width="2" stroke-linejoin="round" stroke-dasharray="3 2" opacity=".5"/>
+            <text x="20" y="83" font-size="8" fill="#aaa" font-family="sans-serif">Pain 1</text>
+            <text x="456" y="83" font-size="8" fill="#aaa" font-family="sans-serif">Pain 10</text>
+          </svg>
+          <div class="legend-row">
+            <div class="leg"><div class="leg-dot" style="background:#c96b3f"></div>Mood Score (falls)</div>
+            <div class="leg"><div class="leg-dot" style="background:#5a8a6e"></div>Energy Level (falls)</div>
+            <div class="leg"><div class="leg-dot" style="background:#c96b3f;opacity:.5"></div>Work Hours Lost (rises)</div>
+          </div>
+        </div>
+
+        <!-- Healthy Style -->
+        <div class="dash-screen" id="m1">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;">
+            <div>
+              <div class="chart-label">Pain &amp; Stress by Exercise Frequency</div>
+              <div class="mini-bars" style="height:90px;align-items:flex-end;gap:8px;">
+                <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;">
+                  <div style="display:flex;align-items:flex-end;gap:2px;height:70px;">
+                    <div class="mbar" style="height:58px;width:13px;background:#c96b3f;opacity:.8;"></div>
+                    <div class="mbar" style="height:66px;width:13px;background:#5a8a6e;opacity:.7;"></div>
+                  </div>
+                  <span style="font-size:.58rem;color:var(--muted)">No exercise</span>
+                </div>
+                <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;">
+                  <div style="display:flex;align-items:flex-end;gap:2px;height:70px;">
+                    <div class="mbar" style="height:53px;width:13px;background:#c96b3f;opacity:.7;"></div>
+                    <div class="mbar" style="height:63px;width:13px;background:#5a8a6e;opacity:.65;"></div>
+                  </div>
+                  <span style="font-size:.58rem;color:var(--muted)">Low</span>
+                </div>
+                <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;">
+                  <div style="display:flex;align-items:flex-end;gap:2px;height:70px;">
+                    <div class="mbar" style="height:50px;width:13px;background:#c96b3f;opacity:.6;"></div>
+                    <div class="mbar" style="height:60px;width:13px;background:#5a8a6e;opacity:.6;"></div>
+                  </div>
+                  <span style="font-size:.58rem;color:var(--muted)">Medium</span>
+                </div>
+                <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;">
+                  <div style="display:flex;align-items:flex-end;gap:2px;height:70px;">
+                    <div class="mbar" style="height:46px;width:13px;background:#c96b3f;opacity:.5;"></div>
+                    <div class="mbar" style="height:55px;width:13px;background:#5a8a6e;opacity:.55;"></div>
+                  </div>
+                  <span style="font-size:.58rem;color:var(--muted)">High</span>
+                </div>
+              </div>
+              <div class="legend-row" style="margin-top:.5rem;">
+                <div class="leg"><div class="leg-dot" style="background:#c96b3f"></div>Pain Level</div>
+                <div class="leg"><div class="leg-dot" style="background:#5a8a6e"></div>Stress</div>
+              </div>
+              <p style="font-size:.72rem;color:var(--sage);margin-top:.75rem;font-style:italic;">→ More exercise correlates with lower pain and stress — gradual but consistent</p>
+            </div>
+            <div>
+              <div class="chart-label">Work Hours Lost by Diet Quality</div>
+              <div class="mini-bars" style="height:70px;align-items:flex-end;gap:6px;">
+                <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;">
+                  <div class="mbar" style="height:46px;width:100%;background:#d4a017;opacity:.7;"></div>
+                  <span style="font-size:.58rem;color:var(--muted)">Excellent</span>
+                </div>
+                <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;">
+                  <div class="mbar" style="height:44px;width:100%;background:#d4a017;opacity:.6;"></div>
+                  <span style="font-size:.58rem;color:var(--muted)">Average</span>
+                </div>
+                <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;">
+                  <div class="mbar" style="height:45px;width:100%;background:#d4a017;opacity:.65;"></div>
+                  <span style="font-size:.58rem;color:var(--muted)">Good</span>
+                </div>
+                <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;">
+                  <div class="mbar" style="height:46px;width:100%;background:#d4a017;opacity:.7;"></div>
+                  <span style="font-size:.58rem;color:var(--muted)">Poor</span>
+                </div>
+              </div>
+              <p style="font-size:.72rem;color:var(--terracotta);margin-top:.75rem;font-style:italic;">→ Honest finding: diet quality shows almost no difference in hours lost</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Symptoms -->
+        <div class="dash-screen" id="m2">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;">
+            <div>
+              <div class="chart-label">Average Pain by Flow Level</div>
+              <div class="mini-bars" style="height:90px;align-items:flex-end;gap:8px;">
+                <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;">
+                  <span style="font-size:.7rem;font-weight:600;color:var(--terracotta)">3.3</span>
+                  <div class="mbar" style="height:34px;width:100%;background:#c96b3f;opacity:.4;"></div>
+                  <span style="font-size:.6rem;color:var(--muted)">Light</span>
+                </div>
+                <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;">
+                  <span style="font-size:.7rem;font-weight:600;color:var(--terracotta)">5.3</span>
+                  <div class="mbar" style="height:56px;width:100%;background:#c96b3f;opacity:.65;"></div>
+                  <span style="font-size:.6rem;color:var(--muted)">Medium</span>
+                </div>
+                <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;">
+                  <span style="font-size:.7rem;font-weight:600;color:var(--terracotta)">7.3</span>
+                  <div class="mbar" style="height:78px;width:100%;background:#c96b3f;"></div>
+                  <span style="font-size:.6rem;color:var(--muted)">Heavy</span>
+                </div>
+              </div>
+              <p style="font-size:.72rem;color:var(--terracotta);margin-top:.75rem;font-style:italic;">→ Pain nearly doubles from light to heavy flow</p>
+            </div>
+            <div>
+              <div class="chart-label">Pain by Cycle Length (days)</div>
+              <div class="mini-bars" style="height:90px;align-items:flex-end;gap:5px;">
+                <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;">
+                  <span style="font-size:.6rem;color:var(--terracotta)">4.9</span>
+                  <div class="mbar" style="height:42px;width:100%;background:#5a8a6e;opacity:.6;"></div>
+                  <span style="font-size:.5rem;color:var(--muted)">22–26d</span>
+                </div>
+                <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;">
+                  <span style="font-size:.6rem;color:var(--terracotta)">4.8</span>
+                  <div class="mbar" style="height:40px;width:100%;background:#5a8a6e;opacity:.55;"></div>
+                  <span style="font-size:.5rem;color:var(--muted)">26–30d</span>
+                </div>
+                <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;">
+                  <span style="font-size:.6rem;color:var(--terracotta)">5.0</span>
+                  <div class="mbar" style="height:44px;width:100%;background:#5a8a6e;opacity:.6;"></div>
+                  <span style="font-size:.5rem;color:var(--muted)">30–34d</span>
+                </div>
+                <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;">
+                  <span style="font-size:.6rem;color:var(--terracotta)">6.2</span>
+                  <div class="mbar" style="height:56px;width:100%;background:#c96b3f;opacity:.75;"></div>
+                  <span style="font-size:.5rem;color:var(--muted)">34–38d</span>
+                </div>
+                <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;">
+                  <span style="font-size:.6rem;color:var(--terracotta)">5.4</span>
+                  <div class="mbar" style="height:48px;width:100%;background:#5a8a6e;opacity:.65;"></div>
+                  <span style="font-size:.5rem;color:var(--muted)">38–42d</span>
+                </div>
+                <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;">
+                  <span style="font-size:.6rem;color:var(--terracotta)">7.5</span>
+                  <div class="mbar" style="height:78px;width:100%;background:#c96b3f;"></div>
+                  <span style="font-size:.5rem;color:var(--muted)">42–44d</span>
+                </div>
+              </div>
+              <p style="font-size:.72rem;color:var(--terracotta);margin-top:.75rem;font-style:italic;">→ Longer cycles = significantly higher pain</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Productivity -->
+        <div class="dash-screen" id="m3">
+          <div class="chart-label">Work Hours Lost by Pain Level (10 = most severe → 1 = minimal)</div>
+          <div class="mini-bars" style="height:90px;align-items:flex-end;gap:4px;margin-bottom:.75rem;">
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;"><div class="mbar" style="height:85px;width:100%;background:linear-gradient(to top,#c96b3f,#e8a87c);"></div><span style="font-size:.52rem;color:var(--muted)">10</span></div>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;"><div class="mbar" style="height:74px;width:100%;background:#c96b3f;opacity:.88;"></div><span style="font-size:.52rem;color:var(--muted)">9</span></div>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;"><div class="mbar" style="height:63px;width:100%;background:#c96b3f;opacity:.76;"></div><span style="font-size:.52rem;color:var(--muted)">8</span></div>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;"><div class="mbar" style="height:54px;width:100%;background:#c96b3f;opacity:.64;"></div><span style="font-size:.52rem;color:var(--muted)">7</span></div>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;"><div class="mbar" style="height:46px;width:100%;background:#c96b3f;opacity:.55;"></div><span style="font-size:.52rem;color:var(--muted)">6</span></div>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;"><div class="mbar" style="height:37px;width:100%;background:#c96b3f;opacity:.46;"></div><span style="font-size:.52rem;color:var(--muted)">5</span></div>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;"><div class="mbar" style="height:29px;width:100%;background:#c96b3f;opacity:.37;"></div><span style="font-size:.52rem;color:var(--muted)">4</span></div>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;"><div class="mbar" style="height:22px;width:100%;background:#c96b3f;opacity:.3;"></div><span style="font-size:.52rem;color:var(--muted)">3</span></div>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;"><div class="mbar" style="height:14px;width:100%;background:#c96b3f;opacity:.24;"></div><span style="font-size:.52rem;color:var(--muted)">2</span></div>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;"><div class="mbar" style="height:7px;width:100%;background:#c96b3f;opacity:.18;"></div><span style="font-size:.52rem;color:var(--muted)">1</span></div>
+          </div>
+          <p style="font-size:.75rem;color:var(--terracotta);font-style:italic;">→ Every 1-point increase in pain = a measurable, consistent rise in work hours lost. Stress rises, mood and energy fall — all in parallel.</p>
+        </div>
+
+        <!-- Predictor -->
+        <div class="dash-screen" id="m4">
+          <p style="font-size:.78rem;color:var(--muted);margin-bottom:1rem;">Input someone's cycle data → the model estimates how many work hours they are likely to lose. Built with machine learning, trained on 2,000 real user profiles.</p>
+          <div class="predictor-layout">
+            <div class="pred-inputs">
+              <div class="pred-input-box">
+                <div class="pred-label-txt">Pain Level (1–10)</div>
+                <div class="pred-track"><div class="pred-fill" style="width:60%;background:var(--terracotta);"></div></div>
+                <div class="pred-val">6 out of 10</div>
+              </div>
+              <div class="pred-input-box">
+                <div class="pred-label-txt">Energy Level (1–10)</div>
+                <div class="pred-track"><div class="pred-fill" style="width:40%;background:var(--sage);"></div></div>
+                <div class="pred-val">4 out of 10</div>
+              </div>
+              <div class="pred-input-box">
+                <div class="pred-label-txt">Stress Level (1–10)</div>
+                <div class="pred-track"><div class="pred-fill" style="width:75%;background:#e08080;"></div></div>
+                <div class="pred-val">7.5 out of 10</div>
+              </div>
+              <div class="pred-input-box">
+                <div class="pred-label-txt">Flow Level (1 = Light · 3 = Heavy)</div>
+                <div class="pred-track"><div class="pred-fill" style="width:66%;background:var(--terracotta);"></div></div>
+                <div class="pred-val">Medium (2)</div>
+              </div>
+            </div>
+            <div class="pred-result">
+              <div class="pred-result-label">Predicted Work Hours Lost</div>
+              <div class="pred-result-num">4.2</div>
+              <div class="pred-result-sub">hours per day · based on 2,000 users · 75% predictive accuracy</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- What it means for business -->
+    <div class="findings-grid">
+      <div class="finding-card terra">
+        <div class="finding-icon">💡</div>
+        <div class="finding-title">Pain is the #1 driver of productivity loss</div>
+        <div class="finding-desc">More than cycle phase, diet, or lifestyle combined. The data is consistent across 17,972 cycle logs.</div>
+        <div class="finding-so-what">→ For business: flexible work policies targeting high-pain days would have a bigger impact than generic wellbeing programmes</div>
+      </div>
+      <div class="finding-card sage">
+        <div class="finding-icon">🏃</div>
+        <div class="finding-title">Exercise reduces pain and stress — consistently</div>
+        <div class="finding-desc">Higher exercise frequency correlates with lower pain scores and lower stress across all user segments.</div>
+        <div class="finding-so-what">→ For business: subsidised movement programmes or flexible gym time could reduce absenteeism measurably</div>
+      </div>
+      <div class="finding-card sky">
+        <div class="finding-icon">🤖</div>
+        <div class="finding-title">A model can predict it with 75% accuracy</div>
+        <div class="finding-desc">Using pain, stress, flow, and energy as inputs — the Random Forest model estimates hours lost on unseen data.</div>
+        <div class="finding-so-what">→ For business: HR teams could use this to anticipate high-impact days and adjust workload proactively, not reactively</div>
+      </div>
+    </div>
+    <div class="tag-row">
+      <span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">NumPy</span>
+      <span class="tag">Scikit-learn</span><span class="tag">Random Forest</span>
+      <span class="tag">Looker Studio</span><span class="tag">Health Data</span>
+    </div>
+  </div>
+
+  <hr style="border:none;border-top:1px solid var(--border);margin:4rem 0;"/>
+
+  <!-- ═══ PROJECT 2: E-COMMERCE ═══ -->
+  <div class="project-block">
+    <div class="project-header">
+      <div>
+        <div class="project-num">02 · E-Commerce · Customer Analytics</div>
+        <div class="project-title">Who are your best customers — and what will they spend next?</div>
+        <div class="project-question">"If you knew which customers were about to go quiet, what would you do differently?"</div>
+      </div>
+      <div class="project-links-top">
+        <a href="https://github.com/juliamarcella/E-commerce" target="_blank" class="link-btn">GitHub ↗</a>
+        <span class="link-btn wip">Power BI (in progress)</span>
+      </div>
+    </div>
+
+    <div class="story-steps">
+      <div class="story-step">
+        <div class="step-num">The question</div>
+        <div class="step-q">A UK retailer has thousands of transactions. But who are the customers behind them?</div>
+        <div class="step-a">The business had transaction data but no customer intelligence. No segments, no lifetime value model, no way to know who to focus on.</div>
+      </div>
+      <div class="story-step">
+        <div class="step-num">The analysis</div>
+        <div class="step-q">RFM segmentation, clustering, cohort analysis, and a predictive model for future revenue</div>
+        <div class="step-a">Cleaned a full year of retail transactions, engineered customer behaviour metrics, identified 3 distinct segments, and built a model to predict what each customer will spend next.</div>
+      </div>
+      <div class="story-step">
+        <div class="step-num">The answer</div>
+        <div class="step-q">3 clear customer types — each needing a different strategy</div>
+        <div class="step-a">VIP customers (frequent, high-spend, recent), Core customers (moderate engagement), and At-Risk customers (formerly active, now dormant). Each segment has a different product preference and revenue potential.</div>
+      </div>
+    </div>
+
+    <div class="findings-grid">
+      <div class="finding-card terra">
+        <div class="finding-icon">🛒</div>
+        <div class="finding-title">Best-selling ≠ most profitable</div>
+        <div class="finding-desc">The top 10 products by quantity sold and the top 10 by revenue are completely different lists. Volume and value don't align.</div>
+        <div class="finding-so-what">→ For business: promotional strategy should be built on revenue contribution, not units sold — otherwise you're promoting the wrong products</div>
+      </div>
+      <div class="finding-card sage">
+        <div class="finding-icon">👥</div>
+        <div class="finding-title">3 customer segments with distinct behaviours</div>
+        <div class="finding-desc">K-Means clustering identified VIP, Core, and At-Risk groups — each with different recency, frequency, monetary profiles and product preferences.</div>
+        <div class="finding-so-what">→ For business: personalised campaigns per segment outperform blanket promotions. VIPs need retention. At-risk need re-engagement. Core need activation.</div>
+      </div>
+      <div class="finding-card sky">
+        <div class="finding-icon">📈</div>
+        <div class="finding-title">Future revenue can be predicted with 75% accuracy</div>
+        <div class="finding-desc">A Random Forest model using RFM + behavioural features (avg order value, days active, unique products) predicts each customer's next spend.</div>
+        <div class="finding-so-what">→ For business: prioritise retention budget on high-predicted-value customers before they churn — not after</div>
+      </div>
+      <div class="finding-card yellow">
+        <div class="finding-icon">📉</div>
+        <div class="finding-title">Cancellation rate is healthy — under 1%</div>
+        <div class="finding-desc">After flagging all negative-quantity transactions as cancellations, the rate was negligible as a share of total revenue.</div>
+        <div class="finding-so-what">→ For business: order fulfilment is performing well. Investment should go into growth and retention, not return prevention</div>
+      </div>
+      <div class="finding-card mauve">
+        <div class="finding-icon">📅</div>
+        <div class="finding-title">Customer value compounds over time</div>
+        <div class="finding-desc">Cohort and CLV analysis shows how revenue per customer grows across acquisition months — some cohorts significantly outperform others.</div>
+        <div class="finding-so-what">→ For business: knowing which acquisition months produce the most valuable long-term customers helps focus marketing spend</div>
+      </div>
+    </div>
+    <div class="tag-row">
+      <span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">K-Means Clustering</span>
+      <span class="tag">Random Forest</span><span class="tag">RFM Analysis</span>
+      <span class="tag">Cohort Analysis</span><span class="tag">CLV Modelling</span><span class="tag">Power BI</span>
+    </div>
+  </div>
+
+  <hr style="border:none;border-top:1px solid var(--border);margin:4rem 0;"/>
+
+  <!-- ═══ PROJECT 3: OLYMPICS ═══ -->
+  <div class="project-block">
+    <div class="project-header">
+      <div>
+        <div class="project-num">03 · Sports & Gender · Data Storytelling</div>
+        <div class="project-title">How long did women have to wait to compete?</div>
+        <div class="project-question">"Rugby admitted women 116 years after men. What does the rest of the data say?"</div>
+      </div>
+      <div class="project-links-top">
+        <a href="https://lookerstudio.google.com/reporting/5c51de4a-a38e-4e4a-b225-051012c73695" target="_blank" class="link-btn">Live Dashboard ↗</a>
+        <a href="https://github.com/juliamarcella/Women-in-the-Olympics-Game" target="_blank" class="link-btn">GitHub</a>
+      </div>
+    </div>
+
+    <div class="story-steps">
+      <div class="story-step">
+        <div class="step-num">The question</div>
+        <div class="step-q">Has the Olympics actually become more equal — or does it just look that way?</div>
+        <div class="step-a">Over a century of Olympic history, analysed through gender equity. When were women first allowed to compete in each sport? How has that changed?</div>
+      </div>
+      <div class="story-step">
+        <div class="step-num">The analysis</div>
+        <div class="step-q">Over 163,000 athlete records across every Olympic edition from 1896 to 2022</div>
+        <div class="step-a">Engineered a "gender entry gap" metric for every discipline, tracked participation growth over time, and mapped medal distribution by gender and country.</div>
+      </div>
+      <div class="story-step">
+        <div class="step-num">The answer</div>
+        <div class="step-q">Progress is real — but the numbers tell a more complicated story</div>
+        <div class="step-a">Women's participation has grown sharply since the 1980s. But they still represent only 28.3% of athletes and 29.3% of medals — and some sports waited over a century to include them.</div>
+      </div>
+    </div>
+
+    <div class="findings-grid">
+      <div class="finding-card terra">
+        <div class="finding-icon">⏳</div>
+        <div class="finding-title">Some sports waited over 100 years</div>
+        <div class="finding-desc">Rugby: 116 years. Wrestling: 108 years. Boxing: 108 years. Weightlifting: 104 years. These are not historical footnotes — they're within living memory.</div>
+        <div class="finding-so-what">→ The data makes an invisible structural issue visible. That's the most important thing analysis can do.</div>
+      </div>
+      <div class="finding-card sage">
+        <div class="finding-icon">📈</div>
+        <div class="finding-title">Sharp growth since the 1980s</div>
+        <div class="finding-desc">Women's participation grew dramatically from the 1980s onward — driven by policy changes and new event additions.</div>
+        <div class="finding-so-what">→ Policy decisions have measurable effects on participation. The data can show what works and how fast.</div>
+      </div>
+      <div class="finding-card sky">
+        <div class="finding-icon">🏅</div>
+        <div class="finding-title">Medal share mirrors participation</div>
+        <div class="finding-desc">Women hold 29.3% of medals, men 65.2%. The gap isn't just about opportunity — it's about the number of events available to each gender.</div>
+        <div class="finding-so-what">→ Increasing women's events directly increases medal opportunity. Participation and equity are structurally linked.</div>
+      </div>
+    </div>
+    <div class="tag-row">
+      <span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">Feature Engineering</span>
+      <span class="tag">Gender Data</span><span class="tag">Looker Studio</span><span class="tag">Data Storytelling</span>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" style="background:var(--white);">
+  <div class="contact-layout">
+    <div>
+      <div class="avail-pill">Available for opportunities</div>
+      <div class="eyebrow">Contact</div>
+      <h2>Let's talk about<br/><em>your data</em></h2>
+      <p style="font-size:.93rem;color:var(--muted);line-height:1.9;margin-bottom:1.5rem;">
+        I'm looking for a junior data analyst role where I can bring both technical skills and a genuine curiosity about people and problems. If you're working on something interesting — especially in health, retail, or customer analytics — I'd love to hear about it.
+      </p>
+      <p style="font-size:.88rem;color:var(--muted);font-style:italic;">I ask a lot of questions. That's not a warning — it's a feature.</p>
+      <div style="margin-top:2rem;">
+        <a href="mailto:jualia.m@gmail.com" class="contact-link">
+          <div class="contact-icon">✉️</div>
+          <div>
+            <div class="contact-link-label">Email</div>
+            <div class="contact-link-val">jualia.m@gmail.com</div>
+          </div>
+        </a>
+        <a href="https://www.linkedin.com/in/julia-marcella-silva/" target="_blank" class="contact-link">
+          <div class="contact-icon">💼</div>
+          <div>
+            <div class="contact-link-label">LinkedIn</div>
+            <div class="contact-link-val">julia-marcella-silva</div>
+          </div>
+        </a>
+        <a href="https://github.com/juliamarcella" target="_blank" class="contact-link">
+          <div class="contact-icon">🐙</div>
+          <div>
+            <div class="contact-link-label">GitHub</div>
+            <div class="contact-link-val">github.com/juliamarcella</div>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="details-box">
+      <h3>Quick Details</h3>
+      <div class="detail-row"><span class="detail-key">Location</span><span class="detail-val">Ede, Netherlands</span></div>
+      <div class="detail-row"><span class="detail-key">Visa</span><span class="detail-val">No sponsorship needed</span></div>
+      <div class="detail-row"><span class="detail-key">Relocation</span><span class="detail-val">Open to it</span></div>
+      <div class="detail-row"><span class="detail-key">Languages</span><span class="detail-val">Portuguese · English · Dutch (basic)</span></div>
+      <div class="detail-row"><span class="detail-key">Background</span><span class="detail-val">Customer service + Data analysis</span></div>
+      <div class="detail-row"><span class="detail-key">Open to</span><span class="detail-val">Full-time · Hybrid · Remote</span></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>© 2025 Julia Silva · Data Analyst</span>
+  <span><a href="mailto:jualia.m@gmail.com">jualia.m@gmail.com</a></span>
+</footer>
+
+<script>
+function switchMens(i){
+  document.querySelectorAll('#projects .dash-screen').forEach((s,j)=>s.classList.toggle('active',i===j));
+  document.querySelectorAll('#projects .dash-tab').forEach((t,j)=>t.classList.toggle('active',i===j));
+}
+</script>
+</body>
+</html>
