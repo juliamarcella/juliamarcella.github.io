@@ -62,7 +62,7 @@ nav{
   min-height:100vh;display:grid;
   grid-template-columns:1.1fr 0.9fr;
   align-items:center;
-  padding:7rem 3rem 5rem;gap:5rem;
+  padding:9rem 3rem 5rem;gap:5rem;
   border-bottom:1px solid var(--border);
 }
 .hero-eyebrow{
@@ -181,6 +181,7 @@ h2 em{font-style:italic;color:var(--terracotta);}
   display:grid;grid-template-columns:1fr auto;
   align-items:start;gap:2rem;
   margin-bottom:2.5rem;
+  position:relative;z-index:5;
 }
 .project-num{
   font-size:.65rem;font-weight:700;letter-spacing:.2em;
@@ -201,11 +202,13 @@ h2 em{font-style:italic;color:var(--terracotta);}
   font-size:.7rem;font-weight:600;letter-spacing:.08em;
   text-transform:uppercase;text-decoration:none;
   color:var(--muted);border:1.5px solid var(--border);
-  padding:.45rem 1rem;border-radius:100px;
+  padding:.5rem 1.1rem;border-radius:100px;
   transition:all .2s;
+  position:relative;z-index:10;
+  cursor:pointer;
 }
 .link-btn:hover{border-color:var(--terracotta);color:var(--terracotta);}
-.link-btn.wip{opacity:.4;cursor:default;}
+.link-btn.wip{opacity:.4;cursor:default;pointer-events:none;}
 
 /* STORY STEPS */
 .story-steps{
@@ -411,148 +414,70 @@ footer a:hover{color:var(--terracotta);}
 </head>
 <body>
 
+
 <!-- NAV -->
 <nav>
   <a href="#" class="nav-logo">Julia <em>Silva</em></a>
   <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#skills">Skills</a></li>
+    <li><a href="#home">About</a></li>
+    <li><a href="#skills">Tools</a></li>
     <li><a href="#projects">Projects</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
 
-<!-- HERO -->
-<section class="hero" id="home">
-  <div class="fade-in">
-    <div class="hero-eyebrow">Data Analyst · Netherlands</div>
-    <h1>I find the story<br/>hiding <em>inside</em><br/>the numbers</h1>
-    <p class="hero-bio">
-      Hi, I'm Julia — a data analyst who came to data through <strong>people</strong>. Years of customer-facing work taught me to ask the right questions, listen carefully, and turn messy information into something that actually helps. Now I do the same thing with data.
-    </p>
-    <div class="cta-row">
-      <a href="#projects" class="btn btn-primary">See My Work</a>
-      <a href="#contact" class="btn btn-ghost">Get in Touch</a>
-    </div>
-  </div>
-  <div class="fade-in-2">
-    <div class="gambiarra-card">
-      <div class="gambiarra-word">gambiarra</div>
-      <div class="gambiarra-pos">Brazilian Portuguese · noun</div>
-      <div class="gambiarra-def">
-        When you don't have the right tools, you <strong>figure it out anyway</strong>. You improvise, think outside the box, find a way. Not a workaround — a <strong>creative solution under constraint</strong>.<br/><br/>
-        <em style="color:var(--terracotta)">That's how I approach every problem.</em>
+<!-- HERO + ABOUT combined -->
+<section id="home" style="padding:8rem 3rem 5rem;border-bottom:1px solid var(--border);">
+  <div style="display:grid;grid-template-columns:1.1fr 0.9fr;gap:5rem;align-items:center;">
+    <div class="fade-in">
+      <div class="hero-eyebrow">Junior Data Analyst · Netherlands</div>
+      <h1 style="font-size:clamp(2.6rem,5vw,4.2rem);margin-bottom:1.5rem;">I turn messy data<br/>into <em>clear answers</em></h1>
+      <p style="font-size:.97rem;color:var(--muted);line-height:1.9;margin-bottom:1rem;">
+        I'm Julia — a data analyst with a background in <strong style="color:var(--ink);">customer service</strong>. Before data, I spent years understanding what people actually need: managing cases for Disney+ at launch, handling 30+ daily customer contacts with a 95% satisfaction score, working across teams in Brazil, the Netherlands, and the United States.
+      </p>
+      <p style="font-size:.97rem;color:var(--muted);line-height:1.9;margin-bottom:2rem;">
+        That experience taught me to ask the right questions, communicate across cultures, and stay focused on the person behind the problem. Now I bring that same instinct to data — turning numbers into decisions that make sense for real people and real businesses.
+      </p>
+      <div class="cta-row">
+        <a href="#projects" class="btn btn-primary">See My Projects</a>
+        <a href="/cdn-cgi/l/email-protection#127867737e7b733c7f52757f737b7e3c717d7f" class="btn btn-ghost">Get in Touch</a>
       </div>
     </div>
-    <div class="hero-tags">
-      <span class="hero-tag">🧩 Puzzle solver</span>
-      <span class="hero-tag">🌍 3 countries</span>
-      <span class="hero-tag">🔍 Relentlessly curious</span>
-      <span class="hero-tag">🤝 Customer instinct</span>
-      <span class="hero-tag">✈️ Loves to travel</span>
-    </div>
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section id="about">
-  <div class="eyebrow">About Me</div>
-  <h2>More than a<br/><em>data person</em></h2>
-  <div class="about-grid">
-    <div class="about-text">
-      <p>I didn't start in data. I started in <strong>people</strong> — years of customer service across Brazil, the Netherlands, and the United States. Managing Disney+ launch chats, handling complex cases with 95% satisfaction scores, training teams, writing documentation. All of that taught me something no bootcamp teaches: <strong>how to really understand what someone needs</strong>.</p>
-      <p>I completed two intensive data programmes — not for the certificate, but because I wanted to understand data deeply. I ask a lot of questions. I search for everything I don't know. I love the moment when a messy dataset finally <strong>tells you something true</strong>.</p>
-      <p>I'm based in Ede, Netherlands. No visa sponsorship needed. Open to relocation and international teams — I've been doing that my whole career.</p>
-    </div>
-    <div class="trait-list">
-      <div class="trait">
-        <div class="trait-emoji">🧩</div>
-        <div>
-          <div class="trait-name">Puzzle solver</div>
-          <div class="trait-desc">Data problems are puzzles with higher stakes. I enjoy working through them — not just getting to the answer, but understanding why.</div>
-        </div>
+    <div class="fade-in-2" style="display:flex;flex-direction:column;gap:1.25rem;">
+      <div style="background:var(--white);border:1px solid var(--border);border-left:4px solid var(--terracotta);border-radius:12px;padding:1.75rem 2rem;">
+        <div style="font-family:'Fraunces',serif;font-size:1.8rem;font-style:italic;color:var(--terracotta);margin-bottom:.3rem;">gambiarra</div>
+        <div style="font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:.9rem;">Brazilian Portuguese · noun</div>
+        <div style="font-size:.88rem;color:var(--muted);line-height:1.85;">When you don't have the right tools, you <strong style="color:var(--ink);">figure it out anyway</strong>. Improvise, think outside the box, find a way. <em style="color:var(--terracotta);">That's how I approach every problem.</em></div>
       </div>
-      <div class="trait">
-        <div class="trait-emoji">🌍</div>
-        <div>
-          <div class="trait-name">Internationally minded</div>
-          <div class="trait-desc">Lived and worked in Brazil, the US, and the Netherlands. Different perspectives aren't a challenge — they're the most interesting part of any team.</div>
-        </div>
-      </div>
-      <div class="trait">
-        <div class="trait-emoji">🔍</div>
-        <div>
-          <div class="trait-name">Relentlessly curious</div>
-          <div class="trait-desc">If I don't know something, I'll find out. I don't stop at the first answer. I want to know the why behind the why.</div>
-        </div>
-      </div>
-      <div class="trait">
-        <div class="trait-emoji">🤝</div>
-        <div>
-          <div class="trait-name">Customer-first instinct</div>
-          <div class="trait-desc">I always ask: who is this for, and what do they actually need? Data is only useful if someone can act on it.</div>
-        </div>
+      <div style="display:flex;flex-wrap:wrap;gap:.6rem;">
+        <span class="hero-tag">🧩 Puzzle solver</span>
+        <span class="hero-tag">🌍 3 countries</span>
+        <span class="hero-tag">🔍 Always curious</span>
+        <span class="hero-tag">🤝 Customer-first</span>
+        <span class="hero-tag">✈️ Loves to travel</span>
+        <span class="hero-tag">💬 PT · EN · NL</span>
+        <span class="hero-tag">📍 No visa needed</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- SKILLS -->
-<section id="skills" style="background:var(--white);">
-  <div class="eyebrow">Toolkit</div>
-  <h2>Skills &amp; Tools</h2>
-  <p class="section-intro">Built through two full data programmes and applied across real projects.</p>
-  <div class="skills-wrap">
-    <div class="skill-card">
-      <div class="skill-name">Python</div>
-      <div class="skill-cat">Analysis & Modelling</div>
-      <div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div>
-    </div>
-    <div class="skill-card">
-      <div class="skill-name">Pandas & NumPy</div>
-      <div class="skill-cat">Data Wrangling</div>
-      <div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div>
-    </div>
-    <div class="skill-card">
-      <div class="skill-name">SQL & BigQuery</div>
-      <div class="skill-cat">Querying</div>
-      <div class="skill-bar"><div class="skill-fill" style="width:72%"></div></div>
-    </div>
-    <div class="skill-card">
-      <div class="skill-name">Scikit-learn</div>
-      <div class="skill-cat">Machine Learning</div>
-      <div class="skill-bar"><div class="skill-fill" style="width:70%"></div></div>
-    </div>
-    <div class="skill-card">
-      <div class="skill-name">Looker Studio</div>
-      <div class="skill-cat">Dashboards & BI</div>
-      <div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div>
-    </div>
-    <div class="skill-card">
-      <div class="skill-name">Power BI</div>
-      <div class="skill-cat">Dashboards & DAX</div>
-      <div class="skill-bar"><div class="skill-fill" style="width:65%"></div></div>
-    </div>
-    <div class="skill-card">
-      <div class="skill-name">Matplotlib & Seaborn</div>
-      <div class="skill-cat">Data Visualization</div>
-      <div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div>
-    </div>
-    <div class="skill-card">
-      <div class="skill-name">Statistical Analysis</div>
-      <div class="skill-cat">EDA · Clustering · IQR</div>
-      <div class="skill-bar"><div class="skill-fill" style="width:72%"></div></div>
-    </div>
-    <div class="skill-card">
-      <div class="skill-name">dbt & Git</div>
-      <div class="skill-cat">Data Engineering</div>
-      <div class="skill-bar"><div class="skill-fill" style="width:55%"></div></div>
-    </div>
-    <div class="skill-card">
-      <div class="skill-name">Salesforce CRM</div>
-      <div class="skill-cat">Client & Data Ops</div>
-      <div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div>
-    </div>
+<!-- TOOLS -->
+<section id="skills" style="background:var(--white);padding:3.5rem 3rem;">
+  <div class="eyebrow">Tools</div>
+  <div style="display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.25rem;">
+    <span style="font-size:.82rem;font-weight:600;padding:.5rem 1.1rem;border-radius:100px;background:var(--terra-light);color:var(--terracotta);border:1px solid #f0d4c6;">Python</span>
+    <span style="font-size:.82rem;font-weight:600;padding:.5rem 1.1rem;border-radius:100px;background:var(--terra-light);color:var(--terracotta);border:1px solid #f0d4c6;">Pandas & NumPy</span>
+    <span style="font-size:.82rem;font-weight:600;padding:.5rem 1.1rem;border-radius:100px;background:var(--sky-light);color:var(--sky);border:1px solid #c0d8ef;">SQL & BigQuery</span>
+    <span style="font-size:.82rem;font-weight:600;padding:.5rem 1.1rem;border-radius:100px;background:var(--sky-light);color:var(--sky);border:1px solid #c0d8ef;">Power BI & DAX</span>
+    <span style="font-size:.82rem;font-weight:600;padding:.5rem 1.1rem;border-radius:100px;background:var(--sky-light);color:var(--sky);border:1px solid #c0d8ef;">Looker Studio</span>
+    <span style="font-size:.82rem;font-weight:600;padding:.5rem 1.1rem;border-radius:100px;background:var(--sage-light);color:var(--sage);border:1px solid #c8dfd4;">Scikit-learn</span>
+    <span style="font-size:.82rem;font-weight:600;padding:.5rem 1.1rem;border-radius:100px;background:var(--sage-light);color:var(--sage);border:1px solid #c8dfd4;">Machine Learning</span>
+    <span style="font-size:.82rem;font-weight:600;padding:.5rem 1.1rem;border-radius:100px;background:var(--sage-light);color:var(--sage);border:1px solid #c8dfd4;">Clustering & Segmentation</span>
+    <span style="font-size:.82rem;font-weight:600;padding:.5rem 1.1rem;border-radius:100px;background:var(--mauve-light);color:var(--mauve);border:1px solid #d9c4eb;">Matplotlib & Seaborn</span>
+    <span style="font-size:.82rem;font-weight:600;padding:.5rem 1.1rem;border-radius:100px;background:var(--mauve-light);color:var(--mauve);border:1px solid #d9c4eb;">Statistical Analysis</span>
+    <span style="font-size:.82rem;font-weight:600;padding:.5rem 1.1rem;border-radius:100px;background:var(--yellow-light);color:var(--yellow);border:1px solid #ead9a0;">dbt & Git</span>
+    <span style="font-size:.82rem;font-weight:600;padding:.5rem 1.1rem;border-radius:100px;background:var(--yellow-light);color:var(--yellow);border:1px solid #ead9a0;">Salesforce CRM</span>
   </div>
 </section>
 
@@ -846,6 +771,10 @@ footer a:hover{color:var(--terracotta);}
       <span class="tag">Scikit-learn</span><span class="tag">Random Forest</span>
       <span class="tag">Looker Studio</span><span class="tag">Health Data</span>
     </div>
+    <div style="display:flex;gap:.75rem;flex-wrap:wrap;margin-top:1.25rem;">
+      <a href="https://lookerstudio.google.com/reporting/6eee069c-64ae-47c1-ae42-89b91545860d" target="_blank" class="link-btn" style="background:var(--terracotta);color:#fff;border-color:var(--terracotta);">Live Dashboard ↗</a>
+      <a href="https://github.com/juliamarcella/Menstrual-cycle-and-productivity-" target="_blank" class="link-btn">GitHub ↗</a>
+    </div>
   </div>
 
   <hr style="border:none;border-top:1px solid var(--border);margin:4rem 0;"/>
@@ -882,52 +811,177 @@ footer a:hover{color:var(--terracotta);}
       </div>
     </div>
 
+    <!-- Power BI Dashboard Preview -->
+    <div style="background:var(--white);border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-bottom:2rem;">
+      <div style="background:#f5f0ea;border-bottom:1px solid var(--border);padding:.7rem 1.1rem;display:flex;align-items:center;gap:.5rem;">
+        <div class="dot" style="background:#ff5f57"></div>
+        <div class="dot" style="background:#ffbd2e"></div>
+        <div class="dot" style="background:#28ca41"></div>
+        <div style="margin:0 auto;font-size:.6rem;color:var(--muted);background:var(--white);padding:.2rem 1rem;border-radius:100px;border:1px solid var(--border);">Power BI · UK Online Retail — Sales Performance &amp; Customer Segmentation</div>
+        <a href="https://github.com/juliamarcella/E-commerce/blob/main/E-commerce%20dashboard%20Power%20BI.pdf" target="_blank" style="font-size:.65rem;font-weight:600;color:var(--terracotta);text-decoration:none;white-space:nowrap;">View PDF ↗</a>
+      </div>
+      <div style="display:flex;gap:.5rem;padding:1rem 1.5rem;background:#faf7f3;border-bottom:1px solid var(--border);flex-wrap:wrap;">
+        <button class="dash-tab active" onclick="switchEcom(0)" style="font-family:'Plus Jakarta Sans',sans-serif;">Sales Overview</button>
+        <button class="dash-tab" onclick="switchEcom(1)" style="font-family:'Plus Jakarta Sans',sans-serif;">Product Analysis</button>
+        <button class="dash-tab" onclick="switchEcom(2)" style="font-family:'Plus Jakarta Sans',sans-serif;">Customer Segments</button>
+      </div>
+      <div style="padding:1.5rem;min-height:240px;">
+
+        <!-- Tab 0: Sales Overview -->
+        <div class="ecom-screen active" id="e0">
+          <div class="kpi-strip" style="grid-template-columns:repeat(5,1fr);">
+            <div class="kpi"><div class="kpi-label">Total Revenue</div><div class="kpi-value">€4.23M</div></div>
+            <div class="kpi"><div class="kpi-label">Total Orders</div><div class="kpi-value">17.4K</div></div>
+            <div class="kpi"><div class="kpi-label">Avg Order Value</div><div class="kpi-value">€243</div></div>
+            <div class="kpi"><div class="kpi-label">Transactions</div><div class="kpi-value">375K</div></div>
+            <div class="kpi"><div class="kpi-label">Countries</div><div class="kpi-value">17</div></div>
+          </div>
+          <div class="chart-label" style="margin-top:1.1rem;">Monthly Revenue — Dec 2010 to Dec 2011</div>
+          <svg viewBox="0 0 560 80" style="width:100%;margin-top:.4rem;" xmlns="http://www.w3.org/2000/svg">
+            <defs><linearGradient id="revgrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#c96b3f" stop-opacity=".15"/><stop offset="100%" stop-color="#c96b3f" stop-opacity="0"/></linearGradient></defs>
+            <polygon points="20,62 66,58 112,54 158,52 204,56 250,46 296,42 342,36 388,44 434,24 480,30 530,38 530,76 20,76" fill="url(#revgrad)"/>
+            <polyline points="20,62 66,58 112,54 158,52 204,56 250,46 296,42 342,36 388,44 434,24 480,30 530,38" fill="none" stroke="#c96b3f" stroke-width="2.5" stroke-linejoin="round"/>
+            <text x="20" y="76" font-size="7" fill="#aaa" font-family="sans-serif">Jan</text>
+            <text x="62" y="76" font-size="7" fill="#aaa" font-family="sans-serif">Feb</text>
+            <text x="108" y="76" font-size="7" fill="#aaa" font-family="sans-serif">Mar</text>
+            <text x="154" y="76" font-size="7" fill="#aaa" font-family="sans-serif">Apr</text>
+            <text x="200" y="76" font-size="7" fill="#aaa" font-family="sans-serif">May</text>
+            <text x="246" y="76" font-size="7" fill="#aaa" font-family="sans-serif">Jun</text>
+            <text x="292" y="76" font-size="7" fill="#aaa" font-family="sans-serif">Jul</text>
+            <text x="338" y="76" font-size="7" fill="#aaa" font-family="sans-serif">Aug</text>
+            <text x="384" y="76" font-size="7" fill="#aaa" font-family="sans-serif">Sep</text>
+            <text x="428" y="76" font-size="7" fill="#aaa" font-family="sans-serif">Oct</text>
+            <text x="474" y="76" font-size="7" fill="#aaa" font-family="sans-serif">Nov</text>
+            <text x="520" y="76" font-size="7" fill="#aaa" font-family="sans-serif">Dec</text>
+          </svg>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1rem;">
+            <div style="padding:.9rem 1rem;background:var(--terra-light);border:1px solid #f0d4c6;border-radius:8px;">
+              <div style="font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--terracotta);margin-bottom:.3rem;">UK Dominates</div>
+              <div style="font-size:.82rem;color:var(--ink);">United Kingdom: <strong>€3.8M</strong> — 90% of total revenue. Germany next at €105K.</div>
+            </div>
+            <div style="padding:.9rem 1rem;background:var(--sage-light);border:1px solid #c8dfd4;border-radius:8px;">
+              <div style="font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--sage);margin-bottom:.3rem;">Scale</div>
+              <div style="font-size:.82rem;color:var(--ink);"><strong>4,123 customers</strong> behind 375K transactions across 17 countries.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 1: Product Analysis -->
+        <div class="ecom-screen" id="e1" style="display:none;">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;">
+            <div>
+              <div class="chart-label">Top Products by Revenue</div>
+              <div style="display:flex;flex-direction:column;gap:.4rem;margin-top:.5rem;">
+                <div style="display:flex;justify-content:space-between;font-size:.75rem;gap:.5rem;align-items:center;"><span>White Hanging Heart T-Light Holder</span><strong style="color:var(--terracotta);white-space:nowrap;">€29.9K</strong></div>
+                <div style="height:3px;border-radius:2px;background:var(--terracotta);width:100%;margin-bottom:.15rem;"></div>
+                <div style="display:flex;justify-content:space-between;font-size:.75rem;gap:.5rem;align-items:center;"><span>Regency Cakestand 3 Tier</span><strong style="color:var(--terracotta);white-space:nowrap;">€25.8K</strong></div>
+                <div style="height:3px;border-radius:2px;background:var(--terracotta);opacity:.8;width:86%;margin-bottom:.15rem;"></div>
+                <div style="display:flex;justify-content:space-between;font-size:.75rem;gap:.5rem;align-items:center;"><span>Jumbo Bag Red Retrospot</span><strong style="color:var(--terracotta);white-space:nowrap;">€22.5K</strong></div>
+                <div style="height:3px;border-radius:2px;background:var(--terracotta);opacity:.65;width:75%;margin-bottom:.15rem;"></div>
+                <div style="display:flex;justify-content:space-between;font-size:.75rem;gap:.5rem;align-items:center;"><span>Assorted Colour Bird Ornament</span><strong style="color:var(--terracotta);white-space:nowrap;">€18.8K</strong></div>
+                <div style="height:3px;border-radius:2px;background:var(--terracotta);opacity:.5;width:63%;margin-bottom:.15rem;"></div>
+                <div style="display:flex;justify-content:space-between;font-size:.75rem;gap:.5rem;align-items:center;"><span>Party Bunting</span><strong style="color:var(--terracotta);white-space:nowrap;">€18.6K</strong></div>
+                <div style="height:3px;border-radius:2px;background:var(--terracotta);opacity:.45;width:62%;"></div>
+              </div>
+            </div>
+            <div>
+              <div class="chart-label">Top Products by Quantity</div>
+              <div style="display:flex;flex-direction:column;gap:.4rem;margin-top:.5rem;">
+                <div style="display:flex;justify-content:space-between;font-size:.75rem;gap:.5rem;align-items:center;"><span>Assorted Colour Bird Ornament</span><strong style="color:var(--sky);white-space:nowrap;">10.9K</strong></div>
+                <div style="height:3px;border-radius:2px;background:var(--sky);width:100%;margin-bottom:.15rem;"></div>
+                <div style="display:flex;justify-content:space-between;font-size:.75rem;gap:.5rem;align-items:center;"><span>Lunch Bag Red Retrospot</span><strong style="color:var(--sky);white-space:nowrap;">10.1K</strong></div>
+                <div style="height:3px;border-radius:2px;background:var(--sky);opacity:.85;width:92%;margin-bottom:.15rem;"></div>
+                <div style="display:flex;justify-content:space-between;font-size:.75rem;gap:.5rem;align-items:center;"><span>Jumbo Bag Red Retrospot</span><strong style="color:var(--sky);white-space:nowrap;">9.8K</strong></div>
+                <div style="height:3px;border-radius:2px;background:var(--sky);opacity:.75;width:89%;margin-bottom:.15rem;"></div>
+                <div style="display:flex;justify-content:space-between;font-size:.75rem;gap:.5rem;align-items:center;"><span>White Hanging Heart T-Light Holder</span><strong style="color:var(--sky);white-space:nowrap;">9.7K</strong></div>
+                <div style="height:3px;border-radius:2px;background:var(--sky);opacity:.65;width:88%;margin-bottom:.15rem;"></div>
+                <div style="display:flex;justify-content:space-between;font-size:.75rem;gap:.5rem;align-items:center;"><span>Lunch Bag Black Skull</span><strong style="color:var(--sky);white-space:nowrap;">7.8K</strong></div>
+                <div style="height:3px;border-radius:2px;background:var(--sky);opacity:.55;width:71%;"></div>
+              </div>
+              <div style="margin-top:1rem;padding:.8rem 1rem;background:var(--yellow-light);border:1px solid #ead9a0;border-radius:8px;font-size:.75rem;">
+                <strong style="color:var(--yellow);">Key insight:</strong> Best-seller by volume (Bird Ornament, 10.9K) is not the top revenue product (Heart T-Light, €29.9K). <span style="color:var(--muted);">Promoting volume leaders doesn't maximise profit.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 2: Customer Segments -->
+        <div class="ecom-screen" id="e2" style="display:none;">
+          <div class="kpi-strip" style="grid-template-columns:repeat(4,1fr);margin-bottom:1rem;">
+            <div class="kpi"><div class="kpi-label">Customers Analysed</div><div class="kpi-value">4,121</div></div>
+            <div class="kpi"><div class="kpi-label">Avg Days Since Purchase</div><div class="kpi-value">92.6</div></div>
+            <div class="kpi"><div class="kpi-label">Avg Orders/Customer</div><div class="kpi-value">3.86</div></div>
+            <div class="kpi"><div class="kpi-label">Avg Customer Spend</div><div class="kpi-value">€797</div></div>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;">
+            <div style="padding:1.25rem;background:var(--terra-light);border:1px solid #f0d4c6;border-radius:10px;">
+              <div style="font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--terracotta);margin-bottom:.4rem;">⭐ VIP — 0.15% of customers</div>
+              <div style="font-family:'Fraunces',serif;font-size:1.6rem;font-weight:700;color:var(--ink);margin-bottom:.3rem;">€21,300</div>
+              <div style="font-size:.72rem;color:var(--muted);line-height:1.65;">avg spend. Tiny group, disproportionate revenue. Bought recently, buy very often.</div>
+              <div style="font-size:.7rem;color:var(--terracotta);margin-top:.6rem;font-weight:600;">→ Retain at all costs. Loyalty perks, personal outreach.</div>
+            </div>
+            <div style="padding:1.25rem;background:var(--sky-light);border:1px solid #c0d8ef;border-radius:10px;">
+              <div style="font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--sky);margin-bottom:.4rem;">🔵 Core — 72.87% of customers</div>
+              <div style="font-family:'Fraunces',serif;font-size:1.6rem;font-weight:700;color:var(--ink);margin-bottom:.3rem;">€1,000</div>
+              <div style="font-size:.72rem;color:var(--muted);line-height:1.65;">avg spend. The reliable backbone — most customers, steady revenue.</div>
+              <div style="font-size:.7rem;color:var(--sky);margin-top:.6rem;font-weight:600;">→ Upsell, bundles, nudge toward VIP status.</div>
+            </div>
+            <div style="padding:1.25rem;background:var(--sage-light);border:1px solid #c8dfd4;border-radius:10px;">
+              <div style="font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--sage);margin-bottom:.4rem;">⚠️ At-Risk — 26.98% of customers</div>
+              <div style="font-family:'Fraunces',serif;font-size:1.6rem;font-weight:700;color:var(--ink);margin-bottom:.3rem;">€300</div>
+              <div style="font-size:.72rem;color:var(--muted);line-height:1.65;">avg spend. Previously active, now dormant. 200+ days since last purchase.</div>
+              <div style="font-size:.7rem;color:var(--sage);margin-top:.6rem;font-weight:600;">→ Win-back campaigns before they're gone for good.</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
     <div class="findings-grid">
       <div class="finding-card terra">
         <div class="finding-icon">🛒</div>
         <div class="finding-title">Best-selling ≠ most profitable</div>
-        <div class="finding-desc">The top 10 products by quantity sold and the top 10 by revenue are completely different lists. Volume and value don't align.</div>
-        <div class="finding-so-what">→ For business: promotional strategy should be built on revenue contribution, not units sold — otherwise you're promoting the wrong products</div>
+        <div class="finding-desc">The top 10 products by quantity and the top 10 by revenue are completely different lists. The Bird Ornament sells 10.9K units; the Heart T-Light earns €29.9K.</div>
+        <div class="finding-so-what">→ For business: build promotions around revenue contribution, not units sold — otherwise you're pushing the wrong products</div>
       </div>
       <div class="finding-card sage">
         <div class="finding-icon">👥</div>
-        <div class="finding-title">3 customer segments with distinct behaviours</div>
-        <div class="finding-desc">K-Means clustering identified VIP, Core, and At-Risk groups — each with different recency, frequency, monetary profiles and product preferences.</div>
-        <div class="finding-so-what">→ For business: personalised campaigns per segment outperform blanket promotions. VIPs need retention. At-risk need re-engagement. Core need activation.</div>
+        <div class="finding-title">VIPs are 0.15% — but spend 21× more</div>
+        <div class="finding-desc">Just 0.15% of customers are VIP, but they average €21,300 spend each vs €300 for at-risk customers. A tiny group with outsized impact.</div>
+        <div class="finding-so-what">→ For business: identify and protect this segment before they churn — losing one VIP costs as much as losing 70 at-risk customers</div>
       </div>
       <div class="finding-card sky">
         <div class="finding-icon">📈</div>
-        <div class="finding-title">Future revenue can be predicted with 75% accuracy</div>
-        <div class="finding-desc">A Random Forest model using RFM + behavioural features (avg order value, days active, unique products) predicts each customer's next spend.</div>
-        <div class="finding-so-what">→ For business: prioritise retention budget on high-predicted-value customers before they churn — not after</div>
+        <div class="finding-title">Future revenue predicted with 75% accuracy</div>
+        <div class="finding-desc">A Random Forest model using RFM + behavioural features predicts each customer's next spend — validated on unseen data.</div>
+        <div class="finding-so-what">→ For business: allocate retention budget to highest-predicted-value customers proactively, not after they've already left</div>
       </div>
       <div class="finding-card yellow">
         <div class="finding-icon">📉</div>
-        <div class="finding-title">Cancellation rate is healthy — under 1%</div>
-        <div class="finding-desc">After flagging all negative-quantity transactions as cancellations, the rate was negligible as a share of total revenue.</div>
-        <div class="finding-so-what">→ For business: order fulfilment is performing well. Investment should go into growth and retention, not return prevention</div>
-      </div>
-      <div class="finding-card mauve">
-        <div class="finding-icon">📅</div>
-        <div class="finding-title">Customer value compounds over time</div>
-        <div class="finding-desc">Cohort and CLV analysis shows how revenue per customer grows across acquisition months — some cohorts significantly outperform others.</div>
-        <div class="finding-so-what">→ For business: knowing which acquisition months produce the most valuable long-term customers helps focus marketing spend</div>
+        <div class="finding-title">Cancellation rate under 1%</div>
+        <div class="finding-desc">After analysing all negative-quantity transactions, the cancellation rate was negligible as a share of total €4.23M revenue.</div>
+        <div class="finding-so-what">→ For business: order fulfilment is healthy — investment should go into growth and retention, not return prevention</div>
       </div>
     </div>
     <div class="tag-row">
       <span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">K-Means Clustering</span>
       <span class="tag">Random Forest</span><span class="tag">RFM Analysis</span>
-      <span class="tag">Cohort Analysis</span><span class="tag">CLV Modelling</span><span class="tag">Power BI</span>
+      <span class="tag">CLV Modelling</span><span class="tag">Power BI</span>
+    </div>
+    <div style="display:flex;gap:.75rem;flex-wrap:wrap;margin-top:1.25rem;">
+      <a href="https://github.com/juliamarcella/E-commerce" target="_blank" class="link-btn" style="background:var(--terracotta);color:#fff;border-color:var(--terracotta);">GitHub ↗</a>
+      <a href="https://github.com/juliamarcella/E-commerce/blob/main/E-commerce%20dashboard%20Power%20BI.pdf" target="_blank" class="link-btn">Power BI Dashboard PDF ↗</a>
     </div>
   </div>
 
   <hr style="border:none;border-top:1px solid var(--border);margin:4rem 0;"/>
 
-  <!-- ═══ PROJECT 3: OLYMPICS ═══ -->
+  <!-- PROJECT 3: OLYMPICS -->
   <div class="project-block">
     <div class="project-header">
       <div>
-        <div class="project-num">03 · Sports & Gender · Data Storytelling</div>
+        <div class="project-num">03 · Sports &amp; Gender · Data Storytelling</div>
         <div class="project-title">How long did women have to wait to compete?</div>
         <div class="project-question">"Rugby admitted women 116 years after men. What does the rest of the data say?"</div>
       </div>
@@ -936,7 +990,6 @@ footer a:hover{color:var(--terracotta);}
         <a href="https://github.com/juliamarcella/Women-in-the-Olympics-Game" target="_blank" class="link-btn">GitHub</a>
       </div>
     </div>
-
     <div class="story-steps">
       <div class="story-step">
         <div class="step-num">The question</div>
@@ -945,7 +998,7 @@ footer a:hover{color:var(--terracotta);}
       </div>
       <div class="story-step">
         <div class="step-num">The analysis</div>
-        <div class="step-q">Over 163,000 athlete records across every Olympic edition from 1896 to 2022</div>
+        <div class="step-q">163,000+ athlete records across every Olympic edition from 1896 to 2022</div>
         <div class="step-a">Engineered a "gender entry gap" metric for every discipline, tracked participation growth over time, and mapped medal distribution by gender and country.</div>
       </div>
       <div class="story-step">
@@ -954,33 +1007,39 @@ footer a:hover{color:var(--terracotta);}
         <div class="step-a">Women's participation has grown sharply since the 1980s. But they still represent only 28.3% of athletes and 29.3% of medals — and some sports waited over a century to include them.</div>
       </div>
     </div>
-
     <div class="findings-grid">
       <div class="finding-card terra">
         <div class="finding-icon">⏳</div>
         <div class="finding-title">Some sports waited over 100 years</div>
-        <div class="finding-desc">Rugby: 116 years. Wrestling: 108 years. Boxing: 108 years. Weightlifting: 104 years. These are not historical footnotes — they're within living memory.</div>
+        <div class="finding-desc">Rugby: 116 years. Wrestling: 108 years. Boxing: 108 years. Weightlifting: 104 years. These gaps are within living memory.</div>
         <div class="finding-so-what">→ The data makes an invisible structural issue visible. That's the most important thing analysis can do.</div>
       </div>
       <div class="finding-card sage">
         <div class="finding-icon">📈</div>
         <div class="finding-title">Sharp growth since the 1980s</div>
         <div class="finding-desc">Women's participation grew dramatically from the 1980s onward — driven by policy changes and new event additions.</div>
-        <div class="finding-so-what">→ Policy decisions have measurable effects on participation. The data can show what works and how fast.</div>
+        <div class="finding-so-what">→ Policy decisions have measurable effects on participation. The data shows what works and how fast.</div>
       </div>
       <div class="finding-card sky">
         <div class="finding-icon">🏅</div>
         <div class="finding-title">Medal share mirrors participation</div>
         <div class="finding-desc">Women hold 29.3% of medals, men 65.2%. The gap isn't just about opportunity — it's about the number of events available to each gender.</div>
-        <div class="finding-so-what">→ Increasing women's events directly increases medal opportunity. Participation and equity are structurally linked.</div>
+        <div class="finding-so-what">→ More women's events = more medal opportunities. Participation and equity are structurally linked.</div>
       </div>
     </div>
     <div class="tag-row">
       <span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">Feature Engineering</span>
       <span class="tag">Gender Data</span><span class="tag">Looker Studio</span><span class="tag">Data Storytelling</span>
     </div>
+    <div style="display:flex;gap:.75rem;flex-wrap:wrap;margin-top:1.25rem;">
+      <a href="https://lookerstudio.google.com/reporting/5c51de4a-a38e-4e4a-b225-051012c73695" target="_blank" class="link-btn" style="background:var(--terracotta);color:#fff;border-color:var(--terracotta);">Live Dashboard ↗</a>
+      <a href="https://github.com/juliamarcella/Women-in-the-Olympics-Game" target="_blank" class="link-btn">GitHub ↗</a>
+    </div>
   </div>
 </section>
+
+
+
 
 <!-- CONTACT -->
 <section id="contact" style="background:var(--white);">
@@ -989,31 +1048,20 @@ footer a:hover{color:var(--terracotta);}
       <div class="avail-pill">Available for opportunities</div>
       <div class="eyebrow">Contact</div>
       <h2>Let's talk about<br/><em>your data</em></h2>
-      <p style="font-size:.93rem;color:var(--muted);line-height:1.9;margin-bottom:1.5rem;">
-        I'm looking for a junior data analyst role where I can bring both technical skills and a genuine curiosity about people and problems. If you're working on something interesting — especially in health, retail, or customer analytics — I'd love to hear about it.
-      </p>
+      <p style="font-size:.93rem;color:var(--muted);line-height:1.9;margin-bottom:1.5rem;">I'm looking for a junior data analyst role where I can bring technical skills and a genuine curiosity about people. My background in customer-facing work across three countries makes me someone who understands the human side of data — not just the numbers.</p>
       <p style="font-size:.88rem;color:var(--muted);font-style:italic;">I ask a lot of questions. That's not a warning — it's a feature.</p>
       <div style="margin-top:2rem;">
-        <a href="mailto:jualia.m@gmail.com" class="contact-link">
+        <a href="/cdn-cgi/l/email-protection#dbb1aebab7b2baf5b69bbcb6bab2b7f5b8b4b6" class="contact-link">
           <div class="contact-icon">✉️</div>
-          <div>
-            <div class="contact-link-label">Email</div>
-            <div class="contact-link-val">jualia.m@gmail.com</div>
-          </div>
+          <div><div class="contact-link-label">Email</div><div class="contact-link-val"><span class="__cf_email__" data-cfemail="e18b94808d8880cf8ca1868c80888dcf828e8c">[email&#160;protected]</span></div></div>
         </a>
         <a href="https://www.linkedin.com/in/julia-marcella-silva/" target="_blank" class="contact-link">
           <div class="contact-icon">💼</div>
-          <div>
-            <div class="contact-link-label">LinkedIn</div>
-            <div class="contact-link-val">julia-marcella-silva</div>
-          </div>
+          <div><div class="contact-link-label">LinkedIn</div><div class="contact-link-val">julia-marcella-silva</div></div>
         </a>
         <a href="https://github.com/juliamarcella" target="_blank" class="contact-link">
           <div class="contact-icon">🐙</div>
-          <div>
-            <div class="contact-link-label">GitHub</div>
-            <div class="contact-link-val">github.com/juliamarcella</div>
-          </div>
+          <div><div class="contact-link-label">GitHub</div><div class="contact-link-val">github.com/juliamarcella</div></div>
         </a>
       </div>
     </div>
@@ -1029,16 +1077,7 @@ footer a:hover{color:var(--terracotta);}
   </div>
 </section>
 
-<footer>
-  <span>© 2025 Julia Silva · Data Analyst</span>
-  <span><a href="mailto:jualia.m@gmail.com">jualia.m@gmail.com</a></span>
-</footer>
 
-<script>
-function switchMens(i){
-  document.querySelectorAll('#projects .dash-screen').forEach((s,j)=>s.classList.toggle('active',i===j));
-  document.querySelectorAll('#projects .dash-tab').forEach((t,j)=>t.classList.toggle('active',i===j));
-}
-</script>
-</body>
-</html>
+<footer>
+  <span>© 2025 Julia Silva · Junior Data Analyst</span>
+  <span><a href="/cdn-cgi/l/email-p
