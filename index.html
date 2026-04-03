@@ -3,1092 +3,575 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Julia Silva — Data Analyst</title>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,600;0,700;1,300;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<title>Julia Silva — Junior Data Analyst</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
 <style>
 :root {
-  --cream: #fdf8f2;
-  --white: #ffffff;
-  --ink: #1c1a17;
-  --muted: #7c7670;
-  --border: #e8e2d9;
-  --terracotta: #c96b3f;
-  --terra-light: #fdf0ea;
-  --sage: #5a8a6e;
-  --sage-light: #edf4ef;
-  --sky: #3d7ab5;
-  --sky-light: #eaf2fb;
-  --mauve: #8b5e9e;
-  --mauve-light: #f5eefb;
-  --yellow: #d4a017;
-  --yellow-light: #fdf8e8;
+  --bg: #111008;
+  --surface: #1a1810;
+  --surface2: #221f14;
+  --border: #2e2a1e;
+  --gold: #c9963a;
+  --gold-dim: #8a6520;
+  --cream: #e8e0d0;
+  --muted: #7a7060;
+  --white: #f2ece0;
 }
 
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
-body{
-  font-family:'Plus Jakarta Sans',sans-serif;
-  background:var(--cream);
-  color:var(--ink);
-  font-weight:300;
-  line-height:1.7;
-  overflow-x:hidden;
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--cream);
+  font-weight: 300;
+  line-height: 1.7;
+  overflow-x: hidden;
 }
 
 /* ── NAV ── */
-nav{
-  position:fixed;top:0;left:0;right:0;z-index:200;
-  display:flex;justify-content:space-between;align-items:center;
-  padding:1.1rem 3rem;
-  background:rgba(253,248,242,0.94);
-  backdrop-filter:blur(10px);
-  border-bottom:1px solid var(--border);
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1.25rem 3rem;
+  background: rgba(17,16,8,0.9);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
 }
-.nav-logo{
-  font-family:'Fraunces',serif;font-size:1.15rem;
-  color:var(--ink);text-decoration:none;font-weight:600;
+.nav-name {
+  font-family: 'DM Sans', sans-serif;
+  font-size: .9rem; font-weight: 500;
+  color: var(--cream); text-decoration: none;
+  letter-spacing: .02em;
 }
-.nav-logo em{font-style:italic;color:var(--terracotta);}
-.nav-links{display:flex;gap:2.2rem;list-style:none;}
-.nav-links a{
-  font-size:0.75rem;font-weight:500;letter-spacing:0.12em;
-  text-transform:uppercase;color:var(--muted);text-decoration:none;
-  transition:color .2s;
+.nav-icons { display: flex; gap: 1.25rem; align-items: center; }
+.nav-icons a {
+  color: var(--muted); text-decoration: none;
+  transition: color .2s; display: flex; align-items: center;
 }
-.nav-links a:hover{color:var(--terracotta);}
-
-/* ── HERO ── */
-.hero{
-  min-height:100vh;display:grid;
-  grid-template-columns:1.1fr 0.9fr;
-  align-items:center;
-  padding:9rem 3rem 5rem;gap:5rem;
-  border-bottom:1px solid var(--border);
-}
-.hero-eyebrow{
-  display:inline-flex;align-items:center;gap:.6rem;
-  font-size:0.72rem;font-weight:600;letter-spacing:.16em;
-  text-transform:uppercase;color:var(--terracotta);
-  margin-bottom:1.75rem;
-}
-.hero-eyebrow::before{content:'';width:20px;height:2px;background:var(--terracotta);border-radius:1px;}
-h1{
-  font-family:'Fraunces',serif;
-  font-size:clamp(3rem,5.5vw,5rem);
-  line-height:1.06;letter-spacing:-.02em;
-  font-weight:700;margin-bottom:1.75rem;
-}
-h1 em{font-style:italic;color:var(--terracotta);}
-.hero-bio{
-  font-size:1rem;color:var(--muted);
-  max-width:500px;line-height:1.9;margin-bottom:2.5rem;
-}
-.hero-bio strong{color:var(--ink);font-weight:500;}
-.cta-row{display:flex;gap:1rem;flex-wrap:wrap;}
-.btn{
-  display:inline-flex;align-items:center;gap:.5rem;
-  padding:.8rem 1.75rem;font-family:'Plus Jakarta Sans',sans-serif;
-  font-size:.78rem;font-weight:600;letter-spacing:.08em;
-  text-transform:uppercase;text-decoration:none;
-  border-radius:100px;transition:all .2s;border:none;cursor:pointer;
-}
-.btn-primary{background:var(--terracotta);color:#fff;}
-.btn-primary:hover{background:#b55a30;}
-.btn-ghost{border:1.5px solid var(--border);color:var(--muted);background:transparent;}
-.btn-ghost:hover{border-color:var(--terracotta);color:var(--terracotta);}
-
-/* HERO RIGHT */
-.hero-right{display:flex;flex-direction:column;gap:1.25rem;}
-.gambiarra-card{
-  background:var(--white);border:1px solid var(--border);
-  border-left:4px solid var(--terracotta);
-  border-radius:12px;padding:1.75rem 2rem;
-}
-.gambiarra-word{
-  font-family:'Fraunces',serif;font-size:2rem;
-  font-style:italic;color:var(--terracotta);margin-bottom:.3rem;
-}
-.gambiarra-pos{
-  font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;
-  color:var(--muted);margin-bottom:.9rem;
-}
-.gambiarra-def{font-size:.88rem;color:var(--muted);line-height:1.85;}
-.gambiarra-def strong{color:var(--ink);}
-.hero-tags{display:flex;flex-wrap:wrap;gap:.6rem;}
-.hero-tag{
-  font-size:.72rem;font-weight:500;letter-spacing:.06em;
-  padding:.4rem 1rem;border-radius:100px;
-  border:1px solid var(--border);color:var(--muted);
-  background:var(--white);
-}
+.nav-icons a:hover { color: var(--gold); }
+.nav-icons svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 1.8; }
 
 /* ── SECTIONS ── */
-section{padding:6rem 3rem;border-bottom:1px solid var(--border);}
-.eyebrow{
-  font-size:.68rem;font-weight:600;letter-spacing:.18em;
-  text-transform:uppercase;color:var(--terracotta);
-  margin-bottom:.75rem;display:flex;align-items:center;gap:.6rem;
+section { padding: 6rem 3rem; }
+.section-label {
+  font-family: 'DM Mono', monospace;
+  font-size: .65rem; letter-spacing: .2em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 1rem;
+  display: flex; align-items: center; gap: .75rem;
 }
-.eyebrow::after{content:'';width:28px;height:1.5px;background:var(--terracotta);opacity:.4;border-radius:1px;}
-h2{
-  font-family:'Fraunces',serif;
-  font-size:clamp(1.9rem,3.2vw,2.8rem);
-  line-height:1.12;margin-bottom:1rem;font-weight:700;
+.section-label::after {
+  content: ''; flex: 1; max-width: 36px; height: 1px;
+  background: var(--gold-dim);
 }
-h2 em{font-style:italic;color:var(--terracotta);}
-.section-intro{
-  font-size:.95rem;color:var(--muted);
-  max-width:560px;line-height:1.85;margin-bottom:3.5rem;
+h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  font-weight: 600; line-height: 1.1;
+  color: var(--white);
 }
+h2 em { font-style: italic; color: var(--gold); }
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 8rem 3rem 5rem;
+  border-bottom: 1px solid var(--border);
+}
+.hero-portfolio-label {
+  font-family: 'DM Mono', monospace;
+  font-size: .65rem; letter-spacing: .2em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 2rem;
+  display: flex; align-items: center; gap: .75rem;
+}
+.hero-portfolio-label::before { content: '——'; color: var(--gold); letter-spacing: -.1em; }
+.hero-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(4rem, 10vw, 8rem);
+  font-weight: 700; line-height: .95;
+  color: var(--white); margin-bottom: .75rem;
+  letter-spacing: -.02em;
+}
+.hero-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  font-weight: 400; color: var(--gold);
+  margin-bottom: 1.75rem; font-style: normal;
+}
+.hero-meta {
+  display: flex; align-items: center; gap: .75rem;
+  font-size: .82rem; color: var(--muted);
+  margin-bottom: 1.5rem;
+}
+.hero-meta svg { width: 14px; height: 14px; stroke: var(--muted); fill: none; stroke-width: 1.8; flex-shrink: 0; }
+.hero-meta span { color: var(--muted); }
+.hero-meta .sep { color: var(--border); }
+.hero-bio {
+  font-size: .95rem; color: var(--muted);
+  max-width: 480px; line-height: 1.85;
+  margin-bottom: 2.5rem;
+}
+.hero-btns { display: flex; gap: .85rem; flex-wrap: wrap; }
+.btn {
+  display: inline-flex; align-items: center; gap: .5rem;
+  padding: .7rem 1.5rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: .78rem; font-weight: 500;
+  letter-spacing: .04em; text-decoration: none;
+  border-radius: 4px; transition: all .2s; cursor: pointer; border: none;
+}
+.btn-gold { background: var(--gold); color: #111008; }
+.btn-gold:hover { background: #e0aa42; }
+.btn-outline { background: transparent; border: 1px solid var(--border); color: var(--cream); }
+.btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+.btn svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2; }
 
 /* ── ABOUT ── */
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;}
-.about-text p{font-size:.93rem;color:var(--muted);line-height:1.9;margin-bottom:1.2rem;}
-.about-text p strong{color:var(--ink);font-weight:500;}
-.trait-list{display:flex;flex-direction:column;gap:.85rem;}
-.trait{
-  display:flex;align-items:flex-start;gap:1rem;
-  padding:1.1rem 1.4rem;background:var(--white);
-  border:1px solid var(--border);border-radius:10px;
-  transition:border-color .2s,box-shadow .2s;
+.about-section { border-bottom: 1px solid var(--border); }
+.about-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 5rem; align-items: start; margin-top: 3rem;
 }
-.trait:hover{border-color:var(--terracotta);box-shadow:0 4px 16px rgba(201,107,63,.08);}
-.trait-emoji{font-size:1.15rem;width:32px;flex-shrink:0;margin-top:.1rem;}
-.trait-name{font-size:.85rem;font-weight:600;margin-bottom:.15rem;}
-.trait-desc{font-size:.75rem;color:var(--muted);line-height:1.65;}
+.about-text p {
+  font-size: .95rem; color: var(--muted);
+  line-height: 1.9; margin-bottom: 1.2rem;
+}
+.about-right { display: flex; flex-direction: column; gap: 1rem; }
+.about-stats {
+  display: grid; grid-template-columns: repeat(3,1fr);
+  gap: 2rem; margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border);
+}
+.stat-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.5rem; font-weight: 600;
+  color: var(--gold); line-height: 1;
+  margin-bottom: .25rem;
+}
+.stat-label {
+  font-family: 'DM Mono', monospace;
+  font-size: .6rem; letter-spacing: .15em;
+  text-transform: uppercase; color: var(--muted);
+}
+.info-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px; padding: 1.1rem 1.4rem;
+}
+.info-card-label {
+  font-family: 'DM Mono', monospace;
+  font-size: .6rem; letter-spacing: .15em;
+  text-transform: uppercase; color: var(--gold);
+  margin-bottom: .5rem;
+}
+.info-card-value { font-size: .88rem; color: var(--cream); }
 
 /* ── SKILLS ── */
-.skills-wrap{
-  display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));
-  gap:1rem;
+.skills-section { background: var(--bg); border-bottom: 1px solid var(--border); }
+.skills-grid {
+  display: grid; grid-template-columns: repeat(3,1fr);
+  gap: 3rem; margin-top: 3rem;
 }
-.skill-card{
-  background:var(--white);border:1px solid var(--border);
-  border-radius:10px;padding:1.1rem 1.25rem;
-  transition:border-color .2s;
+.skill-group-label {
+  font-family: 'DM Mono', monospace;
+  font-size: .6rem; letter-spacing: .18em;
+  text-transform: uppercase; color: var(--gold);
+  margin-bottom: 1rem;
 }
-.skill-card:hover{border-color:var(--terracotta);}
-.skill-name{font-size:.85rem;font-weight:600;margin-bottom:.2rem;}
-.skill-cat{font-size:.65rem;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;margin-bottom:.6rem;}
-.skill-bar{height:3px;background:var(--border);border-radius:2px;}
-.skill-fill{height:100%;border-radius:2px;background:var(--terracotta);}
+.skill-tags { display: flex; flex-wrap: wrap; gap: .5rem; }
+.skill-tag {
+  font-family: 'DM Mono', monospace;
+  font-size: .72rem; color: var(--cream);
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  padding: .35rem .75rem; border-radius: 3px;
+  transition: border-color .2s;
+}
+.skill-tag:hover { border-color: var(--gold-dim); }
 
-/* ── PROJECT LAYOUT ── */
-.project-block{margin-bottom:5rem;}
-.project-block:last-child{margin-bottom:0;}
-
-.project-header{
-  display:grid;grid-template-columns:1fr auto;
-  align-items:start;gap:2rem;
-  margin-bottom:2.5rem;
-  position:relative;z-index:5;
+/* ── PROJECTS ── */
+.projects-section { border-bottom: 1px solid var(--border); }
+.projects-grid {
+  display: grid; grid-template-columns: repeat(3,1fr);
+  gap: 1.25rem; margin-top: 3rem;
 }
-.project-num{
-  font-size:.65rem;font-weight:700;letter-spacing:.2em;
-  text-transform:uppercase;color:var(--muted);margin-bottom:.6rem;
+.project-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px; padding: 2rem;
+  display: flex; flex-direction: column;
+  transition: border-color .25s;
 }
-.project-title{
-  font-family:'Fraunces',serif;
-  font-size:clamp(1.5rem,2.5vw,2rem);
-  line-height:1.15;font-weight:700;margin-bottom:.5rem;
+.project-card:hover { border-color: var(--gold-dim); }
+.project-card.active { border-color: var(--gold); }
+.project-num {
+  font-family: 'DM Mono', monospace;
+  font-size: .65rem; color: var(--gold);
+  letter-spacing: .08em; margin-bottom: 1.25rem;
 }
-.project-question{
-  font-size:.88rem;font-style:italic;
-  color:var(--terracotta);line-height:1.65;
+.project-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem; font-weight: 600;
+  color: var(--white); line-height: 1.25;
+  margin-bottom: 1rem;
 }
-.project-links-top{display:flex;gap:.75rem;flex-shrink:0;}
-.link-btn{
-  display:inline-flex;align-items:center;gap:.35rem;
-  font-size:.7rem;font-weight:600;letter-spacing:.08em;
-  text-transform:uppercase;text-decoration:none;
-  color:var(--muted);border:1.5px solid var(--border);
-  padding:.5rem 1.1rem;border-radius:100px;
-  transition:all .2s;
-  position:relative;z-index:10;
-  cursor:pointer;
+.project-desc {
+  font-size: .82rem; color: var(--muted);
+  line-height: 1.8; flex: 1; margin-bottom: 1.5rem;
 }
-.link-btn:hover{border-color:var(--terracotta);color:var(--terracotta);}
-.link-btn.wip{opacity:.4;cursor:default;pointer-events:none;}
-
-/* STORY STEPS */
-.story-steps{
-  display:grid;grid-template-columns:repeat(3,1fr);
-  gap:1px;background:var(--border);
-  border:1px solid var(--border);border-radius:12px;
-  overflow:hidden;margin-bottom:2rem;
+.project-tags { display: flex; flex-wrap: wrap; gap: .4rem; margin-bottom: 1.5rem; }
+.project-tag {
+  font-family: 'DM Mono', monospace;
+  font-size: .65rem; color: var(--muted);
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  padding: .25rem .65rem; border-radius: 3px;
 }
-.story-step{
-  background:var(--white);padding:1.75rem 1.5rem;
+.project-links { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: auto; }
+.project-link {
+  display: inline-flex; align-items: center; gap: .4rem;
+  font-size: .75rem; font-weight: 500;
+  text-decoration: none; color: var(--cream);
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  padding: .45rem .9rem; border-radius: 4px;
+  transition: all .2s;
 }
-.step-num{
-  font-size:.62rem;font-weight:700;letter-spacing:.15em;
-  text-transform:uppercase;color:var(--terracotta);
-  margin-bottom:.6rem;
-}
-.step-q{font-size:.88rem;font-weight:600;margin-bottom:.5rem;line-height:1.4;}
-.step-a{font-size:.78rem;color:var(--muted);line-height:1.7;}
-
-/* FINDINGS GRID */
-.findings-grid{
-  display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
-  gap:1rem;margin-bottom:2rem;
-}
-.finding-card{
-  padding:1.4rem 1.6rem;border-radius:10px;
-  border:1px solid transparent;
-}
-.finding-card.terra{background:var(--terra-light);border-color:#f0d4c6;}
-.finding-card.sage{background:var(--sage-light);border-color:#c8dfd4;}
-.finding-card.sky{background:var(--sky-light);border-color:#c0d8ef;}
-.finding-card.mauve{background:var(--mauve-light);border-color:#d9c4eb;}
-.finding-card.yellow{background:var(--yellow-light);border-color:#ead9a0;}
-.finding-icon{font-size:1.3rem;margin-bottom:.6rem;}
-.finding-title{font-size:.85rem;font-weight:600;margin-bottom:.35rem;}
-.finding-desc{font-size:.78rem;color:var(--muted);line-height:1.7;}
-.finding-so-what{
-  font-size:.72rem;font-weight:600;
-  color:var(--sage);margin-top:.6rem;
-  padding-top:.6rem;border-top:1px solid rgba(90,138,110,.2);
-}
-.finding-card.terra .finding-so-what{color:var(--terracotta);}
-.finding-card.sky .finding-so-what{color:var(--sky);}
-.finding-card.mauve .finding-so-what{color:var(--mauve);}
-.finding-card.yellow .finding-so-what{color:var(--yellow);}
-
-/* TAGS */
-.tag-row{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.5rem;}
-.tag{
-  font-size:.65rem;font-weight:600;letter-spacing:.07em;
-  text-transform:uppercase;padding:.3rem .75rem;
-  border-radius:100px;border:1px solid var(--border);
-  color:var(--muted);background:var(--white);
-}
-
-/* ── MENSTRUAL DASHBOARD PREVIEW ── */
-.dashboard-wrap{
-  background:var(--white);border:1px solid var(--border);
-  border-radius:14px;overflow:hidden;margin-bottom:2rem;
-}
-.dash-chrome-bar{
-  background:#f5f0ea;border-bottom:1px solid var(--border);
-  padding:.7rem 1.1rem;display:flex;align-items:center;gap:.5rem;
-}
-.dot{width:10px;height:10px;border-radius:50%;}
-.dash-url{
-  margin:0 auto;font-size:.6rem;color:var(--muted);
-  background:var(--white);padding:.2rem 1rem;
-  border-radius:100px;border:1px solid var(--border);
-}
-.dash-tabs{
-  display:flex;gap:.5rem;padding:1rem 1.5rem;
-  background:#faf7f3;border-bottom:1px solid var(--border);
-  flex-wrap:wrap;
-}
-.dash-tab{
-  font-size:.68rem;font-weight:600;letter-spacing:.08em;
-  text-transform:uppercase;padding:.38rem .9rem;
-  border-radius:100px;border:1.5px solid var(--border);
-  color:var(--muted);cursor:pointer;
-  transition:all .2s;background:var(--white);
-  font-family:'Plus Jakarta Sans',sans-serif;
-}
-.dash-tab.active,.dash-tab:hover{
-  border-color:var(--terracotta);color:var(--terracotta);
-  background:var(--terra-light);
-}
-.dash-body{padding:1.5rem;min-height:220px;}
-.dash-screen{display:none;}
-.dash-screen.active{display:block;}
-
-/* mini viz */
-.kpi-strip{display:grid;grid-template-columns:repeat(5,1fr);gap:.75rem;margin-bottom:1.25rem;}
-.kpi{background:var(--cream);border:1px solid var(--border);border-radius:8px;padding:.75rem 1rem;}
-.kpi-label{font-size:.55rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:.3rem;}
-.kpi-value{font-family:'Fraunces',serif;font-size:1.3rem;font-weight:600;color:var(--ink);}
-.chart-label{font-size:.62rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:.6rem;}
-.mini-bars{display:flex;align-items:flex-end;gap:3px;}
-.mbar{border-radius:2px 2px 0 0;}
-.legend-row{display:flex;gap:1.25rem;flex-wrap:wrap;margin-top:.6rem;}
-.leg{display:flex;align-items:center;gap:.4rem;font-size:.62rem;color:var(--muted);}
-.leg-dot{width:8px;height:8px;border-radius:50%;}
-
-/* predictor */
-.predictor-layout{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;}
-.pred-input-box{
-  background:var(--cream);border:1px solid var(--border);
-  border-radius:8px;padding:.85rem 1rem;margin-bottom:.65rem;
-}
-.pred-label-txt{font-size:.58rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:.5rem;}
-.pred-track{height:4px;background:var(--border);border-radius:2px;position:relative;}
-.pred-fill{height:100%;border-radius:2px;position:absolute;top:0;left:0;}
-.pred-fill::after{
-  content:'';position:absolute;right:-4px;top:-4px;
-  width:12px;height:12px;border-radius:50%;
-  background:inherit;border:2px solid var(--white);
-  box-shadow:0 1px 4px rgba(0,0,0,.15);
-}
-.pred-val{font-size:.7rem;color:var(--ink);font-weight:500;margin-top:.4rem;}
-.pred-result{
-  background:var(--terra-light);
-  border:1.5px solid #f0d4c6;border-radius:12px;
-  display:flex;flex-direction:column;
-  align-items:center;justify-content:center;
-  padding:2rem;text-align:center;gap:.5rem;
-}
-.pred-result-label{font-size:.62rem;text-transform:uppercase;letter-spacing:.14em;color:var(--terracotta);}
-.pred-result-num{font-family:'Fraunces',serif;font-size:4.5rem;font-weight:700;color:var(--ink);line-height:1;}
-.pred-result-sub{font-size:.7rem;color:var(--muted);line-height:1.6;max-width:180px;}
+.project-link:hover { border-color: var(--gold); color: var(--gold); }
+.project-link svg { width: 13px; height: 13px; stroke: currentColor; fill: none; stroke-width: 2; }
 
 /* ── CONTACT ── */
-.contact-layout{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;}
-.avail-pill{
-  display:inline-flex;align-items:center;gap:.5rem;
-  font-size:.68rem;font-weight:600;letter-spacing:.1em;
-  text-transform:uppercase;color:var(--sage);
-  background:var(--sage-light);
-  border:1px solid #c8dfd4;
-  padding:.3rem .9rem;border-radius:100px;margin-bottom:1.5rem;
+.contact-section { border-bottom: 1px solid var(--border); }
+.contact-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 5rem; align-items: start; margin-top: 3rem;
 }
-.avail-pill::before{
-  content:'';width:7px;height:7px;border-radius:50%;
-  background:var(--sage);animation:pulse 2s infinite;
+.contact-desc { font-size: .95rem; color: var(--muted); line-height: 1.85; margin-top: 1.5rem; }
+.contact-links { display: flex; flex-direction: column; gap: .75rem; }
+.contact-link-card {
+  display: flex; align-items: center; gap: 1.1rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px; padding: 1.1rem 1.4rem;
+  text-decoration: none; color: var(--cream);
+  transition: border-color .2s;
 }
-.contact-link{
-  display:flex;align-items:center;gap:1.1rem;
-  padding:1.1rem 1.4rem;background:var(--white);
-  border:1px solid var(--border);border-radius:10px;
-  text-decoration:none;color:var(--ink);
-  margin-bottom:.75rem;transition:border-color .2s;
+.contact-link-card:hover { border-color: var(--gold); }
+.contact-link-icon {
+  width: 36px; height: 36px; flex-shrink: 0;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  display: flex; align-items: center; justify-content: center;
 }
-.contact-link:hover{border-color:var(--terracotta);}
-.contact-icon{
-  width:36px;height:36px;border-radius:8px;
-  background:var(--terra-light);
-  display:flex;align-items:center;justify-content:center;
-  font-size:1rem;flex-shrink:0;
-}
-.contact-link-label{font-size:.62rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;}
-.contact-link-val{font-size:.85rem;font-weight:500;}
-.details-box{
-  background:var(--white);border:1px solid var(--border);
-  border-radius:12px;padding:2rem;
-}
-.details-box h3{
-  font-family:'Fraunces',serif;font-size:1.15rem;
-  font-weight:600;margin-bottom:1.5rem;
-}
-.detail-row{
-  display:flex;justify-content:space-between;align-items:center;
-  padding:.75rem 0;border-bottom:1px solid var(--border);
-  font-size:.83rem;
-}
-.detail-row:last-child{border-bottom:none;}
-.detail-key{color:var(--muted);}
-.detail-val{font-weight:500;}
+.contact-link-icon svg { width: 16px; height: 16px; stroke: var(--gold); fill: none; stroke-width: 1.8; }
+.contact-link-label { font-size: .65rem; color: var(--muted); margin-bottom: .15rem; letter-spacing: .04em; }
+.contact-link-value { font-size: .88rem; font-weight: 500; }
 
-footer{
-  padding:1.75rem 3rem;
-  display:flex;justify-content:space-between;align-items:center;
-  font-size:.75rem;color:var(--muted);
+/* FOOTER */
+footer {
+  padding: 2rem 3rem;
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: .72rem; color: var(--muted);
+  border-top: 1px solid var(--border);
 }
-footer a{color:var(--muted);text-decoration:none;}
-footer a:hover{color:var(--terracotta);}
 
-@keyframes pulse{0%,100%{opacity:1;}50%{opacity:.3;}}
-@keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+/* ANIMATIONS */
+@keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+.hero-name { animation: fadeUp .7s ease both; }
+.hero-title { animation: fadeUp .7s .1s ease both; }
+.hero-meta { animation: fadeUp .7s .2s ease both; }
+.hero-bio { animation: fadeUp .7s .3s ease both; }
+.hero-btns { animation: fadeUp .7s .4s ease both; }
 
-.fade-in{animation:fadeUp .8s ease both;}
-.fade-in-2{animation:fadeUp .8s .15s ease both;}
-
-@media(max-width:900px){
-  nav{padding:1rem 1.5rem;}
-  .nav-links{gap:1.25rem;}
-  .hero{grid-template-columns:1fr;padding:6.5rem 1.5rem 3.5rem;gap:2.5rem;}
-  section{padding:4rem 1.5rem;}
-  .about-grid,.contact-layout{grid-template-columns:1fr;gap:2.5rem;}
-  .story-steps,.kpi-strip{grid-template-columns:1fr 1fr;}
-  .predictor-layout{grid-template-columns:1fr;}
-  footer{flex-direction:column;gap:.5rem;text-align:center;}
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  nav { padding: 1rem 1.5rem; }
+  section { padding: 4rem 1.5rem; }
+  .hero { padding: 7rem 1.5rem 4rem; }
+  .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .skills-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .projects-grid { grid-template-columns: 1fr; }
+  footer { flex-direction: column; gap: .5rem; text-align: center; }
+}
+@media (max-width: 600px) {
+  .skills-grid { grid-template-columns: 1fr; }
+  .about-stats { grid-template-columns: repeat(3,1fr); }
 }
 </style>
 </head>
 <body>
 
-
 <!-- NAV -->
 <nav>
-  <a href="#" class="nav-logo">Julia <em>Silva</em></a>
-  <ul class="nav-links">
-    <li><a href="#home">About</a></li>
-    <li><a href="#skills">Tools</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
+  <a href="#" class="nav-name">Julia Silva</a>
+  <div class="nav-icons">
+    <a href="https://github.com/juliamarcella" target="_blank" aria-label="GitHub">
+      <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+    </a>
+    <a href="https://www.linkedin.com/in/julia-marcella-silva/" target="_blank" aria-label="LinkedIn">
+      <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+    </a>
+  </div>
 </nav>
 
-<!-- HERO + ABOUT combined -->
-<section id="home" style="padding:8rem 3rem 5rem;border-bottom:1px solid var(--border);">
-  <div style="display:grid;grid-template-columns:1.1fr 0.9fr;gap:5rem;align-items:center;">
-    <div class="fade-in">
-      <div class="hero-eyebrow">Junior Data Analyst · Netherlands</div>
-      <h1 style="font-size:clamp(2.6rem,5vw,4.2rem);margin-bottom:1.5rem;">I turn messy data<br/>into <em>clear answers</em></h1>
-      <p style="font-size:.97rem;color:var(--muted);line-height:1.9;margin-bottom:1rem;">
-        I'm Julia — a data analyst with a background in <strong style="color:var(--ink);">customer service</strong>. Before data, I spent years on the front line of customer support — understanding what people actually need, solving problems under pressure, and communicating clearly across cultures and time zones.
-      </p>
-      <p style="font-size:.97rem;color:var(--muted);line-height:1.9;margin-bottom:2rem;">
-        That experience taught me to ask the right questions, listen before jumping to conclusions, and stay focused on the person behind the problem. Now I bring that same instinct to data — turning numbers into decisions that make sense for real people and real businesses.
-      </p>
-      <div class="cta-row">
-        <a href="#projects" class="btn btn-primary">See My Projects</a>
-        <a href="mailto:jualia.m@gmail.com" class="btn btn-ghost">Get in Touch</a>
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-portfolio-label">Portfolio</div>
+  <div class="hero-name">Julia Silva</div>
+  <div class="hero-title">Junior Data Analyst</div>
+  <div class="hero-meta">
+    <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+    <span>Ede, Netherlands</span>
+    <span class="sep">/</span>
+    <span>Open to relocate</span>
+  </div>
+  <p class="hero-bio">Transitioned from customer service into data analytics. Passionate about uncovering stories in data — through Python, SQL, and BI tools.</p>
+  <div class="hero-btns">
+    <a href="https://github.com/juliamarcella" target="_blank" class="btn btn-gold">
+      <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+      View GitHub
+    </a>
+    <a href="https://www.linkedin.com/in/julia-marcella-silva/" target="_blank" class="btn btn-outline">
+      <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+      LinkedIn
+    </a>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about-section" id="about">
+  <div class="section-label">About</div>
+  <div class="about-grid">
+    <div>
+      <h2>From conversations<br/>to <em>insights</em></h2>
+      <div class="about-text" style="margin-top:2rem;">
+        <p>My journey into data started somewhere unexpected — behind a customer service desk. Years of listening, problem-solving, and understanding what people really need taught me something fundamental: the best answers come from asking the right questions.</p>
+        <p>That curiosity led me to data analytics. I retrained myself in Python, SQL, and business intelligence tools, and discovered a deep passion for turning messy datasets into clear, human stories. Whether it's tracking Olympic history or mapping productivity rhythms, I care about the "so what" behind every number.</p>
+        <p>I'm actively looking for opportunities in data where I can grow, contribute, and keep asking better questions.</p>
       </div>
     </div>
-    <div class="fade-in-2" style="display:flex;flex-direction:column;gap:1.25rem;">
-      <div style="background:var(--white);border:1px solid var(--border);border-left:4px solid var(--terracotta);border-radius:12px;padding:1.75rem 2rem;">
-        <div style="font-family:'Fraunces',serif;font-size:1.8rem;font-style:italic;color:var(--terracotta);margin-bottom:.3rem;">gambiarra</div>
-        <div style="font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:.9rem;">Brazilian Portuguese · noun</div>
-        <div style="font-size:.88rem;color:var(--muted);line-height:1.85;">When you don't have the right tools, you <strong style="color:var(--ink);">figure it out anyway</strong>. Improvise, think outside the box, find a way. <em style="color:var(--terracotta);">That's how I approach every problem.</em></div>
+    <div class="about-right">
+      <div class="about-stats">
+        <div>
+          <div class="stat-num">3</div>
+          <div class="stat-label">Projects</div>
+        </div>
+        <div>
+          <div class="stat-num">5+</div>
+          <div class="stat-label">BI &amp; Data Tools</div>
+        </div>
+        <div>
+          <div class="stat-num">3</div>
+          <div class="stat-label">Languages</div>
+        </div>
       </div>
-      <div style="display:flex;flex-wrap:wrap;gap:.6rem;">
-        <span class="hero-tag">🧩 Puzzle solver</span>
-        <span class="hero-tag">🌍 3 countries</span>
-        <span class="hero-tag">🔍 Always curious</span>
-        <span class="hero-tag">🤝 Customer-first</span>
-        <span class="hero-tag">✈️ Loves to travel</span>
-        <span class="hero-tag">💬 PT · EN · NL</span>
-        <span class="hero-tag">📍 No visa needed</span>
+      <div class="info-card">
+        <div class="info-card-label">Languages Spoken</div>
+        <div class="info-card-value">Portuguese (native) · English (fluent) · Dutch (basic · still learning)</div>
+      </div>
+      <div class="info-card">
+        <div class="info-card-label">Currently Based In</div>
+        <div class="info-card-value">Ede, Netherlands · Open to opportunities</div>
+      </div>
+      <div class="info-card">
+        <div class="info-card-label">Availability</div>
+        <div class="info-card-value">No visa sponsorship needed · Open to relocation · Full-time</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- TOOLS -->
-<section id="skills" style="background:var(--white);padding:3.5rem 3rem;">
-  <div class="eyebrow">Tools</div>
-  <div style="display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.25rem;">
-    <span style="font-size:.82rem;font-weight:600;padding:.5rem 1.1rem;border-radius:100px;background:var(--terra-light);color:var(--terracotta);border:1px solid #f0d4c6;">Python</span>
-    <span style="font-size:.82rem;font-weight:600;padding:.5rem 1.1rem;border-radius:100px;background:var(--terra-light);color:var(--terracotta);border:1px solid #f0d4c6;">Pandas & NumPy</span>
-    <span style="font-size:.82rem;font-weight:600;padding:.5rem 1.1rem;border-radius:100px;background:var(--sky-light);color:var(--sky);border:1px solid #c0d8ef;">SQL & BigQuery</span>
-    <span style="font-size:.82rem;font-weight:600;padding:.5rem 1.1rem;border-radius:100px;background:var(--sky-light);color:var(--sky);border:1px solid #c0d8ef;">Power BI & DAX</span>
-    <span style="font-size:.82rem;font-weight:600;padding:.5rem 1.1rem;border-radius:100px;background:var(--sky-light);color:var(--sky);border:1px solid #c0d8ef;">Looker Studio</span>
-    <span style="font-size:.82rem;font-weight:600;padding:.5rem 1.1rem;border-radius:100px;background:var(--sage-light);color:var(--sage);border:1px solid #c8dfd4;">Scikit-learn</span>
-    <span style="font-size:.82rem;font-weight:600;padding:.5rem 1.1rem;border-radius:100px;background:var(--sage-light);color:var(--sage);border:1px solid #c8dfd4;">Machine Learning</span>
-    <span style="font-size:.82rem;font-weight:600;padding:.5rem 1.1rem;border-radius:100px;background:var(--sage-light);color:var(--sage);border:1px solid #c8dfd4;">Clustering & Segmentation</span>
-    <span style="font-size:.82rem;font-weight:600;padding:.5rem 1.1rem;border-radius:100px;background:var(--mauve-light);color:var(--mauve);border:1px solid #d9c4eb;">Matplotlib & Seaborn</span>
-    <span style="font-size:.82rem;font-weight:600;padding:.5rem 1.1rem;border-radius:100px;background:var(--mauve-light);color:var(--mauve);border:1px solid #d9c4eb;">Statistical Analysis</span>
-    <span style="font-size:.82rem;font-weight:600;padding:.5rem 1.1rem;border-radius:100px;background:var(--yellow-light);color:var(--yellow);border:1px solid #ead9a0;">dbt & Git</span>
-    <span style="font-size:.82rem;font-weight:600;padding:.5rem 1.1rem;border-radius:100px;background:var(--yellow-light);color:var(--yellow);border:1px solid #ead9a0;">Salesforce CRM</span>
+<!-- SKILLS -->
+<section class="skills-section" id="skills">
+  <div class="section-label">Skills</div>
+  <h2>Tools of the <em>trade</em></h2>
+  <div class="skills-grid">
+    <div>
+      <div class="skill-group-label">Languages</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">SQL</span>
+      </div>
+    </div>
+    <div>
+      <div class="skill-group-label">Libraries</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Pandas</span>
+        <span class="skill-tag">NumPy</span>
+        <span class="skill-tag">Scikit-learn</span>
+        <span class="skill-tag">Matplotlib</span>
+        <span class="skill-tag">Seaborn</span>
+      </div>
+    </div>
+    <div>
+      <div class="skill-group-label">BI &amp; Visualization</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Power BI</span>
+        <span class="skill-tag">DAX</span>
+        <span class="skill-tag">Looker Studio</span>
+        <span class="skill-tag">Excel</span>
+      </div>
+    </div>
+    <div>
+      <div class="skill-group-label">Data Engineering</div>
+      <div class="skill-tags">
+        <span class="skill-tag">BigQuery</span>
+        <span class="skill-tag">dbt</span>
+        <span class="skill-tag">Git</span>
+      </div>
+    </div>
+    <div>
+      <div class="skill-group-label">Methods</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Machine Learning</span>
+        <span class="skill-tag">Clustering</span>
+        <span class="skill-tag">Statistics</span>
+        <span class="skill-tag">RFM Analysis</span>
+        <span class="skill-tag">EDA</span>
+      </div>
+    </div>
+    <div>
+      <div class="skill-group-label">Other</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Salesforce CRM</span>
+        <span class="skill-tag">Jupyter</span>
+        <span class="skill-tag">Google Colab</span>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- PROJECTS -->
-<section id="projects">
-  <div class="eyebrow">Projects</div>
-  <h2>Work that <em>answers</em><br/>real questions</h2>
-  <p class="section-intro">Every project started with a question a business would actually care about — not just a dataset.</p>
+<section class="projects-section" id="projects">
+  <div class="section-label">Projects</div>
+  <h2>Selected <em>work</em></h2>
+  <div class="projects-grid">
 
-  <!-- ═══ PROJECT 1: MENSTRUAL ═══ -->
-  <div class="project-block">
-    <div class="project-header">
-      <div>
-        <div class="project-num">01 · Health & Productivity · Featured</div>
-        <div class="project-title">Does pain affect how much someone can work?</div>
-        <div class="project-question">"And if we could predict it — what would HR teams do differently?"</div>
+    <!-- Project 01 -->
+    <div class="project-card active">
+      <div class="project-num">01</div>
+      <div class="project-title">Menstrual Cycle &amp; Productivity</div>
+      <p class="project-desc">How much does a menstrual cycle actually affect someone's ability to work — and can we measure it? Using a dataset from a period-tracking app, I analysed how cycle-related symptoms, biological factors, and lifestyle choices impact productivity, measured through hours of work lost, concentration, and mood scores. The analysis uncovers which symptoms hit hardest, whether lifestyle adjustments make a real difference, and builds a predictive model estimating how many work hours a person may lose. The Looker Studio dashboard makes these insights accessible — a practical tool for building more inclusive, wellbeing-aware workplaces.</p>
+      <div class="project-tags">
+        <span class="project-tag">Python</span>
+        <span class="project-tag">Looker Studio</span>
+        <span class="project-tag">Period Tracking Data</span>
+        <span class="project-tag">Machine Learning</span>
       </div>
-      <div class="project-links-top">
-        <a href="https://lookerstudio.google.com/reporting/6eee069c-64ae-47c1-ae42-89b91545860d" target="_blank" class="link-btn">Live Dashboard ↗</a>
-        <a href="https://github.com/juliamarcella/Menstrual-cycle-and-productivity-" target="_blank" class="link-btn">GitHub</a>
+      <div class="project-links">
+        <a href="https://github.com/juliamarcella/Menstrual-cycle-and-productivity-" target="_blank" class="project-link">
+          <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          GitHub
+        </a>
+        <a href="https://github.com/juliamarcella/Menstrual-cycle-and-productivity-/blob/main/rhythms_of_work.pptx.pdf" target="_blank" class="project-link">
+          <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          Presentation
+        </a>
+        <a href="https://lookerstudio.google.com/reporting/6eee069c-64ae-47c1-ae42-89b91545860d" target="_blank" class="project-link">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+          Dashboard
+        </a>
       </div>
     </div>
 
-    <!-- Story steps -->
-    <div class="story-steps">
-      <div class="story-step">
-        <div class="step-num">The question</div>
-        <div class="step-q">How much do menstrual symptoms actually affect workplace productivity?</div>
-        <div class="step-a">Millions of people experience cycle-related symptoms at work, but most companies have no data on the impact. This project set out to measure it.</div>
+    <!-- Project 02 -->
+    <div class="project-card">
+      <div class="project-num">02</div>
+      <div class="project-title">Women in the Olympics</div>
+      <p class="project-desc">120 years of Olympic data holds a story most people have never read. I wanted to ask: how much has actually changed for women in sport, and where does inequality still hide? The analysis traces women's participation by country, decade, and discipline — surfacing which nations lead, which lag, and how cultural and geopolitical factors shaped women's access to competition over time. Behind every medal count is a question of who was even allowed to show up.</p>
+      <div class="project-tags">
+        <span class="project-tag">Python</span>
+        <span class="project-tag">SQL</span>
+        <span class="project-tag">Looker Studio</span>
+        <span class="project-tag">Historical Data</span>
       </div>
-      <div class="story-step">
-        <div class="step-num">The analysis</div>
-        <div class="step-q">Pain level, flow, lifestyle habits, hormones — what matters most?</div>
-        <div class="step-a">Analysed data from 2,000 users across cycle logs, hormone readings, lifestyle habits (sleep, exercise, diet) and productivity metrics including work hours lost, mood, and energy.</div>
-      </div>
-      <div class="story-step">
-        <div class="step-num">The answer</div>
-        <div class="step-q">Pain is the single strongest driver — and it can be predicted.</div>
-        <div class="step-a">Pain level consistently explained more variation in productivity loss than cycle phase, diet, or lifestyle combined. A machine learning model can estimate hours lost with 75% accuracy.</div>
-      </div>
-    </div>
-
-    <!-- Dashboard preview -->
-    <div class="dashboard-wrap">
-      <div class="dash-chrome-bar">
-        <div class="dot" style="background:#ff5f57"></div>
-        <div class="dot" style="background:#ffbd2e"></div>
-        <div class="dot" style="background:#28ca41"></div>
-        <div class="dash-url">lookerstudio.google.com · Menstrual Health Productivity</div>
-      </div>
-      <div class="dash-tabs" id="mens-tabs">
-        <button class="dash-tab active" onclick="switchMens(0)">Overview</button>
-        <button class="dash-tab" onclick="switchMens(1)">Healthy Style</button>
-        <button class="dash-tab" onclick="switchMens(2)">Symptoms</button>
-        <button class="dash-tab" onclick="switchMens(3)">Productivity</button>
-        <button class="dash-tab" onclick="switchMens(4)">🤖 Predictor</button>
-      </div>
-      <div class="dash-body" id="mens-dash">
-
-        <!-- Overview -->
-        <div class="dash-screen active" id="m0">
-          <div class="kpi-strip">
-            <div class="kpi"><div class="kpi-label">Total Users</div><div class="kpi-value">2,000</div></div>
-            <div class="kpi"><div class="kpi-label">Cycles Logged</div><div class="kpi-value">17,972</div></div>
-            <div class="kpi"><div class="kpi-label">Avg Pain Level</div><div class="kpi-value">4.9</div></div>
-            <div class="kpi"><div class="kpi-label">Avg Hours Lost</div><div class="kpi-value">3.4</div></div>
-            <div class="kpi"><div class="kpi-label">Avg Mood Score</div><div class="kpi-value">7.09</div></div>
-          </div>
-          <div class="chart-label">Mood, Energy &amp; Work Hours Lost — as pain rises (1→10)</div>
-          <svg viewBox="0 0 500 85" style="width:100%;" xmlns="http://www.w3.org/2000/svg">
-            <polyline points="20,10 70,14 120,20 170,28 220,36 270,45 320,53 370,61 420,67 480,73" fill="none" stroke="#c96b3f" stroke-width="2.5" stroke-linejoin="round"/>
-            <polyline points="20,14 70,18 120,24 170,32 220,40 270,49 320,57 370,65 420,71 480,76" fill="none" stroke="#5a8a6e" stroke-width="2" stroke-linejoin="round" stroke-dasharray="5 3"/>
-            <polyline points="20,80 70,74 120,67 170,59 220,51 270,42 320,34 370,26 420,20 480,13" fill="none" stroke="#c96b3f" stroke-width="2" stroke-linejoin="round" stroke-dasharray="3 2" opacity=".5"/>
-            <text x="20" y="83" font-size="8" fill="#aaa" font-family="sans-serif">Pain 1</text>
-            <text x="456" y="83" font-size="8" fill="#aaa" font-family="sans-serif">Pain 10</text>
-          </svg>
-          <div class="legend-row">
-            <div class="leg"><div class="leg-dot" style="background:#c96b3f"></div>Mood Score (falls)</div>
-            <div class="leg"><div class="leg-dot" style="background:#5a8a6e"></div>Energy Level (falls)</div>
-            <div class="leg"><div class="leg-dot" style="background:#c96b3f;opacity:.5"></div>Work Hours Lost (rises)</div>
-          </div>
-        </div>
-
-        <!-- Healthy Style -->
-        <div class="dash-screen" id="m1">
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;">
-            <div>
-              <div class="chart-label">Pain &amp; Stress by Exercise Frequency</div>
-              <div class="mini-bars" style="height:90px;align-items:flex-end;gap:8px;">
-                <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;">
-                  <div style="display:flex;align-items:flex-end;gap:2px;height:70px;">
-                    <div class="mbar" style="height:58px;width:13px;background:#c96b3f;opacity:.8;"></div>
-                    <div class="mbar" style="height:66px;width:13px;background:#5a8a6e;opacity:.7;"></div>
-                  </div>
-                  <span style="font-size:.58rem;color:var(--muted)">No exercise</span>
-                </div>
-                <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;">
-                  <div style="display:flex;align-items:flex-end;gap:2px;height:70px;">
-                    <div class="mbar" style="height:53px;width:13px;background:#c96b3f;opacity:.7;"></div>
-                    <div class="mbar" style="height:63px;width:13px;background:#5a8a6e;opacity:.65;"></div>
-                  </div>
-                  <span style="font-size:.58rem;color:var(--muted)">Low</span>
-                </div>
-                <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;">
-                  <div style="display:flex;align-items:flex-end;gap:2px;height:70px;">
-                    <div class="mbar" style="height:50px;width:13px;background:#c96b3f;opacity:.6;"></div>
-                    <div class="mbar" style="height:60px;width:13px;background:#5a8a6e;opacity:.6;"></div>
-                  </div>
-                  <span style="font-size:.58rem;color:var(--muted)">Medium</span>
-                </div>
-                <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;">
-                  <div style="display:flex;align-items:flex-end;gap:2px;height:70px;">
-                    <div class="mbar" style="height:46px;width:13px;background:#c96b3f;opacity:.5;"></div>
-                    <div class="mbar" style="height:55px;width:13px;background:#5a8a6e;opacity:.55;"></div>
-                  </div>
-                  <span style="font-size:.58rem;color:var(--muted)">High</span>
-                </div>
-              </div>
-              <div class="legend-row" style="margin-top:.5rem;">
-                <div class="leg"><div class="leg-dot" style="background:#c96b3f"></div>Pain Level</div>
-                <div class="leg"><div class="leg-dot" style="background:#5a8a6e"></div>Stress</div>
-              </div>
-              <p style="font-size:.72rem;color:var(--sage);margin-top:.75rem;font-style:italic;">→ More exercise correlates with lower pain and stress — gradual but consistent</p>
-            </div>
-            <div>
-              <div class="chart-label">Work Hours Lost by Diet Quality</div>
-              <div class="mini-bars" style="height:70px;align-items:flex-end;gap:6px;">
-                <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;">
-                  <div class="mbar" style="height:46px;width:100%;background:#d4a017;opacity:.7;"></div>
-                  <span style="font-size:.58rem;color:var(--muted)">Excellent</span>
-                </div>
-                <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;">
-                  <div class="mbar" style="height:44px;width:100%;background:#d4a017;opacity:.6;"></div>
-                  <span style="font-size:.58rem;color:var(--muted)">Average</span>
-                </div>
-                <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;">
-                  <div class="mbar" style="height:45px;width:100%;background:#d4a017;opacity:.65;"></div>
-                  <span style="font-size:.58rem;color:var(--muted)">Good</span>
-                </div>
-                <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;">
-                  <div class="mbar" style="height:46px;width:100%;background:#d4a017;opacity:.7;"></div>
-                  <span style="font-size:.58rem;color:var(--muted)">Poor</span>
-                </div>
-              </div>
-              <p style="font-size:.72rem;color:var(--terracotta);margin-top:.75rem;font-style:italic;">→ Honest finding: diet quality shows almost no difference in hours lost</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Symptoms -->
-        <div class="dash-screen" id="m2">
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;">
-            <div>
-              <div class="chart-label">Average Pain by Flow Level</div>
-              <div class="mini-bars" style="height:90px;align-items:flex-end;gap:8px;">
-                <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;">
-                  <span style="font-size:.7rem;font-weight:600;color:var(--terracotta)">3.3</span>
-                  <div class="mbar" style="height:34px;width:100%;background:#c96b3f;opacity:.4;"></div>
-                  <span style="font-size:.6rem;color:var(--muted)">Light</span>
-                </div>
-                <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;">
-                  <span style="font-size:.7rem;font-weight:600;color:var(--terracotta)">5.3</span>
-                  <div class="mbar" style="height:56px;width:100%;background:#c96b3f;opacity:.65;"></div>
-                  <span style="font-size:.6rem;color:var(--muted)">Medium</span>
-                </div>
-                <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;">
-                  <span style="font-size:.7rem;font-weight:600;color:var(--terracotta)">7.3</span>
-                  <div class="mbar" style="height:78px;width:100%;background:#c96b3f;"></div>
-                  <span style="font-size:.6rem;color:var(--muted)">Heavy</span>
-                </div>
-              </div>
-              <p style="font-size:.72rem;color:var(--terracotta);margin-top:.75rem;font-style:italic;">→ Pain nearly doubles from light to heavy flow</p>
-            </div>
-            <div>
-              <div class="chart-label">Pain by Cycle Length (days)</div>
-              <div class="mini-bars" style="height:90px;align-items:flex-end;gap:5px;">
-                <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;">
-                  <span style="font-size:.6rem;color:var(--terracotta)">4.9</span>
-                  <div class="mbar" style="height:42px;width:100%;background:#5a8a6e;opacity:.6;"></div>
-                  <span style="font-size:.5rem;color:var(--muted)">22–26d</span>
-                </div>
-                <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;">
-                  <span style="font-size:.6rem;color:var(--terracotta)">4.8</span>
-                  <div class="mbar" style="height:40px;width:100%;background:#5a8a6e;opacity:.55;"></div>
-                  <span style="font-size:.5rem;color:var(--muted)">26–30d</span>
-                </div>
-                <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;">
-                  <span style="font-size:.6rem;color:var(--terracotta)">5.0</span>
-                  <div class="mbar" style="height:44px;width:100%;background:#5a8a6e;opacity:.6;"></div>
-                  <span style="font-size:.5rem;color:var(--muted)">30–34d</span>
-                </div>
-                <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;">
-                  <span style="font-size:.6rem;color:var(--terracotta)">6.2</span>
-                  <div class="mbar" style="height:56px;width:100%;background:#c96b3f;opacity:.75;"></div>
-                  <span style="font-size:.5rem;color:var(--muted)">34–38d</span>
-                </div>
-                <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;">
-                  <span style="font-size:.6rem;color:var(--terracotta)">5.4</span>
-                  <div class="mbar" style="height:48px;width:100%;background:#5a8a6e;opacity:.65;"></div>
-                  <span style="font-size:.5rem;color:var(--muted)">38–42d</span>
-                </div>
-                <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;">
-                  <span style="font-size:.6rem;color:var(--terracotta)">7.5</span>
-                  <div class="mbar" style="height:78px;width:100%;background:#c96b3f;"></div>
-                  <span style="font-size:.5rem;color:var(--muted)">42–44d</span>
-                </div>
-              </div>
-              <p style="font-size:.72rem;color:var(--terracotta);margin-top:.75rem;font-style:italic;">→ Longer cycles = significantly higher pain</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Productivity -->
-        <div class="dash-screen" id="m3">
-          <div class="chart-label">Work Hours Lost by Pain Level (10 = most severe → 1 = minimal)</div>
-          <div class="mini-bars" style="height:90px;align-items:flex-end;gap:4px;margin-bottom:.75rem;">
-            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;"><div class="mbar" style="height:85px;width:100%;background:linear-gradient(to top,#c96b3f,#e8a87c);"></div><span style="font-size:.52rem;color:var(--muted)">10</span></div>
-            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;"><div class="mbar" style="height:74px;width:100%;background:#c96b3f;opacity:.88;"></div><span style="font-size:.52rem;color:var(--muted)">9</span></div>
-            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;"><div class="mbar" style="height:63px;width:100%;background:#c96b3f;opacity:.76;"></div><span style="font-size:.52rem;color:var(--muted)">8</span></div>
-            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;"><div class="mbar" style="height:54px;width:100%;background:#c96b3f;opacity:.64;"></div><span style="font-size:.52rem;color:var(--muted)">7</span></div>
-            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;"><div class="mbar" style="height:46px;width:100%;background:#c96b3f;opacity:.55;"></div><span style="font-size:.52rem;color:var(--muted)">6</span></div>
-            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;"><div class="mbar" style="height:37px;width:100%;background:#c96b3f;opacity:.46;"></div><span style="font-size:.52rem;color:var(--muted)">5</span></div>
-            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;"><div class="mbar" style="height:29px;width:100%;background:#c96b3f;opacity:.37;"></div><span style="font-size:.52rem;color:var(--muted)">4</span></div>
-            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;"><div class="mbar" style="height:22px;width:100%;background:#c96b3f;opacity:.3;"></div><span style="font-size:.52rem;color:var(--muted)">3</span></div>
-            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;"><div class="mbar" style="height:14px;width:100%;background:#c96b3f;opacity:.24;"></div><span style="font-size:.52rem;color:var(--muted)">2</span></div>
-            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;"><div class="mbar" style="height:7px;width:100%;background:#c96b3f;opacity:.18;"></div><span style="font-size:.52rem;color:var(--muted)">1</span></div>
-          </div>
-          <p style="font-size:.75rem;color:var(--terracotta);font-style:italic;">→ Every 1-point increase in pain = a measurable, consistent rise in work hours lost. Stress rises, mood and energy fall — all in parallel.</p>
-        </div>
-
-        <!-- Predictor -->
-        <div class="dash-screen" id="m4">
-          <p style="font-size:.78rem;color:var(--muted);margin-bottom:1rem;">Input someone's cycle data → the model estimates how many work hours they are likely to lose. Built with machine learning, trained on 2,000 real user profiles.</p>
-          <div class="predictor-layout">
-            <div class="pred-inputs">
-              <div class="pred-input-box">
-                <div class="pred-label-txt">Pain Level (1–10)</div>
-                <div class="pred-track"><div class="pred-fill" style="width:60%;background:var(--terracotta);"></div></div>
-                <div class="pred-val">6 out of 10</div>
-              </div>
-              <div class="pred-input-box">
-                <div class="pred-label-txt">Energy Level (1–10)</div>
-                <div class="pred-track"><div class="pred-fill" style="width:40%;background:var(--sage);"></div></div>
-                <div class="pred-val">4 out of 10</div>
-              </div>
-              <div class="pred-input-box">
-                <div class="pred-label-txt">Stress Level (1–10)</div>
-                <div class="pred-track"><div class="pred-fill" style="width:75%;background:#e08080;"></div></div>
-                <div class="pred-val">7.5 out of 10</div>
-              </div>
-              <div class="pred-input-box">
-                <div class="pred-label-txt">Flow Level (1 = Light · 3 = Heavy)</div>
-                <div class="pred-track"><div class="pred-fill" style="width:66%;background:var(--terracotta);"></div></div>
-                <div class="pred-val">Medium (2)</div>
-              </div>
-            </div>
-            <div class="pred-result">
-              <div class="pred-result-label">Predicted Work Hours Lost</div>
-              <div class="pred-result-num">4.2</div>
-              <div class="pred-result-sub">hours per day · based on 2,000 users · 75% predictive accuracy</div>
-            </div>
-          </div>
-        </div>
-
+      <div class="project-links">
+        <a href="https://github.com/juliamarcella/Women-in-the-Olympics-Game" target="_blank" class="project-link">
+          <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          GitHub
+        </a>
+        <a href="https://lookerstudio.google.com/reporting/5c51de4a-a38e-4e4a-b225-051012c73695" target="_blank" class="project-link">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+          Dashboard
+        </a>
       </div>
     </div>
 
-    <!-- What it means for business -->
-    <div class="findings-grid">
-      <div class="finding-card terra">
-        <div class="finding-icon">💡</div>
-        <div class="finding-title">Pain is the #1 driver of productivity loss</div>
-        <div class="finding-desc">More than cycle phase, diet, or lifestyle combined. The data is consistent across 17,972 cycle logs.</div>
-        <div class="finding-so-what">→ For business: flexible work policies targeting high-pain days would have a bigger impact than generic wellbeing programmes</div>
+    <!-- Project 03 -->
+    <div class="project-card">
+      <div class="project-num">03</div>
+      <div class="project-title">E-Commerce Customer Analytics</div>
+      <p class="project-desc">A business sitting on transaction data is sitting on unanswered questions: Who are our most valuable customers? What drives a second purchase? Where does the funnel break? I used customer segmentation and behavioural analysis to move beyond surface-level revenue numbers — identifying purchasing patterns, retention risks, and the moments that define customer loyalty. The Power BI dashboard translates that analysis into decisions a business can act on.</p>
+      <div class="project-tags">
+        <span class="project-tag">Python</span>
+        <span class="project-tag">Power BI</span>
+        <span class="project-tag">DAX</span>
+        <span class="project-tag">Customer Analytics</span>
+        <span class="project-tag">RFM</span>
       </div>
-      <div class="finding-card sage">
-        <div class="finding-icon">🏃</div>
-        <div class="finding-title">Exercise reduces pain and stress — consistently</div>
-        <div class="finding-desc">Higher exercise frequency correlates with lower pain scores and lower stress across all user segments.</div>
-        <div class="finding-so-what">→ For business: subsidised movement programmes or flexible gym time could reduce absenteeism measurably</div>
-      </div>
-      <div class="finding-card sky">
-        <div class="finding-icon">🤖</div>
-        <div class="finding-title">A model can predict it with 75% accuracy</div>
-        <div class="finding-desc">Using pain, stress, flow, and energy as inputs — the Random Forest model estimates hours lost on unseen data.</div>
-        <div class="finding-so-what">→ For business: HR teams could use this to anticipate high-impact days and adjust workload proactively, not reactively</div>
+      <div class="project-links">
+        <a href="https://github.com/juliamarcella/E-commerce" target="_blank" class="project-link">
+          <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          GitHub
+        </a>
+        <a href="https://github.com/juliamarcella/E-commerce/blob/main/E-commerce%20dashboard%20Power%20BI.pdf" target="_blank" class="project-link">
+          <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          Dashboard (PDF)
+        </a>
       </div>
     </div>
-    <div class="tag-row">
-      <span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">NumPy</span>
-      <span class="tag">Scikit-learn</span><span class="tag">Random Forest</span>
-      <span class="tag">Looker Studio</span><span class="tag">Health Data</span>
-    </div>
-    <div style="display:flex;gap:.75rem;flex-wrap:wrap;margin-top:1.25rem;">
-      <a href="https://lookerstudio.google.com/reporting/6eee069c-64ae-47c1-ae42-89b91545860d" target="_blank" class="link-btn" style="background:var(--terracotta);color:#fff;border-color:var(--terracotta);">Live Dashboard ↗</a>
-      <a href="https://github.com/juliamarcella/Menstrual-cycle-and-productivity-" target="_blank" class="link-btn">GitHub ↗</a>
-    </div>
+
   </div>
+</section>
 
-  <hr style="border:none;border-top:1px solid var(--border);margin:4rem 0;"/>
-
-  <!-- ═══ PROJECT 2: E-COMMERCE ═══ -->
-  <div class="project-block">
-    <div class="project-header">
-      <div>
-        <div class="project-num">02 · E-Commerce · Customer Analytics</div>
-        <div class="project-title">Who are your best customers — and what will they spend next?</div>
-        <div class="project-question">"If you knew which customers were about to go quiet, what would you do differently?"</div>
-      </div>
-      <div class="project-links-top">
-        <a href="https://github.com/juliamarcella/E-commerce" target="_blank" class="link-btn">GitHub ↗</a>
-        <a href="https://github.com/juliamarcella/E-commerce/blob/main/E-commerce%20dashboard%20Power%20BI.pdf" target="_blank" class="link-btn">Power BI Dashboard ↗</a>
-      </div>
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="section-label">Contact</div>
+  <div class="contact-grid">
+    <div>
+      <h2>Let's <em>connect</em></h2>
+      <p class="contact-desc">I'm actively looking for opportunities in data analytics. Whether you have a role, a collaboration, or just want to talk data — I'd love to hear from you.</p>
     </div>
-
-    <div class="story-steps">
-      <div class="story-step">
-        <div class="step-num">The question</div>
-        <div class="step-q">A UK retailer has thousands of transactions. But who are the customers behind them?</div>
-        <div class="step-a">The business had transaction data but no customer intelligence. No segments, no lifetime value model, no way to know who to focus on.</div>
-      </div>
-      <div class="story-step">
-        <div class="step-num">The analysis</div>
-        <div class="step-q">RFM segmentation, clustering, cohort analysis, and a predictive model for future revenue</div>
-        <div class="step-a">Cleaned a full year of retail transactions, engineered customer behaviour metrics, identified 3 distinct segments, and built a model to predict what each customer will spend next.</div>
-      </div>
-      <div class="story-step">
-        <div class="step-num">The answer</div>
-        <div class="step-q">3 clear customer types — each needing a different strategy</div>
-        <div class="step-a">VIP customers (frequent, high-spend, recent), Core customers (moderate engagement), and At-Risk customers (formerly active, now dormant). Each segment has a different product preference and revenue potential.</div>
-      </div>
-    </div>
-
-    <!-- Power BI Dashboard Preview -->
-    <div style="background:var(--white);border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-bottom:2rem;">
-      <div style="background:#f5f0ea;border-bottom:1px solid var(--border);padding:.7rem 1.1rem;display:flex;align-items:center;gap:.5rem;">
-        <div class="dot" style="background:#ff5f57"></div>
-        <div class="dot" style="background:#ffbd2e"></div>
-        <div class="dot" style="background:#28ca41"></div>
-        <div style="margin:0 auto;font-size:.6rem;color:var(--muted);background:var(--white);padding:.2rem 1rem;border-radius:100px;border:1px solid var(--border);">Power BI · UK Online Retail — Sales Performance &amp; Customer Segmentation</div>
-        <a href="https://github.com/juliamarcella/E-commerce/blob/main/E-commerce%20dashboard%20Power%20BI.pdf" target="_blank" style="font-size:.65rem;font-weight:600;color:var(--terracotta);text-decoration:none;white-space:nowrap;">View PDF ↗</a>
-      </div>
-      <div style="display:flex;gap:.5rem;padding:1rem 1.5rem;background:#faf7f3;border-bottom:1px solid var(--border);flex-wrap:wrap;">
-        <button class="dash-tab active" onclick="switchEcom(0)" style="font-family:'Plus Jakarta Sans',sans-serif;">Sales Overview</button>
-        <button class="dash-tab" onclick="switchEcom(1)" style="font-family:'Plus Jakarta Sans',sans-serif;">Product Analysis</button>
-        <button class="dash-tab" onclick="switchEcom(2)" style="font-family:'Plus Jakarta Sans',sans-serif;">Customer Segments</button>
-      </div>
-      <div style="padding:1.5rem;min-height:240px;">
-
-        <!-- Tab 0: Sales Overview -->
-        <div class="ecom-screen active" id="e0">
-          <div class="kpi-strip" style="grid-template-columns:repeat(5,1fr);">
-            <div class="kpi"><div class="kpi-label">Total Revenue</div><div class="kpi-value">€4.23M</div></div>
-            <div class="kpi"><div class="kpi-label">Total Orders</div><div class="kpi-value">17.4K</div></div>
-            <div class="kpi"><div class="kpi-label">Avg Order Value</div><div class="kpi-value">€243</div></div>
-            <div class="kpi"><div class="kpi-label">Transactions</div><div class="kpi-value">375K</div></div>
-            <div class="kpi"><div class="kpi-label">Countries</div><div class="kpi-value">17</div></div>
-          </div>
-          <div class="chart-label" style="margin-top:1.1rem;">Monthly Revenue — Dec 2010 to Dec 2011</div>
-          <svg viewBox="0 0 560 80" style="width:100%;margin-top:.4rem;" xmlns="http://www.w3.org/2000/svg">
-            <defs><linearGradient id="revgrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#c96b3f" stop-opacity=".15"/><stop offset="100%" stop-color="#c96b3f" stop-opacity="0"/></linearGradient></defs>
-            <polygon points="20,62 66,58 112,54 158,52 204,56 250,46 296,42 342,36 388,44 434,24 480,30 530,38 530,76 20,76" fill="url(#revgrad)"/>
-            <polyline points="20,62 66,58 112,54 158,52 204,56 250,46 296,42 342,36 388,44 434,24 480,30 530,38" fill="none" stroke="#c96b3f" stroke-width="2.5" stroke-linejoin="round"/>
-            <text x="20" y="76" font-size="7" fill="#aaa" font-family="sans-serif">Jan</text>
-            <text x="62" y="76" font-size="7" fill="#aaa" font-family="sans-serif">Feb</text>
-            <text x="108" y="76" font-size="7" fill="#aaa" font-family="sans-serif">Mar</text>
-            <text x="154" y="76" font-size="7" fill="#aaa" font-family="sans-serif">Apr</text>
-            <text x="200" y="76" font-size="7" fill="#aaa" font-family="sans-serif">May</text>
-            <text x="246" y="76" font-size="7" fill="#aaa" font-family="sans-serif">Jun</text>
-            <text x="292" y="76" font-size="7" fill="#aaa" font-family="sans-serif">Jul</text>
-            <text x="338" y="76" font-size="7" fill="#aaa" font-family="sans-serif">Aug</text>
-            <text x="384" y="76" font-size="7" fill="#aaa" font-family="sans-serif">Sep</text>
-            <text x="428" y="76" font-size="7" fill="#aaa" font-family="sans-serif">Oct</text>
-            <text x="474" y="76" font-size="7" fill="#aaa" font-family="sans-serif">Nov</text>
-            <text x="520" y="76" font-size="7" fill="#aaa" font-family="sans-serif">Dec</text>
-          </svg>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1rem;">
-            <div style="padding:.9rem 1rem;background:var(--terra-light);border:1px solid #f0d4c6;border-radius:8px;">
-              <div style="font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--terracotta);margin-bottom:.3rem;">UK Dominates</div>
-              <div style="font-size:.82rem;color:var(--ink);">United Kingdom: <strong>€3.8M</strong> — 90% of total revenue. Germany next at €105K.</div>
-            </div>
-            <div style="padding:.9rem 1rem;background:var(--sage-light);border:1px solid #c8dfd4;border-radius:8px;">
-              <div style="font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--sage);margin-bottom:.3rem;">Scale</div>
-              <div style="font-size:.82rem;color:var(--ink);"><strong>4,123 customers</strong> behind 375K transactions across 17 countries.</div>
-            </div>
-          </div>
+    <div class="contact-links">
+      <a href="mailto:jualia.m@gmail.com" class="contact-link-card">
+        <div class="contact-link-icon">
+          <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
         </div>
-
-        <!-- Tab 1: Product Analysis -->
-        <div class="ecom-screen" id="e1" style="display:none;">
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;">
-            <div>
-              <div class="chart-label">Top Products by Revenue</div>
-              <div style="display:flex;flex-direction:column;gap:.4rem;margin-top:.5rem;">
-                <div style="display:flex;justify-content:space-between;font-size:.75rem;gap:.5rem;align-items:center;"><span>White Hanging Heart T-Light Holder</span><strong style="color:var(--terracotta);white-space:nowrap;">€29.9K</strong></div>
-                <div style="height:3px;border-radius:2px;background:var(--terracotta);width:100%;margin-bottom:.15rem;"></div>
-                <div style="display:flex;justify-content:space-between;font-size:.75rem;gap:.5rem;align-items:center;"><span>Regency Cakestand 3 Tier</span><strong style="color:var(--terracotta);white-space:nowrap;">€25.8K</strong></div>
-                <div style="height:3px;border-radius:2px;background:var(--terracotta);opacity:.8;width:86%;margin-bottom:.15rem;"></div>
-                <div style="display:flex;justify-content:space-between;font-size:.75rem;gap:.5rem;align-items:center;"><span>Jumbo Bag Red Retrospot</span><strong style="color:var(--terracotta);white-space:nowrap;">€22.5K</strong></div>
-                <div style="height:3px;border-radius:2px;background:var(--terracotta);opacity:.65;width:75%;margin-bottom:.15rem;"></div>
-                <div style="display:flex;justify-content:space-between;font-size:.75rem;gap:.5rem;align-items:center;"><span>Assorted Colour Bird Ornament</span><strong style="color:var(--terracotta);white-space:nowrap;">€18.8K</strong></div>
-                <div style="height:3px;border-radius:2px;background:var(--terracotta);opacity:.5;width:63%;margin-bottom:.15rem;"></div>
-                <div style="display:flex;justify-content:space-between;font-size:.75rem;gap:.5rem;align-items:center;"><span>Party Bunting</span><strong style="color:var(--terracotta);white-space:nowrap;">€18.6K</strong></div>
-                <div style="height:3px;border-radius:2px;background:var(--terracotta);opacity:.45;width:62%;"></div>
-              </div>
-            </div>
-            <div>
-              <div class="chart-label">Top Products by Quantity</div>
-              <div style="display:flex;flex-direction:column;gap:.4rem;margin-top:.5rem;">
-                <div style="display:flex;justify-content:space-between;font-size:.75rem;gap:.5rem;align-items:center;"><span>Assorted Colour Bird Ornament</span><strong style="color:var(--sky);white-space:nowrap;">10.9K</strong></div>
-                <div style="height:3px;border-radius:2px;background:var(--sky);width:100%;margin-bottom:.15rem;"></div>
-                <div style="display:flex;justify-content:space-between;font-size:.75rem;gap:.5rem;align-items:center;"><span>Lunch Bag Red Retrospot</span><strong style="color:var(--sky);white-space:nowrap;">10.1K</strong></div>
-                <div style="height:3px;border-radius:2px;background:var(--sky);opacity:.85;width:92%;margin-bottom:.15rem;"></div>
-                <div style="display:flex;justify-content:space-between;font-size:.75rem;gap:.5rem;align-items:center;"><span>Jumbo Bag Red Retrospot</span><strong style="color:var(--sky);white-space:nowrap;">9.8K</strong></div>
-                <div style="height:3px;border-radius:2px;background:var(--sky);opacity:.75;width:89%;margin-bottom:.15rem;"></div>
-                <div style="display:flex;justify-content:space-between;font-size:.75rem;gap:.5rem;align-items:center;"><span>White Hanging Heart T-Light Holder</span><strong style="color:var(--sky);white-space:nowrap;">9.7K</strong></div>
-                <div style="height:3px;border-radius:2px;background:var(--sky);opacity:.65;width:88%;margin-bottom:.15rem;"></div>
-                <div style="display:flex;justify-content:space-between;font-size:.75rem;gap:.5rem;align-items:center;"><span>Lunch Bag Black Skull</span><strong style="color:var(--sky);white-space:nowrap;">7.8K</strong></div>
-                <div style="height:3px;border-radius:2px;background:var(--sky);opacity:.55;width:71%;"></div>
-              </div>
-              <div style="margin-top:1rem;padding:.8rem 1rem;background:var(--yellow-light);border:1px solid #ead9a0;border-radius:8px;font-size:.75rem;">
-                <strong style="color:var(--yellow);">Key insight:</strong> Best-seller by volume (Bird Ornament, 10.9K) is not the top revenue product (Heart T-Light, €29.9K). <span style="color:var(--muted);">Promoting volume leaders doesn't maximise profit.</span>
-              </div>
-            </div>
-          </div>
+        <div>
+          <div class="contact-link-label">Email</div>
+          <div class="contact-link-value">jualia.m@gmail.com</div>
         </div>
-
-        <!-- Tab 2: Customer Segments -->
-        <div class="ecom-screen" id="e2" style="display:none;">
-          <div class="kpi-strip" style="grid-template-columns:repeat(4,1fr);margin-bottom:1rem;">
-            <div class="kpi"><div class="kpi-label">Customers Analysed</div><div class="kpi-value">4,121</div></div>
-            <div class="kpi"><div class="kpi-label">Avg Days Since Purchase</div><div class="kpi-value">92.6</div></div>
-            <div class="kpi"><div class="kpi-label">Avg Orders/Customer</div><div class="kpi-value">3.86</div></div>
-            <div class="kpi"><div class="kpi-label">Avg Customer Spend</div><div class="kpi-value">€797</div></div>
-          </div>
-          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;">
-            <div style="padding:1.25rem;background:var(--terra-light);border:1px solid #f0d4c6;border-radius:10px;">
-              <div style="font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--terracotta);margin-bottom:.4rem;">⭐ VIP — 0.15% of customers</div>
-              <div style="font-family:'Fraunces',serif;font-size:1.6rem;font-weight:700;color:var(--ink);margin-bottom:.3rem;">€21,300</div>
-              <div style="font-size:.72rem;color:var(--muted);line-height:1.65;">avg spend. Tiny group, disproportionate revenue. Bought recently, buy very often.</div>
-              <div style="font-size:.7rem;color:var(--terracotta);margin-top:.6rem;font-weight:600;">→ Retain at all costs. Loyalty perks, personal outreach.</div>
-            </div>
-            <div style="padding:1.25rem;background:var(--sky-light);border:1px solid #c0d8ef;border-radius:10px;">
-              <div style="font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--sky);margin-bottom:.4rem;">🔵 Core — 72.87% of customers</div>
-              <div style="font-family:'Fraunces',serif;font-size:1.6rem;font-weight:700;color:var(--ink);margin-bottom:.3rem;">€1,000</div>
-              <div style="font-size:.72rem;color:var(--muted);line-height:1.65;">avg spend. The reliable backbone — most customers, steady revenue.</div>
-              <div style="font-size:.7rem;color:var(--sky);margin-top:.6rem;font-weight:600;">→ Upsell, bundles, nudge toward VIP status.</div>
-            </div>
-            <div style="padding:1.25rem;background:var(--sage-light);border:1px solid #c8dfd4;border-radius:10px;">
-              <div style="font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--sage);margin-bottom:.4rem;">⚠️ At-Risk — 26.98% of customers</div>
-              <div style="font-family:'Fraunces',serif;font-size:1.6rem;font-weight:700;color:var(--ink);margin-bottom:.3rem;">€300</div>
-              <div style="font-size:.72rem;color:var(--muted);line-height:1.65;">avg spend. Previously active, now dormant. 200+ days since last purchase.</div>
-              <div style="font-size:.7rem;color:var(--sage);margin-top:.6rem;font-weight:600;">→ Win-back campaigns before they're gone for good.</div>
-            </div>
-          </div>
+      </a>
+      <a href="https://github.com/juliamarcella" target="_blank" class="contact-link-card">
+        <div class="contact-link-icon">
+          <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
         </div>
-
-      </div>
-    </div>
-
-    <div class="findings-grid">
-      <div class="finding-card terra">
-        <div class="finding-icon">🛒</div>
-        <div class="finding-title">Best-selling ≠ most profitable</div>
-        <div class="finding-desc">The top 10 products by quantity and the top 10 by revenue are completely different lists. The Bird Ornament sells 10.9K units; the Heart T-Light earns €29.9K.</div>
-        <div class="finding-so-what">→ For business: build promotions around revenue contribution, not units sold — otherwise you're pushing the wrong products</div>
-      </div>
-      <div class="finding-card sage">
-        <div class="finding-icon">👥</div>
-        <div class="finding-title">VIPs are 0.15% — but spend 21× more</div>
-        <div class="finding-desc">Just 0.15% of customers are VIP, but they average €21,300 spend each vs €300 for at-risk customers. A tiny group with outsized impact.</div>
-        <div class="finding-so-what">→ For business: identify and protect this segment before they churn — losing one VIP costs as much as losing 70 at-risk customers</div>
-      </div>
-      <div class="finding-card sky">
-        <div class="finding-icon">📈</div>
-        <div class="finding-title">Future revenue predicted with 75% accuracy</div>
-        <div class="finding-desc">A Random Forest model using RFM + behavioural features predicts each customer's next spend — validated on unseen data.</div>
-        <div class="finding-so-what">→ For business: allocate retention budget to highest-predicted-value customers proactively, not after they've already left</div>
-      </div>
-      <div class="finding-card yellow">
-        <div class="finding-icon">📉</div>
-        <div class="finding-title">Cancellation rate under 1%</div>
-        <div class="finding-desc">After analysing all negative-quantity transactions, the cancellation rate was negligible as a share of total €4.23M revenue.</div>
-        <div class="finding-so-what">→ For business: order fulfilment is healthy — investment should go into growth and retention, not return prevention</div>
-      </div>
-    </div>
-    <div class="tag-row">
-      <span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">K-Means Clustering</span>
-      <span class="tag">Random Forest</span><span class="tag">RFM Analysis</span>
-      <span class="tag">CLV Modelling</span><span class="tag">Power BI</span>
-    </div>
-    <div style="display:flex;gap:.75rem;flex-wrap:wrap;margin-top:1.25rem;">
-      <a href="https://github.com/juliamarcella/E-commerce/blob/main/E-commerce%20dashboard%20Power%20BI.pdf" target="_blank" class="link-btn" style="background:var(--terracotta);color:#fff;border-color:var(--terracotta);">Power BI Dashboard ↗</a>
-      <a href="https://github.com/juliamarcella/E-commerce" target="_blank" class="link-btn">GitHub ↗</a>
-    </div>
-  </div>
-
-  <hr style="border:none;border-top:1px solid var(--border);margin:4rem 0;"/>
-
-  <!-- PROJECT 3: OLYMPICS -->
-  <div class="project-block">
-    <div class="project-header">
-      <div>
-        <div class="project-num">03 · Sports &amp; Gender · Data Storytelling</div>
-        <div class="project-title">How long did women have to wait to compete?</div>
-        <div class="project-question">"Rugby admitted women 116 years after men. What does the rest of the data say?"</div>
-      </div>
-      <div class="project-links-top">
-        <a href="https://lookerstudio.google.com/reporting/5c51de4a-a38e-4e4a-b225-051012c73695" target="_blank" class="link-btn">Live Dashboard ↗</a>
-        <a href="https://github.com/juliamarcella/Women-in-the-Olympics-Game" target="_blank" class="link-btn">GitHub</a>
-      </div>
-    </div>
-    <div class="story-steps">
-      <div class="story-step">
-        <div class="step-num">The question</div>
-        <div class="step-q">Has the Olympics actually become more equal — or does it just look that way?</div>
-        <div class="step-a">Over a century of Olympic history, analysed through gender equity. When were women first allowed to compete in each sport? How has that changed?</div>
-      </div>
-      <div class="story-step">
-        <div class="step-num">The analysis</div>
-        <div class="step-q">163,000+ athlete records across every Olympic edition from 1896 to 2022</div>
-        <div class="step-a">Engineered a "gender entry gap" metric for every discipline, tracked participation growth over time, and mapped medal distribution by gender and country.</div>
-      </div>
-      <div class="story-step">
-        <div class="step-num">The answer</div>
-        <div class="step-q">Progress is real — but the numbers tell a more complicated story</div>
-        <div class="step-a">Women's participation has grown sharply since the 1980s. But they still represent only 28.3% of athletes and 29.3% of medals — and some sports waited over a century to include them.</div>
-      </div>
-    </div>
-    <div class="findings-grid">
-      <div class="finding-card terra">
-        <div class="finding-icon">⏳</div>
-        <div class="finding-title">Some sports waited over 100 years</div>
-        <div class="finding-desc">Rugby: 116 years. Wrestling: 108 years. Boxing: 108 years. Weightlifting: 104 years. These gaps are within living memory.</div>
-        <div class="finding-so-what">→ The data makes an invisible structural issue visible. That's the most important thing analysis can do.</div>
-      </div>
-      <div class="finding-card sage">
-        <div class="finding-icon">📈</div>
-        <div class="finding-title">Sharp growth since the 1980s</div>
-        <div class="finding-desc">Women's participation grew dramatically from the 1980s onward — driven by policy changes and new event additions.</div>
-        <div class="finding-so-what">→ Policy decisions have measurable effects on participation. The data shows what works and how fast.</div>
-      </div>
-      <div class="finding-card sky">
-        <div class="finding-icon">🏅</div>
-        <div class="finding-title">Medal share mirrors participation</div>
-        <div class="finding-desc">Women hold 29.3% of medals, men 65.2%. The gap isn't just about opportunity — it's about the number of events available to each gender.</div>
-        <div class="finding-so-what">→ More women's events = more medal opportunities. Participation and equity are structurally linked.</div>
-      </div>
-    </div>
-    <div class="tag-row">
-      <span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">Feature Engineering</span>
-      <span class="tag">Gender Data</span><span class="tag">Looker Studio</span><span class="tag">Data Storytelling</span>
-    </div>
-    <div style="display:flex;gap:.75rem;flex-wrap:wrap;margin-top:1.25rem;">
-      <a href="https://lookerstudio.google.com/reporting/5c51de4a-a38e-4e4a-b225-051012c73695" target="_blank" class="link-btn" style="background:var(--terracotta);color:#fff;border-color:var(--terracotta);">Live Dashboard ↗</a>
-      <a href="https://github.com/juliamarcella/Women-in-the-Olympics-Game" target="_blank" class="link-btn">GitHub ↗</a>
+        <div>
+          <div class="contact-link-label">GitHub</div>
+          <div class="contact-link-value">github.com/juliamarcella</div>
+        </div>
+      </a>
+      <a href="https://www.linkedin.com/in/julia-marcella-silva/" target="_blank" class="contact-link-card">
+        <div class="contact-link-icon">
+          <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        </div>
+        <div>
+          <div class="contact-link-label">LinkedIn</div>
+          <div class="contact-link-value">julia-marcella-silva</div>
+        </div>
+      </a>
     </div>
   </div>
 </section>
 
-
-
-
-<!-- CONTACT -->
-<section id="contact" style="background:var(--white);">
-  <div class="contact-layout">
-    <div>
-      <div class="avail-pill">Available for opportunities</div>
-      <div class="eyebrow">Contact</div>
-      <h2>Let's talk about<br/><em>your data</em></h2>
-      <p style="font-size:.93rem;color:var(--muted);line-height:1.9;margin-bottom:1.5rem;">I'm looking for a junior data analyst role where I can bring technical skills and a genuine curiosity about people. My background in customer-facing work across three countries makes me someone who understands the human side of data — not just the numbers.</p>
-      <p style="font-size:.88rem;color:var(--muted);font-style:italic;">I ask a lot of questions. That's not a warning — it's a feature.</p>
-      <div style="margin-top:2rem;">
-        <a href="mailto:jualia.m@gmail.com" class="contact-link">
-          <div class="contact-icon">✉️</div>
-          <div><div class="contact-link-label">Email</div><div class="contact-link-val">jualia.m@gmail.com</div></div>
-        </a>
-        <a href="https://www.linkedin.com/in/julia-marcella-silva/" target="_blank" class="contact-link">
-          <div class="contact-icon">💼</div>
-          <div><div class="contact-link-label">LinkedIn</div><div class="contact-link-val">julia-marcella-silva</div></div>
-        </a>
-        <a href="https://github.com/juliamarcella" target="_blank" class="contact-link">
-          <div class="contact-icon">🐙</div>
-          <div><div class="contact-link-label">GitHub</div><div class="contact-link-val">github.com/juliamarcella</div></div>
-        </a>
-      </div>
-    </div>
-    <div class="details-box">
-      <h3>Quick Details</h3>
-      <div class="detail-row"><span class="detail-key">Location</span><span class="detail-val">Ede, Netherlands</span></div>
-      <div class="detail-row"><span class="detail-key">Visa</span><span class="detail-val">No sponsorship needed</span></div>
-      <div class="detail-row"><span class="detail-key">Relocation</span><span class="detail-val">Open to it</span></div>
-      <div class="detail-row"><span class="detail-key">Languages</span><span class="detail-val">Portuguese · English · Dutch (basic)</span></div>
-      <div class="detail-row"><span class="detail-key">Background</span><span class="detail-val">Customer service + Data analysis</span></div>
-      <div class="detail-row"><span class="detail-key">Open to</span><span class="detail-val">Full-time · Hybrid · Remote</span></div>
-    </div>
-  </div>
-
 <footer>
-  <span>© 2025 Julia Silva · Junior Data Analyst</span>
-  <span><a href="mailto:jualia.m@gmail.com">jualia.m@gmail.com</a></span>
+  <span>© 2025 Julia Silva</span>
+  <span>Junior Data Analyst · Ede, Netherlands</span>
 </footer>
 
-<script>
-function switchMens(i) {
-  var screens = document.querySelectorAll('#mens-dash .dash-screen');
-  var tabs = document.querySelectorAll('#mens-tabs .dash-tab');
-  screens.forEach(function(s, j) { s.classList.toggle('active', i === j); });
-  tabs.forEach(function(t, j) { t.classList.toggle('active', i === j); });
-}
-
-function switchEcom(i) {
-  var screens = document.querySelectorAll('.ecom-screen');
-  var tabs = d
+</body>
+</html>
