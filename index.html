@@ -440,7 +440,7 @@ footer a:hover{color:var(--terracotta);}
       </p>
       <div class="cta-row">
         <a href="#projects" class="btn btn-primary">See My Projects</a>
-        <a href="/cdn-cgi/l/email-protection#127867737e7b733c7f52757f737b7e3c717d7f" class="btn btn-ghost">Get in Touch</a>
+        <a href="mailto:jualia.m@gmail.com" class="btn btn-ghost">Get in Touch</a>
       </div>
     </div>
     <div class="fade-in-2" style="display:flex;flex-direction:column;gap:1.25rem;">
@@ -528,14 +528,14 @@ footer a:hover{color:var(--terracotta);}
         <div class="dot" style="background:#28ca41"></div>
         <div class="dash-url">lookerstudio.google.com · Menstrual Health Productivity</div>
       </div>
-      <div class="dash-tabs">
+      <div class="dash-tabs" id="mens-tabs">
         <button class="dash-tab active" onclick="switchMens(0)">Overview</button>
         <button class="dash-tab" onclick="switchMens(1)">Healthy Style</button>
         <button class="dash-tab" onclick="switchMens(2)">Symptoms</button>
         <button class="dash-tab" onclick="switchMens(3)">Productivity</button>
         <button class="dash-tab" onclick="switchMens(4)">🤖 Predictor</button>
       </div>
-      <div class="dash-body">
+      <div class="dash-body" id="mens-dash">
 
         <!-- Overview -->
         <div class="dash-screen active" id="m0">
@@ -789,7 +789,7 @@ footer a:hover{color:var(--terracotta);}
       </div>
       <div class="project-links-top">
         <a href="https://github.com/juliamarcella/E-commerce" target="_blank" class="link-btn">GitHub ↗</a>
-        <span class="link-btn wip">Power BI (in progress)</span>
+        <a href="https://github.com/juliamarcella/E-commerce/blob/main/E-commerce%20dashboard%20Power%20BI.pdf" target="_blank" class="link-btn">Power BI Dashboard ↗</a>
       </div>
     </div>
 
@@ -970,8 +970,8 @@ footer a:hover{color:var(--terracotta);}
       <span class="tag">CLV Modelling</span><span class="tag">Power BI</span>
     </div>
     <div style="display:flex;gap:.75rem;flex-wrap:wrap;margin-top:1.25rem;">
-      <a href="https://github.com/juliamarcella/E-commerce" target="_blank" class="link-btn" style="background:var(--terracotta);color:#fff;border-color:var(--terracotta);">GitHub ↗</a>
-      <a href="https://github.com/juliamarcella/E-commerce/blob/main/E-commerce%20dashboard%20Power%20BI.pdf" target="_blank" class="link-btn">Power BI Dashboard PDF ↗</a>
+      <a href="https://github.com/juliamarcella/E-commerce/blob/main/E-commerce%20dashboard%20Power%20BI.pdf" target="_blank" class="link-btn" style="background:var(--terracotta);color:#fff;border-color:var(--terracotta);">Power BI Dashboard ↗</a>
+      <a href="https://github.com/juliamarcella/E-commerce" target="_blank" class="link-btn">GitHub ↗</a>
     </div>
   </div>
 
@@ -1051,9 +1051,9 @@ footer a:hover{color:var(--terracotta);}
       <p style="font-size:.93rem;color:var(--muted);line-height:1.9;margin-bottom:1.5rem;">I'm looking for a junior data analyst role where I can bring technical skills and a genuine curiosity about people. My background in customer-facing work across three countries makes me someone who understands the human side of data — not just the numbers.</p>
       <p style="font-size:.88rem;color:var(--muted);font-style:italic;">I ask a lot of questions. That's not a warning — it's a feature.</p>
       <div style="margin-top:2rem;">
-        <a href="/cdn-cgi/l/email-protection#dbb1aebab7b2baf5b69bbcb6bab2b7f5b8b4b6" class="contact-link">
+        <a href="mailto:jualia.m@gmail.com" class="contact-link">
           <div class="contact-icon">✉️</div>
-          <div><div class="contact-link-label">Email</div><div class="contact-link-val"><span class="__cf_email__" data-cfemail="e18b94808d8880cf8ca1868c80888dcf828e8c">[email&#160;protected]</span></div></div>
+          <div><div class="contact-link-label">Email</div><div class="contact-link-val">jualia.m@gmail.com</div></div>
         </a>
         <a href="https://www.linkedin.com/in/julia-marcella-silva/" target="_blank" class="contact-link">
           <div class="contact-icon">💼</div>
@@ -1075,9 +1075,20 @@ footer a:hover{color:var(--terracotta);}
       <div class="detail-row"><span class="detail-key">Open to</span><span class="detail-val">Full-time · Hybrid · Remote</span></div>
     </div>
   </div>
-</section>
-
 
 <footer>
   <span>© 2025 Julia Silva · Junior Data Analyst</span>
-  <span><a href="/cdn-cgi/l/email-p
+  <span><a href="mailto:jualia.m@gmail.com">jualia.m@gmail.com</a></span>
+</footer>
+
+<script>
+function switchMens(i) {
+  var screens = document.querySelectorAll('#mens-dash .dash-screen');
+  var tabs = document.querySelectorAll('#mens-tabs .dash-tab');
+  screens.forEach(function(s, j) { s.classList.toggle('active', i === j); });
+  tabs.forEach(function(t, j) { t.classList.toggle('active', i === j); });
+}
+
+function switchEcom(i) {
+  var screens = document.querySelectorAll('.ecom-screen');
+  var tabs = d
