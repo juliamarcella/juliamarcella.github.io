@@ -7,326 +7,166 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
 <style>
 :root {
-  --bg: #111008;
-  --surface: #1a1810;
-  --surface2: #221f14;
-  --border: #2e2a1e;
-  --gold: #c9963a;
-  --gold-dim: #8a6520;
-  --cream: #e8e0d0;
-  --muted: #7a7060;
-  --white: #f2ece0;
+  --bg: #111008; --surface: #1a1810; --surface2: #221f14;
+  --border: #2e2a1e; --gold: #c9963a; --gold-dim: #8a6520;
+  --cream: #e8e0d0; --muted: #7a7060; --white: #f2ece0;
 }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--cream);font-weight:300;line-height:1.7;overflow-x:hidden;}
 
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:1.25rem 3rem;background:rgba(17,16,8,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);}
+.nav-name{font-size:.9rem;font-weight:500;color:var(--cream);text-decoration:none;}
+.nav-right{display:flex;align-items:center;gap:2rem;}
+.nav-links-row{display:flex;gap:2rem;list-style:none;}
+.nav-links-row a{font-size:.72rem;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s;}
+.nav-links-row a:hover{color:var(--gold);}
+.nav-icons{display:flex;gap:1.1rem;padding-left:2rem;border-left:1px solid var(--border);}
+.nav-icons a{color:var(--muted);text-decoration:none;transition:color .2s;display:flex;}
+.nav-icons a:hover{color:var(--gold);}
+.nav-icons svg{width:17px;height:17px;stroke:currentColor;fill:none;stroke-width:1.8;}
 
-body {
-  font-family: 'DM Sans', sans-serif;
-  background: var(--bg);
-  color: var(--cream);
-  font-weight: 300;
-  line-height: 1.7;
-  overflow-x: hidden;
-}
+/* COMMON */
+section{padding:6rem 3rem;}
+.section-label{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem;display:flex;align-items:center;gap:.75rem;}
+.section-label::after{content:'';width:32px;height:1px;background:var(--gold-dim);}
+h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,4.5vw,3.6rem);font-weight:600;line-height:1.1;color:var(--white);}
+h2 em{font-style:italic;color:var(--gold);}
 
-/* ── NAV ── */
-nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-  display: flex; justify-content: space-between; align-items: center;
-  padding: 1.25rem 3rem;
-  background: rgba(17,16,8,0.9);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--border);
-}
-.nav-name {
-  font-family: 'DM Sans', sans-serif;
-  font-size: .9rem; font-weight: 500;
-  color: var(--cream); text-decoration: none;
-  letter-spacing: .02em;
-}
-.nav-icons { display: flex; gap: 1.25rem; align-items: center; }
-.nav-icons a {
-  color: var(--muted); text-decoration: none;
-  transition: color .2s; display: flex; align-items: center;
-}
-.nav-icons a:hover { color: var(--gold); }
-.nav-icons svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 1.8; }
+/* HERO */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:8rem 3rem 5rem;border-bottom:1px solid var(--border);}
+.hero-eyebrow{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:2rem;display:flex;align-items:center;gap:.6rem;}
+.hero-eyebrow::before{content:'——';color:var(--gold);letter-spacing:-.1em;}
+.hero-name{font-family:'Cormorant Garamond',serif;font-size:clamp(4rem,10vw,8rem);font-weight:700;line-height:.95;color:var(--white);margin-bottom:.75rem;letter-spacing:-.02em;animation:fadeUp .7s ease both;}
+.hero-role{font-family:'Cormorant Garamond',serif;font-size:clamp(1.1rem,2vw,1.4rem);color:var(--gold);margin-bottom:1.75rem;animation:fadeUp .7s .1s ease both;}
+.hero-meta{display:flex;align-items:center;gap:.6rem;font-size:.82rem;color:var(--muted);margin-bottom:1.5rem;animation:fadeUp .7s .2s ease both;}
+.hero-meta svg{width:13px;height:13px;stroke:var(--muted);fill:none;stroke-width:1.8;}
+.hero-bio{font-size:.95rem;color:var(--muted);max-width:460px;line-height:1.85;margin-bottom:2.5rem;animation:fadeUp .7s .3s ease both;}
+.hero-btns{display:flex;gap:.85rem;flex-wrap:wrap;animation:fadeUp .7s .4s ease both;}
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.7rem 1.5rem;font-family:'DM Sans',sans-serif;font-size:.78rem;font-weight:500;letter-spacing:.04em;text-decoration:none;border-radius:4px;transition:all .2s;border:none;cursor:pointer;}
+.btn-gold{background:var(--gold);color:#111008;}
+.btn-gold:hover{background:#e0aa42;}
+.btn-outline{background:transparent;border:1px solid var(--border);color:var(--cream);}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold);}
+.btn svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2;}
 
-/* ── SECTIONS ── */
-section { padding: 6rem 3rem; }
-.section-label {
-  font-family: 'DM Mono', monospace;
-  font-size: .65rem; letter-spacing: .2em; text-transform: uppercase;
-  color: var(--muted); margin-bottom: 1rem;
-  display: flex; align-items: center; gap: .75rem;
-}
-.section-label::after {
-  content: ''; flex: 1; max-width: 36px; height: 1px;
-  background: var(--gold-dim);
-}
-h2 {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(2.4rem, 5vw, 4rem);
-  font-weight: 600; line-height: 1.1;
-  color: var(--white);
-}
-h2 em { font-style: italic; color: var(--gold); }
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;margin-top:3rem;}
+.about-text p{font-size:.93rem;color:var(--muted);line-height:1.9;margin-bottom:1.2rem;}
+.about-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border);}
+.stat-num{font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:600;color:var(--gold);line-height:1;margin-bottom:.25rem;}
+.stat-label{font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);}
+.info-card{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:1rem 1.4rem;margin-bottom:.75rem;}
+.info-card-label{font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:.4rem;}
+.info-card-value{font-size:.85rem;color:var(--cream);}
 
-/* ── HERO ── */
-.hero {
-  min-height: 100vh;
-  display: flex; flex-direction: column; justify-content: center;
-  padding: 8rem 3rem 5rem;
-  border-bottom: 1px solid var(--border);
-}
-.hero-portfolio-label {
-  font-family: 'DM Mono', monospace;
-  font-size: .65rem; letter-spacing: .2em; text-transform: uppercase;
-  color: var(--muted); margin-bottom: 2rem;
-  display: flex; align-items: center; gap: .75rem;
-}
-.hero-portfolio-label::before { content: '——'; color: var(--gold); letter-spacing: -.1em; }
-.hero-name {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(4rem, 10vw, 8rem);
-  font-weight: 700; line-height: .95;
-  color: var(--white); margin-bottom: .75rem;
-  letter-spacing: -.02em;
-}
-.hero-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(1.1rem, 2vw, 1.4rem);
-  font-weight: 400; color: var(--gold);
-  margin-bottom: 1.75rem; font-style: normal;
-}
-.hero-meta {
-  display: flex; align-items: center; gap: .75rem;
-  font-size: .82rem; color: var(--muted);
-  margin-bottom: 1.5rem;
-}
-.hero-meta svg { width: 14px; height: 14px; stroke: var(--muted); fill: none; stroke-width: 1.8; flex-shrink: 0; }
-.hero-meta span { color: var(--muted); }
-.hero-meta .sep { color: var(--border); }
-.hero-bio {
-  font-size: .95rem; color: var(--muted);
-  max-width: 480px; line-height: 1.85;
-  margin-bottom: 2.5rem;
-}
-.hero-btns { display: flex; gap: .85rem; flex-wrap: wrap; }
-.btn {
-  display: inline-flex; align-items: center; gap: .5rem;
-  padding: .7rem 1.5rem;
-  font-family: 'DM Sans', sans-serif;
-  font-size: .78rem; font-weight: 500;
-  letter-spacing: .04em; text-decoration: none;
-  border-radius: 4px; transition: all .2s; cursor: pointer; border: none;
-}
-.btn-gold { background: var(--gold); color: #111008; }
-.btn-gold:hover { background: #e0aa42; }
-.btn-outline { background: transparent; border: 1px solid var(--border); color: var(--cream); }
-.btn-outline:hover { border-color: var(--gold); color: var(--gold); }
-.btn svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2; }
+/* SKILLS */
+.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3rem;margin-top:3rem;}
+.skill-group-label{font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:.9rem;}
+.skill-tags{display:flex;flex-wrap:wrap;gap:.45rem;}
+.skill-tag{font-family:'DM Mono',monospace;font-size:.7rem;color:var(--cream);background:var(--surface2);border:1px solid var(--border);padding:.3rem .75rem;border-radius:3px;}
 
-/* ── ABOUT ── */
-.about-section { border-bottom: 1px solid var(--border); }
-.about-grid {
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 5rem; align-items: start; margin-top: 3rem;
-}
-.about-text p {
-  font-size: .95rem; color: var(--muted);
-  line-height: 1.9; margin-bottom: 1.2rem;
-}
-.about-right { display: flex; flex-direction: column; gap: 1rem; }
-.about-stats {
-  display: grid; grid-template-columns: repeat(3,1fr);
-  gap: 2rem; margin-bottom: 1.5rem;
-  padding-bottom: 1.5rem;
-  border-bottom: 1px solid var(--border);
-}
-.stat-num {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 2.5rem; font-weight: 600;
-  color: var(--gold); line-height: 1;
-  margin-bottom: .25rem;
-}
-.stat-label {
-  font-family: 'DM Mono', monospace;
-  font-size: .6rem; letter-spacing: .15em;
-  text-transform: uppercase; color: var(--muted);
-}
-.info-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 6px; padding: 1.1rem 1.4rem;
-}
-.info-card-label {
-  font-family: 'DM Mono', monospace;
-  font-size: .6rem; letter-spacing: .15em;
-  text-transform: uppercase; color: var(--gold);
-  margin-bottom: .5rem;
-}
-.info-card-value { font-size: .88rem; color: var(--cream); }
+/* PROJECTS */
+.project-story{padding:5rem 0;border-bottom:1px solid var(--border);}
+.project-story:last-child{border-bottom:none;padding-bottom:0;}
 
-/* ── SKILLS ── */
-.skills-section { background: var(--bg); border-bottom: 1px solid var(--border); }
-.skills-grid {
-  display: grid; grid-template-columns: repeat(3,1fr);
-  gap: 3rem; margin-top: 3rem;
-}
-.skill-group-label {
-  font-family: 'DM Mono', monospace;
-  font-size: .6rem; letter-spacing: .18em;
-  text-transform: uppercase; color: var(--gold);
-  margin-bottom: 1rem;
-}
-.skill-tags { display: flex; flex-wrap: wrap; gap: .5rem; }
-.skill-tag {
-  font-family: 'DM Mono', monospace;
-  font-size: .72rem; color: var(--cream);
-  background: var(--surface2);
-  border: 1px solid var(--border);
-  padding: .35rem .75rem; border-radius: 3px;
-  transition: border-color .2s;
-}
-.skill-tag:hover { border-color: var(--gold-dim); }
+/* header row */
+.project-story-header{display:flex;justify-content:space-between;align-items:flex-start;gap:2rem;margin-bottom:3rem;}
+.project-story-num{font-family:'DM Mono',monospace;font-size:.62rem;color:var(--gold);letter-spacing:.1em;margin-bottom:.75rem;}
+.project-story-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,3vw,2.6rem);font-weight:600;color:var(--white);line-height:1.15;margin-bottom:.6rem;}
+.project-story-question{font-size:.9rem;color:var(--gold);font-style:italic;line-height:1.6;}
+.project-story-links{display:flex;gap:.6rem;flex-wrap:wrap;flex-shrink:0;padding-top:.25rem;}
+.plink{display:inline-flex;align-items:center;gap:.4rem;font-size:.73rem;font-weight:500;text-decoration:none;color:var(--cream);background:var(--surface2);border:1px solid var(--border);padding:.45rem .9rem;border-radius:4px;transition:all .2s;white-space:nowrap;}
+.plink:hover{border-color:var(--gold);color:var(--gold);}
+.plink svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2;}
 
-/* ── PROJECTS ── */
-.projects-section { border-bottom: 1px solid var(--border); }
-.projects-grid {
-  display: grid; grid-template-columns: repeat(3,1fr);
-  gap: 1.25rem; margin-top: 3rem;
-}
-.project-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 8px; padding: 2rem;
-  display: flex; flex-direction: column;
-  transition: border-color .25s;
-}
-.project-card:hover { border-color: var(--gold-dim); }
-.project-card.active { border-color: var(--gold); }
-.project-num {
-  font-family: 'DM Mono', monospace;
-  font-size: .65rem; color: var(--gold);
-  letter-spacing: .08em; margin-bottom: 1.25rem;
-}
-.project-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.5rem; font-weight: 600;
-  color: var(--white); line-height: 1.25;
-  margin-bottom: 1rem;
-}
-.project-desc {
-  font-size: .82rem; color: var(--muted);
-  line-height: 1.8; flex: 1; margin-bottom: 1.5rem;
-}
-.project-tags { display: flex; flex-wrap: wrap; gap: .4rem; margin-bottom: 1.5rem; }
-.project-tag {
-  font-family: 'DM Mono', monospace;
-  font-size: .65rem; color: var(--muted);
-  background: var(--surface2);
-  border: 1px solid var(--border);
-  padding: .25rem .65rem; border-radius: 3px;
-}
-.project-links { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: auto; }
-.project-link {
-  display: inline-flex; align-items: center; gap: .4rem;
-  font-size: .75rem; font-weight: 500;
-  text-decoration: none; color: var(--cream);
-  background: var(--surface2);
-  border: 1px solid var(--border);
-  padding: .45rem .9rem; border-radius: 4px;
-  transition: all .2s;
-}
-.project-link:hover { border-color: var(--gold); color: var(--gold); }
-.project-link svg { width: 13px; height: 13px; stroke: currentColor; fill: none; stroke-width: 2; }
+/* 3-col story */
+.story-body{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-bottom:2.5rem;}
+.story-col{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1.75rem;}
+.story-col-label{font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:.9rem;}
+.story-col-heading{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:600;color:var(--white);margin-bottom:.75rem;line-height:1.3;}
+.story-col p{font-size:.82rem;color:var(--muted);line-height:1.8;}
 
-/* ── CONTACT ── */
-.contact-section { border-bottom: 1px solid var(--border); }
-.contact-grid {
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 5rem; align-items: start; margin-top: 3rem;
-}
-.contact-desc { font-size: .95rem; color: var(--muted); line-height: 1.85; margin-top: 1.5rem; }
-.contact-links { display: flex; flex-direction: column; gap: .75rem; }
-.contact-link-card {
-  display: flex; align-items: center; gap: 1.1rem;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 6px; padding: 1.1rem 1.4rem;
-  text-decoration: none; color: var(--cream);
-  transition: border-color .2s;
-}
-.contact-link-card:hover { border-color: var(--gold); }
-.contact-link-icon {
-  width: 36px; height: 36px; flex-shrink: 0;
-  background: var(--surface2);
-  border: 1px solid var(--border);
-  border-radius: 4px;
-  display: flex; align-items: center; justify-content: center;
-}
-.contact-link-icon svg { width: 16px; height: 16px; stroke: var(--gold); fill: none; stroke-width: 1.8; }
-.contact-link-label { font-size: .65rem; color: var(--muted); margin-bottom: .15rem; letter-spacing: .04em; }
-.contact-link-value { font-size: .88rem; font-weight: 500; }
+/* findings */
+.findings-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem;margin-bottom:2rem;}
+.finding{background:var(--surface2);border:1px solid var(--border);border-left:2px solid var(--gold-dim);border-radius:6px;padding:1.25rem 1.4rem;}
+.finding-label{font-family:'DM Mono',monospace;font-size:.56rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem;}
+.finding-stat{font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:600;color:var(--white);line-height:1.1;margin-bottom:.35rem;}
+.finding-desc{font-size:.76rem;color:var(--muted);line-height:1.7;}
 
-/* FOOTER */
-footer {
-  padding: 2rem 3rem;
-  display: flex; justify-content: space-between; align-items: center;
-  font-size: .72rem; color: var(--muted);
-  border-top: 1px solid var(--border);
-}
+/* business impact */
+.biz-impact{background:var(--surface);border:1px solid var(--border);border-top:2px solid var(--gold);border-radius:8px;padding:1.75rem;margin-bottom:2rem;}
+.biz-impact-label{font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:1.1rem;}
+.biz-rows{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:.75rem;}
+.biz-row{display:flex;align-items:flex-start;gap:.7rem;font-size:.82rem;color:var(--muted);line-height:1.75;}
+.biz-row::before{content:'→';color:var(--gold);flex-shrink:0;font-weight:500;margin-top:.05rem;}
 
-/* ANIMATIONS */
-@keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
-.hero-name { animation: fadeUp .7s ease both; }
-.hero-title { animation: fadeUp .7s .1s ease both; }
-.hero-meta { animation: fadeUp .7s .2s ease both; }
-.hero-bio { animation: fadeUp .7s .3s ease both; }
-.hero-btns { animation: fadeUp .7s .4s ease both; }
+/* tags */
+.ptag-row{display:flex;flex-wrap:wrap;gap:.45rem;}
+.ptag{font-family:'DM Mono',monospace;font-size:.65rem;color:var(--muted);background:var(--surface2);border:1px solid var(--border);padding:.25rem .7rem;border-radius:3px;}
 
-/* RESPONSIVE */
-@media (max-width: 900px) {
-  nav { padding: 1rem 1.5rem; }
-  section { padding: 4rem 1.5rem; }
-  .hero { padding: 7rem 1.5rem 4rem; }
-  .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
-  .skills-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
-  .projects-grid { grid-template-columns: 1fr; }
-  footer { flex-direction: column; gap: .5rem; text-align: center; }
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;margin-top:3rem;}
+.contact-desc{font-size:.93rem;color:var(--muted);line-height:1.85;margin-top:1.5rem;}
+.contact-links{display:flex;flex-direction:column;gap:.75rem;}
+.contact-card{display:flex;align-items:center;gap:1.1rem;background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:1.1rem 1.4rem;text-decoration:none;color:var(--cream);transition:border-color .2s;}
+.contact-card:hover{border-color:var(--gold);}
+.contact-icon{width:36px;height:36px;flex-shrink:0;background:var(--surface2);border:1px solid var(--border);border-radius:4px;display:flex;align-items:center;justify-content:center;}
+.contact-icon svg{width:15px;height:15px;stroke:var(--gold);fill:none;stroke-width:1.8;}
+.clabel{font-size:.6rem;color:var(--muted);margin-bottom:.15rem;letter-spacing:.05em;text-transform:uppercase;}
+.cval{font-size:.88rem;font-weight:500;}
+
+footer{padding:2rem 3rem;display:flex;justify-content:space-between;align-items:center;font-size:.72rem;color:var(--muted);border-top:1px solid var(--border);}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:translateY(0);}}
+
+@media(max-width:1024px){.story-body{grid-template-columns:1fr 1fr;}}
+@media(max-width:900px){
+  nav{padding:1rem 1.5rem;}
+  .nav-links-row{display:none;}
+  section{padding:4rem 1.5rem;}
+  .hero{padding:7rem 1.5rem 4rem;}
+  .about-grid,.contact-grid{grid-template-columns:1fr;gap:3rem;}
+  .skills-grid{grid-template-columns:1fr 1fr;gap:2rem;}
+  .project-story-header{flex-direction:column;}
+  .story-body{grid-template-columns:1fr;}
+  footer{flex-direction:column;gap:.5rem;text-align:center;}
 }
-@media (max-width: 600px) {
-  .skills-grid { grid-template-columns: 1fr; }
-  .about-stats { grid-template-columns: repeat(3,1fr); }
-}
+@media(max-width:600px){.skills-grid{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <a href="#" class="nav-name">Julia Silva</a>
-  <div class="nav-icons">
-    <a href="https://github.com/juliamarcella" target="_blank" aria-label="GitHub">
-      <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-    </a>
-    <a href="https://www.linkedin.com/in/julia-marcella-silva/" target="_blank" aria-label="LinkedIn">
-      <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-    </a>
+  <div class="nav-right">
+    <ul class="nav-links-row">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-icons">
+      <a href="https://github.com/juliamarcella" target="_blank" aria-label="GitHub">
+        <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+      </a>
+      <a href="https://www.linkedin.com/in/julia-marcella-silva/" target="_blank" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+      </a>
+    </div>
   </div>
 </nav>
 
 <!-- HERO -->
 <section class="hero" id="home">
-  <div class="hero-portfolio-label">Portfolio</div>
+  <div class="hero-eyebrow">Portfolio</div>
   <div class="hero-name">Julia Silva</div>
-  <div class="hero-title">Junior Data Analyst</div>
+  <div class="hero-role">Junior Data Analyst</div>
   <div class="hero-meta">
     <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
     <span>Ede, Netherlands</span>
-    <span class="sep">/</span>
+    <span style="color:var(--border);">/</span>
     <span>Open to relocate</span>
   </div>
   <p class="hero-bio">Transitioned from customer service into data analytics. Passionate about uncovering stories in data — through Python, SQL, and BI tools.</p>
@@ -343,193 +183,200 @@ footer {
 </section>
 
 <!-- ABOUT -->
-<section class="about-section" id="about">
+<section id="about" style="border-bottom:1px solid var(--border);">
   <div class="section-label">About</div>
   <div class="about-grid">
     <div>
       <h2>From conversations<br/>to <em>insights</em></h2>
       <div class="about-text" style="margin-top:2rem;">
         <p>My journey into data started somewhere unexpected — behind a customer service desk. Years of listening, problem-solving, and understanding what people really need taught me something fundamental: the best answers come from asking the right questions.</p>
-        <p>That curiosity led me to data analytics. I retrained myself in Python, SQL, and business intelligence tools, and discovered a deep passion for turning messy datasets into clear, human stories. Whether it's tracking Olympic history or mapping productivity rhythms, I care about the "so what" behind every number.</p>
+        <p>That curiosity led me to data analytics. I retrained in Python, SQL, and business intelligence tools, and discovered a deep passion for turning messy datasets into clear, human stories. I care about the "so what" behind every number.</p>
         <p>I'm actively looking for opportunities in data where I can grow, contribute, and keep asking better questions.</p>
       </div>
     </div>
-    <div class="about-right">
+    <div>
       <div class="about-stats">
-        <div>
-          <div class="stat-num">3</div>
-          <div class="stat-label">Projects</div>
-        </div>
-        <div>
-          <div class="stat-num">5+</div>
-          <div class="stat-label">BI &amp; Data Tools</div>
-        </div>
-        <div>
-          <div class="stat-num">3</div>
-          <div class="stat-label">Languages</div>
-        </div>
+        <div><div class="stat-num">3</div><div class="stat-label">Projects</div></div>
+        <div><div class="stat-num">5+</div><div class="stat-label">BI & Data Tools</div></div>
+        <div><div class="stat-num">3</div><div class="stat-label">Languages</div></div>
       </div>
-      <div class="info-card">
-        <div class="info-card-label">Languages Spoken</div>
-        <div class="info-card-value">Portuguese (native) · English (fluent) · Dutch (basic · still learning)</div>
-      </div>
-      <div class="info-card">
-        <div class="info-card-label">Currently Based In</div>
-        <div class="info-card-value">Ede, Netherlands · Open to opportunities</div>
-      </div>
-      <div class="info-card">
-        <div class="info-card-label">Availability</div>
-        <div class="info-card-value">No visa sponsorship needed · Open to relocation · Full-time</div>
-      </div>
+      <div class="info-card"><div class="info-card-label">Languages Spoken</div><div class="info-card-value">Portuguese (native) · English (fluent) · Dutch (basic · still learning)</div></div>
+      <div class="info-card"><div class="info-card-label">Currently Based In</div><div class="info-card-value">Ede, Netherlands · Open to opportunities</div></div>
+      <div class="info-card"><div class="info-card-label">Availability</div><div class="info-card-value">No visa sponsorship needed · Open to relocation · Full-time</div></div>
     </div>
   </div>
 </section>
 
 <!-- SKILLS -->
-<section class="skills-section" id="skills">
+<section id="skills" style="border-bottom:1px solid var(--border);">
   <div class="section-label">Skills</div>
   <h2>Tools of the <em>trade</em></h2>
   <div class="skills-grid">
-    <div>
-      <div class="skill-group-label">Languages</div>
-      <div class="skill-tags">
-        <span class="skill-tag">Python</span>
-        <span class="skill-tag">SQL</span>
-      </div>
-    </div>
-    <div>
-      <div class="skill-group-label">Libraries</div>
-      <div class="skill-tags">
-        <span class="skill-tag">Pandas</span>
-        <span class="skill-tag">NumPy</span>
-        <span class="skill-tag">Scikit-learn</span>
-        <span class="skill-tag">Matplotlib</span>
-        <span class="skill-tag">Seaborn</span>
-      </div>
-    </div>
-    <div>
-      <div class="skill-group-label">BI &amp; Visualization</div>
-      <div class="skill-tags">
-        <span class="skill-tag">Power BI</span>
-        <span class="skill-tag">DAX</span>
-        <span class="skill-tag">Looker Studio</span>
-        <span class="skill-tag">Excel</span>
-      </div>
-    </div>
-    <div>
-      <div class="skill-group-label">Data Engineering</div>
-      <div class="skill-tags">
-        <span class="skill-tag">BigQuery</span>
-        <span class="skill-tag">dbt</span>
-        <span class="skill-tag">Git</span>
-      </div>
-    </div>
-    <div>
-      <div class="skill-group-label">Methods</div>
-      <div class="skill-tags">
-        <span class="skill-tag">Machine Learning</span>
-        <span class="skill-tag">Clustering</span>
-        <span class="skill-tag">Statistics</span>
-        <span class="skill-tag">RFM Analysis</span>
-        <span class="skill-tag">EDA</span>
-      </div>
-    </div>
-    <div>
-      <div class="skill-group-label">Other</div>
-      <div class="skill-tags">
-        <span class="skill-tag">Salesforce CRM</span>
-        <span class="skill-tag">Jupyter</span>
-        <span class="skill-tag">Google Colab</span>
-      </div>
-    </div>
+    <div><div class="skill-group-label">Languages</div><div class="skill-tags"><span class="skill-tag">Python</span><span class="skill-tag">SQL</span></div></div>
+    <div><div class="skill-group-label">Libraries</div><div class="skill-tags"><span class="skill-tag">Pandas</span><span class="skill-tag">NumPy</span><span class="skill-tag">Scikit-learn</span><span class="skill-tag">Matplotlib</span><span class="skill-tag">Seaborn</span></div></div>
+    <div><div class="skill-group-label">BI & Visualization</div><div class="skill-tags"><span class="skill-tag">Power BI</span><span class="skill-tag">DAX</span><span class="skill-tag">Looker Studio</span><span class="skill-tag">Excel</span></div></div>
+    <div><div class="skill-group-label">Data Engineering</div><div class="skill-tags"><span class="skill-tag">BigQuery</span><span class="skill-tag">dbt</span><span class="skill-tag">Git</span></div></div>
+    <div><div class="skill-group-label">Methods</div><div class="skill-tags"><span class="skill-tag">Machine Learning</span><span class="skill-tag">Clustering</span><span class="skill-tag">Statistics</span><span class="skill-tag">RFM Analysis</span><span class="skill-tag">EDA</span></div></div>
+    <div><div class="skill-group-label">Other</div><div class="skill-tags"><span class="skill-tag">Salesforce CRM</span><span class="skill-tag">Jupyter</span><span class="skill-tag">Google Colab</span></div></div>
   </div>
 </section>
 
 <!-- PROJECTS -->
-<section class="projects-section" id="projects">
+<section id="projects" style="border-bottom:1px solid var(--border);">
   <div class="section-label">Projects</div>
   <h2>Selected <em>work</em></h2>
-  <div class="projects-grid">
 
-    <!-- Project 01 -->
-    <div class="project-card active">
-      <div class="project-num">01</div>
-      <div class="project-title">Menstrual Cycle &amp; Productivity</div>
-      <p class="project-desc">How much does a menstrual cycle actually affect someone's ability to work — and can we measure it? Using a dataset from a period-tracking app, I analysed how cycle-related symptoms, biological factors, and lifestyle choices impact productivity, measured through hours of work lost, concentration, and mood scores. The analysis uncovers which symptoms hit hardest, whether lifestyle adjustments make a real difference, and builds a predictive model estimating how many work hours a person may lose. The Looker Studio dashboard makes these insights accessible — a practical tool for building more inclusive, wellbeing-aware workplaces.</p>
-      <div class="project-tags">
-        <span class="project-tag">Python</span>
-        <span class="project-tag">Looker Studio</span>
-        <span class="project-tag">Period Tracking Data</span>
-        <span class="project-tag">Machine Learning</span>
+  <!-- 01 — MENSTRUAL -->
+  <div class="project-story">
+    <div class="project-story-header">
+      <div>
+        <div class="project-story-num">01 — Health & Productivity</div>
+        <div class="project-story-title">Menstrual Cycle &amp; Workplace Productivity</div>
+        <div class="project-story-question">"Does pain actually affect how much work someone can do — and can we predict it?"</div>
       </div>
-      <div class="project-links">
-        <a href="https://github.com/juliamarcella/Menstrual-cycle-and-productivity-" target="_blank" class="project-link">
-          <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-          GitHub
-        </a>
-        <a href="https://github.com/juliamarcella/Menstrual-cycle-and-productivity-/blob/main/rhythms_of_work.pptx.pdf" target="_blank" class="project-link">
-          <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-          Presentation
-        </a>
-        <a href="https://lookerstudio.google.com/reporting/6eee069c-64ae-47c1-ae42-89b91545860d" target="_blank" class="project-link">
-          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
-          Dashboard
-        </a>
+      <div class="project-story-links">
+        <a href="https://github.com/juliamarcella/Menstrual-cycle-and-productivity-" target="_blank" class="plink"><svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>GitHub</a>
+        <a href="https://lookerstudio.google.com/reporting/6eee069c-64ae-47c1-ae42-89b91545860d" target="_blank" class="plink"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>Dashboard</a>
+        <a href="https://github.com/juliamarcella/Menstrual-cycle-and-productivity-/blob/main/rhythms_of_work.pptx.pdf" target="_blank" class="plink"><svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Presentation</a>
       </div>
     </div>
-
-    <!-- Project 02 -->
-    <div class="project-card">
-      <div class="project-num">02</div>
-      <div class="project-title">Women in the Olympics</div>
-      <p class="project-desc">120 years of Olympic data holds a story most people have never read. I wanted to ask: how much has actually changed for women in sport, and where does inequality still hide? The analysis traces women's participation by country, decade, and discipline — surfacing which nations lead, which lag, and how cultural and geopolitical factors shaped women's access to competition over time. Behind every medal count is a question of who was even allowed to show up.</p>
-      <div class="project-tags">
-        <span class="project-tag">Python</span>
-        <span class="project-tag">SQL</span>
-        <span class="project-tag">Looker Studio</span>
-        <span class="project-tag">Historical Data</span>
+    <div class="story-body">
+      <div class="story-col">
+        <div class="story-col-label">The Problem</div>
+        <div class="story-col-heading">Companies have no data on how cycle symptoms affect performance</div>
+        <p>Millions of people experience menstrual symptoms at work every month — pain, fatigue, mood changes — but most organisations have no way to measure the real impact. Without data, there's no case for better policies.</p>
       </div>
-      <div class="project-links">
-        <a href="https://github.com/juliamarcella/Women-in-the-Olympics-Game" target="_blank" class="project-link">
-          <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-          GitHub
-        </a>
-        <a href="https://lookerstudio.google.com/reporting/5c51de4a-a38e-4e4a-b225-051012c73695" target="_blank" class="project-link">
-          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
-          Dashboard
-        </a>
+      <div class="story-col">
+        <div class="story-col-label">The Analysis</div>
+        <div class="story-col-heading">2,000 users · 17,972 cycle logs · symptoms, lifestyle & productivity</div>
+        <p>Analysed hormone readings, symptom severity, and lifestyle habits (sleep, exercise, diet, stress) against productivity metrics — hours of work lost, mood scores, and energy levels. Then built a machine learning model to predict productivity loss from symptoms alone.</p>
+      </div>
+      <div class="story-col">
+        <div class="story-col-label">The Answer</div>
+        <div class="story-col-heading">Pain is the #1 driver — and it's predictable with 75% accuracy</div>
+        <p>Pain level explained more productivity loss than cycle phase, diet, or lifestyle combined. The Random Forest model estimates hours lost based on symptom inputs — enabling proactive planning rather than reactive damage control.</p>
       </div>
     </div>
-
-    <!-- Project 03 -->
-    <div class="project-card">
-      <div class="project-num">03</div>
-      <div class="project-title">E-Commerce Customer Analytics</div>
-      <p class="project-desc">A business sitting on transaction data is sitting on unanswered questions: Who are our most valuable customers? What drives a second purchase? Where does the funnel break? I used customer segmentation and behavioural analysis to move beyond surface-level revenue numbers — identifying purchasing patterns, retention risks, and the moments that define customer loyalty. The Power BI dashboard translates that analysis into decisions a business can act on.</p>
-      <div class="project-tags">
-        <span class="project-tag">Python</span>
-        <span class="project-tag">Power BI</span>
-        <span class="project-tag">DAX</span>
-        <span class="project-tag">Customer Analytics</span>
-        <span class="project-tag">RFM</span>
-      </div>
-      <div class="project-links">
-        <a href="https://github.com/juliamarcella/E-commerce" target="_blank" class="project-link">
-          <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-          GitHub
-        </a>
-        <a href="https://github.com/juliamarcella/E-commerce/blob/main/E-commerce%20dashboard%20Power%20BI.pdf" target="_blank" class="project-link">
-          <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-          Dashboard (PDF)
-        </a>
+    <div class="findings-row">
+      <div class="finding"><div class="finding-label">Avg hours lost / day</div><div class="finding-stat">3.4 hrs</div><div class="finding-desc">Nearly half a working day lost on high-pain phases.</div></div>
+      <div class="finding"><div class="finding-label">Model accuracy</div><div class="finding-stat">75%</div><div class="finding-desc">Predicts work hours lost from pain, stress, energy & flow level.</div></div>
+      <div class="finding"><div class="finding-label">Pain by flow level</div><div class="finding-stat">3.3 → 7.3</div><div class="finding-desc">Pain score nearly doubles from light to heavy flow.</div></div>
+      <div class="finding"><div class="finding-label">PMS prevalence</div><div class="finding-stat">51.7%</div><div class="finding-desc">Over half of users report PMS symptoms — the majority, not the minority.</div></div>
+    </div>
+    <div class="biz-impact">
+      <div class="biz-impact-label">What this means for a business</div>
+      <div class="biz-rows">
+        <div class="biz-row">Flexible policies targeting high-pain days have more impact than generic wellness programmes — the data shows exactly when people are most affected.</div>
+        <div class="biz-row">HR teams can use the predictive model to adjust workload proactively — before hours are lost, not after.</div>
+        <div class="biz-row">51.7% of users experience PMS — any workplace policy that ignores this is already missing the majority.</div>
+        <div class="biz-row">The 5-page interactive Looker Studio dashboard lets non-technical stakeholders explore insights themselves, no analyst required.</div>
       </div>
     </div>
-
+    <div class="ptag-row"><span class="ptag">Python</span><span class="ptag">Pandas</span><span class="ptag">Scikit-learn</span><span class="ptag">Random Forest</span><span class="ptag">Looker Studio</span><span class="ptag">Health Data</span><span class="ptag">Machine Learning</span></div>
   </div>
+
+  <!-- 02 — E-COMMERCE -->
+  <div class="project-story">
+    <div class="project-story-header">
+      <div>
+        <div class="project-story-num">02 — E-Commerce · Customer Analytics</div>
+        <div class="project-story-title">E-Commerce Customer Segmentation &amp; CLV</div>
+        <div class="project-story-question">"Who are your most valuable customers — and what will they spend next?"</div>
+      </div>
+      <div class="project-story-links">
+        <a href="https://github.com/juliamarcella/E-commerce" target="_blank" class="plink"><svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>GitHub</a>
+        <a href="https://github.com/juliamarcella/E-commerce/blob/main/E-commerce%20dashboard%20Power%20BI.pdf" target="_blank" class="plink"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>Power BI Dashboard</a>
+      </div>
+    </div>
+    <div class="story-body">
+      <div class="story-col">
+        <div class="story-col-label">The Problem</div>
+        <div class="story-col-heading">A UK retailer had 375K transactions — but no idea who their customers were</div>
+        <p>The business had revenue data but no customer intelligence. No segments, no way to tell a loyal customer from a one-time buyer, and no basis for deciding where to focus marketing spend. All customers were treated the same.</p>
+      </div>
+      <div class="story-col">
+        <div class="story-col-label">The Analysis</div>
+        <div class="story-col-heading">RFM segmentation · K-Means clustering · CLV prediction · cohort analysis</div>
+        <p>Built Recency, Frequency, and Monetary (RFM) metrics for 4,121 customers, then applied K-Means clustering to identify 3 behavioural segments. A Random Forest model predicts future revenue per customer. Cohort analysis tracks how customer value builds month by month.</p>
+      </div>
+      <div class="story-col">
+        <div class="story-col-label">The Answer</div>
+        <div class="story-col-heading">3 customer types — each worth a completely different strategy</div>
+        <p>VIP customers (0.15%) average €21,300 spend each. Core customers (72.87%) are the reliable backbone. At-Risk customers (26.98%) haven't purchased in 200+ days and need re-engaging before they're gone. The Power BI dashboard makes this visible in real time.</p>
+      </div>
+    </div>
+    <div class="findings-row">
+      <div class="finding"><div class="finding-label">Total revenue</div><div class="finding-stat">€4.23M</div><div class="finding-desc">Full year — 375K transactions, 17 countries, 4,123 customers.</div></div>
+      <div class="finding"><div class="finding-label">VIP avg spend</div><div class="finding-stat">€21,300</div><div class="finding-desc">VIPs are 0.15% of customers but spend 21× more than at-risk.</div></div>
+      <div class="finding"><div class="finding-label">CLV model accuracy</div><div class="finding-stat">75%</div><div class="finding-desc">Predicts future customer revenue using RFM + behavioural features.</div></div>
+      <div class="finding"><div class="finding-label">At-risk segment</div><div class="finding-stat">26.98%</div><div class="finding-desc">Over a quarter of customers haven't purchased in 200+ days.</div></div>
+      <div class="finding"><div class="finding-label">Top product insight</div><div class="finding-stat">Vol ≠ Rev</div><div class="finding-desc">Best seller by volume ≠ top earner by revenue. Promoting volume misses profit.</div></div>
+      <div class="finding"><div class="finding-label">Cancellation rate</div><div class="finding-stat">&lt;1%</div><div class="finding-desc">Order fulfilment is healthy — focus investment on growth, not returns.</div></div>
+    </div>
+    <div class="biz-impact">
+      <div class="biz-impact-label">What this means for a business</div>
+      <div class="biz-rows">
+        <div class="biz-row">Losing one VIP costs as much as losing 70 at-risk customers — prioritise retention spend where it has the most impact.</div>
+        <div class="biz-row">Promotional strategy built on volume leads to the wrong products — revenue contribution should drive campaigns, not units sold.</div>
+        <div class="biz-row">The CLV model identifies high-value customers before they churn — not after they've already gone quiet.</div>
+        <div class="biz-row">The Power BI dashboard gives marketing, sales, and leadership real-time segment visibility — no analyst needed each time.</div>
+      </div>
+    </div>
+    <div class="ptag-row"><span class="ptag">Python</span><span class="ptag">Pandas</span><span class="ptag">K-Means Clustering</span><span class="ptag">Random Forest</span><span class="ptag">RFM Analysis</span><span class="ptag">CLV Modelling</span><span class="ptag">Power BI</span><span class="ptag">DAX</span></div>
+  </div>
+
+  <!-- 03 — OLYMPICS -->
+  <div class="project-story">
+    <div class="project-story-header">
+      <div>
+        <div class="project-story-num">03 — Sports & Gender · Data Storytelling</div>
+        <div class="project-story-title">Women in the Olympic Games</div>
+        <div class="project-story-question">"How long did women have to wait — and where does inequality still hide?"</div>
+      </div>
+      <div class="project-story-links">
+        <a href="https://github.com/juliamarcella/Women-in-the-Olympics-Game" target="_blank" class="plink"><svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>GitHub</a>
+        <a href="https://lookerstudio.google.com/reporting/5c51de4a-a38e-4e4a-b225-051012c73695" target="_blank" class="plink"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>Dashboard</a>
+      </div>
+    </div>
+    <div class="story-body">
+      <div class="story-col">
+        <div class="story-col-label">The Problem</div>
+        <div class="story-col-heading">120 years of Olympic progress — but how much has actually changed?</div>
+        <p>The Olympics is often held up as a symbol of progress. But behind the headline numbers, how much has women's access to competition actually improved — and in which sports did the gap take longest to close?</p>
+      </div>
+      <div class="story-col">
+        <div class="story-col-label">The Analysis</div>
+        <div class="story-col-heading">163,000+ athlete records · 1896 to 2022 · gender entry gap metric</div>
+        <p>Engineered a "gender entry gap" for every discipline — years between men's and women's first appearance. Tracked participation growth by decade, mapped medal distribution by gender and country, and built an interactive dashboard with filters for year, season, sport, and country.</p>
+      </div>
+      <div class="story-col">
+        <div class="story-col-label">The Answer</div>
+        <div class="story-col-heading">Progress is real — but some sports waited over a century</div>
+        <p>Women's participation grew sharply from the 1980s onward. But in 2022, women still represented only 28.3% of athletes and 29.3% of medals. Rugby took 116 years. Wrestling 108. These gaps are not historical footnotes — they happened within living memory.</p>
+      </div>
+    </div>
+    <div class="findings-row">
+      <div class="finding"><div class="finding-label">Rugby gender gap</div><div class="finding-stat">116 yrs</div><div class="finding-desc">Men competed in 1900. Women first competed in 2016.</div></div>
+      <div class="finding"><div class="finding-label">Women's athlete share</div><div class="finding-stat">28.3%</div><div class="finding-desc">Despite decades of progress, women represent less than a third of all athletes.</div></div>
+      <div class="finding"><div class="finding-label">Women's medal share</div><div class="finding-stat">29.3%</div><div class="finding-desc">Medal share mirrors participation — more events means more medals.</div></div>
+      <div class="finding"><div class="finding-label">Growth inflection</div><div class="finding-stat">1980s</div><div class="finding-desc">Participation grew sharply after the 1980s — driven by policy changes and new events.</div></div>
+    </div>
+    <div class="biz-impact">
+      <div class="biz-impact-label">Why this analysis matters</div>
+      <div class="biz-rows">
+        <div class="biz-row">Quantifying inequality is the first step to addressing it — the data makes an invisible structural issue visible.</div>
+        <div class="biz-row">Policy decisions have measurable effects: adding women's events directly increases participation and medal opportunity.</div>
+        <div class="biz-row">Organisations using sports sponsorship or diversity reporting can benchmark progress against 120 years of real historical data.</div>
+        <div class="biz-row">The interactive dashboard gives media, researchers, and policymakers a self-serve tool — no data team required.</div>
+      </div>
+    </div>
+    <div class="ptag-row"><span class="ptag">Python</span><span class="ptag">Pandas</span><span class="ptag">Feature Engineering</span><span class="ptag">Gender Data</span><span class="ptag">Looker Studio</span><span class="ptag">Data Storytelling</span></div>
+  </div>
+
 </section>
 
 <!-- CONTACT -->
-<section class="contact-section" id="contact">
+<section id="contact">
   <div class="section-label">Contact</div>
   <div class="contact-grid">
     <div>
@@ -537,32 +384,17 @@ footer {
       <p class="contact-desc">I'm actively looking for opportunities in data analytics. Whether you have a role, a collaboration, or just want to talk data — I'd love to hear from you.</p>
     </div>
     <div class="contact-links">
-      <a href="mailto:jualia.m@gmail.com" class="contact-link-card">
-        <div class="contact-link-icon">
-          <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        </div>
-        <div>
-          <div class="contact-link-label">Email</div>
-          <div class="contact-link-value">jualia.m@gmail.com</div>
-        </div>
+      <a href="mailto:jualia.m@gmail.com" class="contact-card">
+        <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+        <div><div class="clabel">Email</div><div class="cval">jualia.m@gmail.com</div></div>
       </a>
-      <a href="https://github.com/juliamarcella" target="_blank" class="contact-link-card">
-        <div class="contact-link-icon">
-          <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-        </div>
-        <div>
-          <div class="contact-link-label">GitHub</div>
-          <div class="contact-link-value">github.com/juliamarcella</div>
-        </div>
+      <a href="https://github.com/juliamarcella" target="_blank" class="contact-card">
+        <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg></div>
+        <div><div class="clabel">GitHub</div><div class="cval">github.com/juliamarcella</div></div>
       </a>
-      <a href="https://www.linkedin.com/in/julia-marcella-silva/" target="_blank" class="contact-link-card">
-        <div class="contact-link-icon">
-          <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-        </div>
-        <div>
-          <div class="contact-link-label">LinkedIn</div>
-          <div class="contact-link-value">julia-marcella-silva</div>
-        </div>
+      <a href="https://www.linkedin.com/in/julia-marcella-silva/" target="_blank" class="contact-card">
+        <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></div>
+        <div><div class="clabel">LinkedIn</div><div class="cval">julia-marcella-silva</div></div>
       </a>
     </div>
   </div>
